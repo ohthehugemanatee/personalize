@@ -26,5 +26,3 @@ alias shclients='ssh cvertesi@clients.trellon.org'
 alias shdev='ssh cvertesi@dev.trellon.org'
 alias shprod='ssh cvertesi@trellon.com'
 alias shswear='ssh cvertesi@swearingatcomputers.com'
-
-
