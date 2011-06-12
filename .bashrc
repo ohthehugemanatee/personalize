@@ -19,7 +19,7 @@ fi
 
 
 # Map vi to vim
-alias vi='/usr/local/bin/vim'
+alias vi='vim'
 
 # SSH aliases
 alias shclients='ssh cvertesi@clients.trellon.org'
