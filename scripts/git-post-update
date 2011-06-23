@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Automatically update clients.
+
+PROJECT_NAME="codedottrellon"
+PROJECT_PATH="/var/www/html/codedottrellon"
+PROJECT_BRANCH="master"
+
+echo "Updating clients repository for branch $PROJECT_BRANCH of $PROJECT_NAME:"
+echo "=================================================================="
+
+cd "$PROJECT_PATH" 
+unset GIT_DIR
+git checkout "$PROJECT_BRANCH"
+git pull origin "$PROJECT_BRANCH"
