@@ -32,7 +32,6 @@ set wrap  "linewraps
 set scrolloff=5 "always show 5 lines before/after the cursor
 set title "update term title
 set visualbell "turn off audio beeps
-set backup
 set writebackup
 
 
