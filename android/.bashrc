@@ -70,15 +70,13 @@ color_prompt=yes
 
 if [ "$color_prompt" = yes ]; then
   # old color setting: PS1='\[\033[01;32m\]terminal\[\e[1;31m\]++\[\e[1;33m\]@\[\e[1;35m\]$HOSTNAME\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-  # Enable colors in the term, and for grep
   export CLICOLOR=1
-  alias grep='grep --color=auto'
 
   # Use a nicer, color prompt.  Red if I'm root. (borrowed from Gentoo)
   if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[0;34m\] \W \$\[\033[00m\] '
   else
-    PS1='\[\033[01;32m\]\u@\h\[\033[0;34m\] \w \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h\[\033[0;34m\] \w \$\[\033[00m\] '
   fi
 else
     PS1='\u@\h:\w\$ '
