@@ -90,17 +90,9 @@ alias ll='ls -l'
 alias la='ls -la'
 alias mmkdir='mkdir -m 770 -p'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-
 # Local bashrc
 # ~/.bashrc.local should contain any local modifications you want to make
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
 fi
 
