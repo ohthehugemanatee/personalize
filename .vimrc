@@ -18,7 +18,6 @@ set laststatus=2 " Always show a status line at the bottom
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 
-
 "Tab sizes - use 2 spaces for tab spacing
 set softtabstop=2
 set tabstop=2
@@ -32,7 +31,6 @@ set wrap  "linewraps
 set scrolloff=5 "always show 5 lines before/after the cursor
 set title "update term title
 set visualbell "turn off audio beeps
-set writebackup
 
 
 "Solarized VIM color scheme

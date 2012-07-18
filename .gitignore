@@ -1,2 +1,2 @@
-.ssh/known_hosts
-.vim/.netrwhist
+*/.vim/.netrwhist
+*/.ssh/known_hosts
