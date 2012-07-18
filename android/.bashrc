@@ -97,3 +97,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+
+# Local bashrc
+# ~/.bashrc.local should contain any local modifications you want to make
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
