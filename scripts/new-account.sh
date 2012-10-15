@@ -7,4 +7,3 @@ ln -s personalize/.bash_profile
 ln -s personalize/.gitconfig
 ln -s personalize/.vim
 ln -s personalize/.vimrc
-ln -s personalize/.gitconfig
