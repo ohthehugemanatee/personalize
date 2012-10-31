@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#fetch changesets for Redmine
+sudo -u www-data ruby "/srv/www/projects.nodesymphony.com/chili/script/runner" -e production "GitHosting::run_post_receive_hook(\"$GL_REPO\")" >/dev/null 2>&1
+/usr/bin/wget -O - -q -t 1 "http://projects.nodesymphony.com/sys/fetch_changesets?key=5iyXiH06cw2apnYjnFvW"
+
+# update dev.nodesymphony.com
+export REPO_DIR=/srv/www/dev.nodesymphony.com/public_html/$GL_REPO
+export GIT_DIR='.git'
+
+if [ "$GL_REPO" != "gitolite-admin" ]; then
+	if [ "$GL_REPO" != "personalize" ]; then
+        	cd $REPO_DIR
+        	umask 007 && git pull
+        	umask 007 && git reset --hard
+	fi
+else
+        echo "Refusing to post gitolite-admin or personalize to the internet."
+fi
+

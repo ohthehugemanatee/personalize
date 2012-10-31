@@ -1,0 +1,20 @@
+#!/bin/bash
+
+umask 0002
+
+LOGFILE="/srv/git/gitolog.log"
+
+echo "GL_REPO_BASE_ABS = $GL_REPO_BASE_ABS" >> $LOGFILE
+echo "GL_REPO = $GL_REPO" >> $LOGFILE
+git clone $GL_REPO_BASE_ABS/$GL_REPO /srv/www/dev.nodesymphony.com/public_html/$GL_REPO >> $LOGFILE
+echo "cloned!" >> $LOGFILE
+/bin/chmod -R ug+rw /var/www/dev.swearingatcomputers.com/$GL_REPO >> $LOGFILE
+echo "chmodded!" >> $LOGFILE
+
+GL_REPO_SANITIZED=`echo ${GL_REPO//[-._]/}`
+
+echo "GL_REPO_SANITIZED = $GL_REPO_SANITIZED" >> $LOGFILE
+
+mysqladmin -u root --password=pE*DQD66A7 create "$GL_REPO_SANITIZED"_dev
+echo "database created!" >> $LOGFILE
+
