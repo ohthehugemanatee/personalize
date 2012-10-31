@@ -28,3 +28,6 @@ alias shprod='ssh cvertesi@trellon.com'
 alias shswear='ssh cvertesi@swearingatcomputers.com'
 alias shcbc='ssh cvertesi@cbcny.org'
 alias shsymph='ssh cvertesi@nodesymphony.com'
+
+# Tunneling proxy alias
+alias sshproxy='ssh -D 8080 -Nf '
