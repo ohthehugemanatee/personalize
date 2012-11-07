@@ -1,18 +1,28 @@
 #!/bin/sh
 
 #fetch changesets for Redmine
-sudo -u www-data ruby "/srv/www/projects.nodesymphony.com/chili/script/runner" -e production "GitHosting::run_post_receive_hook(\"$GL_REPO\")" >/dev/null 2>&1
-/usr/bin/wget -O - -q -t 1 "http://projects.nodesymphony.com/sys/fetch_changesets?key=5iyXiH06cw2apnYjnFvW"
+#sudo -u www-data ruby "/srv/www/projects.nodesymphony.com/chili/script/runner" -e production "GitHosting::run_post_receive_hook(\"$GL_REPO\")" >/dev/null 2>&1
+#/usr/bin/wget -O - -q -t 1 "http://projects.nodesymphony.com/sys/fetch_changesets?key=5iyXiH06cw2apnYjnFvW"
 
 # update dev.nodesymphony.com
-export REPO_DIR=/srv/www/dev.nodesymphony.com/public_html/$GL_REPO
+export REPO_DIR=/var/www/dev.5ringsweb.com/public_html/$GL_REPO
 export GIT_DIR='.git'
 
 if [ "$GL_REPO" != "gitolite-admin" ]; then
 	if [ "$GL_REPO" != "personalize" ]; then
         	cd $REPO_DIR
-        	umask 007 && git pull
+        	umask 007 && git pull origin
         	umask 007 && git reset --hard
+		if [ -e "$REPO_DIR/sites/default/default.settings.php" ]; then
+			if [ -e "$REPO_DIR/sites/default/settings.php" ]; then
+				if [ -w "$REPO_DIR/sites/default/settings.php" ]; then
+					chmod a-w "$REPO_DIR/sites/default/settings.php"
+				fi
+			else
+				/bin/cp "$REPO_DIR/sites/default/default.settings.php" "$REPO_DIR/sites/default/settings.php"
+				chmod a+w "$REPO_DIR/sites/default/settings.php"
+			fi
+		fi
 	fi
 else
         echo "Refusing to post gitolite-admin or personalize to the internet."
