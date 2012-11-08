@@ -34,10 +34,19 @@ alias ll='ls -l'
 alias la='ls -la'
 alias mmkdir='mkdir -m 770 -p'
 
+# SSH aliases
+alias shclients='ssh cvertesi@clients.trellon.org'
+alias shdev='ssh cvertesi@dev.trellon.org'
+alias shprod='ssh cvertesi@trellon.com'
+alias shswear='ssh cvertesi@swearingatcomputers.com'
+alias shcbc='ssh cvertesi@cbcny.org'
+alias shsymph='ssh cvertesi@nodesymphony.com'
+
+# Tunneling proxy alias
+alias sshproxy='ssh -D 8080 -Nf '
 
 # Local bashrc
 # ~/.bashrc.local should contain any local modifications you want to make
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
-
