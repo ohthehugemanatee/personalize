@@ -1,15 +1,35 @@
-#!/bin/sh
-#
-# Automatically update clients.
+#!/bin/bash
 
-PROJECT_NAME="codedottrellon"
-PROJECT_PATH="/var/www/html/codedottrellon"
-PROJECT_BRANCH="master"
+#fetch changesets for Redmine
+#sudo -u www-data ruby "/srv/www/projects.nodesymphony.com/chili/script/runner" -e production "GitHosting::run_post_receive_hook(\"$GL_REPO\")" >/dev/null 2>&1
+#/usr/bin/wget -O - -q -t 1 "http://projects.nodesymphony.com/sys/fetch_changesets?key=5iyXiH06cw2apnYjnFvW"
+export REPO_DIR=/var/www/dev.5ringsweb.com/public_html/$GL_REPO
+export GIT_DIR='.git'
+GL_REPO_SANITIZED=`echo ${GL_REPO//[-._]/}`
+DB_NAME="$GL_REPO_SANITIZED"_dev
 
-echo "Updating clients repository for branch $PROJECT_BRANCH of $PROJECT_NAME:"
-echo "=================================================================="
+if [ "$GL_REPO" != "gitolite-admin" ]; then
+	if [ "$GL_REPO" != "personalize" ]; then
+        	cd $REPO_DIR
+        	umask 007 && git pull origin
+        	umask 007 && git reset --hard
+    # Does this look like a Drupal site?
+		if [ -e "$REPO_DIR/sites/default/default.settings.php" ]; then
+			if [ -e "$REPO_DIR/sites/default/settings.php" ]; then
+        # Make sure user 1 is admin/admin
+        mysql -u root --password='J$va9Nq8' -e "UPDATE $DB_NAME.users SET name = 'admin' WHERE users.uid =1;"
+        /usr/bin/drush upwd admin --password="admin" --root=$REPO_DIR
+				if [ -w "$REPO_DIR/sites/default/settings.php" ]; then
+          # Make sure the permissions are correct on settings.php
+					chmod a-w "$REPO_DIR/sites/default/settings.php"
+				fi
+			else
+				/bin/cp "$REPO_DIR/sites/default/default.settings.php" "$REPO_DIR/sites/default/settings.php"
+				chmod a+w "$REPO_DIR/sites/default/settings.php"
+			fi
+		fi
+	fi
+else
+        echo "Refusing to post gitolite-admin or personalize to the internet."
+fi
 
-cd "$PROJECT_PATH" 
-unset GIT_DIR
-git checkout "$PROJECT_BRANCH"
-git pull origin "$PROJECT_BRANCH"
