@@ -1,15 +1,49 @@
-#!/bin/sh
-#
-# Automatically update clients.
+#!/bin/bash
 
-PROJECT_NAME="codedottrellon"
-PROJECT_PATH="/var/www/html/codedottrellon"
-PROJECT_BRANCH="master"
+#fetch changesets for Redmine
+#sudo -u www-data ruby "/srv/www/projects.nodesymphony.com/chili/script/runner" -e production "GitHosting::run_post_receive_hook(\"$GL_REPO\")" >/dev/null 2>&1
+#/usr/bin/wget -O - -q -t 1 "http://projects.nodesymphony.com/sys/fetch_changesets?key=5iyXiH06cw2apnYjnFvW"
 
-echo "Updating clients repository for branch $PROJECT_BRANCH of $PROJECT_NAME:"
-echo "=================================================================="
+# update dev.nodesymphony.com
+export REPO_DIR=/var/www/dev.5ringsweb.com/public_html/$GL_REPO
+export GIT_DIR='.git'
 
-cd "$PROJECT_PATH" 
-unset GIT_DIR
-git checkout "$PROJECT_BRANCH"
-git pull origin "$PROJECT_BRANCH"
+if [ "$GL_REPO" != "gitolite-admin" ]; then
+	if [ "$GL_REPO" != "personalize" ]; then
+          # pull the updated repo to the repo dir
+        	cd $REPO_DIR
+        	umask 007 && git pull --quiet origin
+        	umask 007 && git reset --hard
+		if [ -e "$REPO_DIR/sites/default/default.settings.php" ]; then
+			if [ -e "$REPO_DIR/sites/default/settings.php" ]; then
+        # looks like an installed drupal site with settings.php
+        # get a list of files committed
+        cd $REPO_DIR
+        FILES=`git diff-tree --no-commit-id --name-only -r HEAD^..HEAD`
+        grep -q "custom" $FILES
+        if [ $? -eq 1 ]; then
+          # Looks like there's some custom code... or at least the word custom
+          # run code review
+	 echo "Running code review..."
+          for fn in $FILES; do
+            drush dcs $fn
+          done
+        fi
+				if [ -w "$REPO_DIR/sites/default/settings.php" ]; then
+          # if settings.php is writable, make it not writable
+					chmod a-w "$REPO_DIR/sites/default/settings.php"
+				fi
+			else
+        # looks like settings.php isn't set up. Copy default.settings.php,
+        # add in the 5rings included settings.php
+				/bin/cp "$REPO_DIR/sites/default/default.settings.php" "$REPO_DIR/sites/default/settings.php"
+        echo "if (file_exists('sites/default/5rings.settings.php')) { include('sites/default/5rings.settings.php');}" >> $REPO_DIR/sites/default/settings.php
+        # make it writable, so the install script can modify it
+				chmod a+w "$REPO_DIR/sites/default/settings.php"
+			fi
+		fi
+	fi
+else
+        echo "Refusing to post gitolite-admin or personalize to the internet."
+fi
+
