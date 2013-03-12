@@ -1,3 +1,8 @@
+" Following lines added by drush vimrc-install on Tue, 12 Mar 2013 18:34:35 +0000.
+set nocompatible
+call pathogen#infect('/Users/campbellvertesi/.drush/vimrc/bundle')
+call pathogen#infect('/Users/campbellvertesi/.vim/bundle')
+" End of vimrc-install additions.
 " My personal vim config
 
 " Editor behaviors
