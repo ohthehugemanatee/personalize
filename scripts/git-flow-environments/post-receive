@@ -1,0 +1,54 @@
+#!/bin/bash
+# sets up a new working tree for every branch.
+# cleans up after itself when branches are deleted
+# sets up provisional DBs, too
+
+mysql_user='root'
+mysql_pw='J$va9Nq8'
+worktree_root="/var/www/dev.5ringsweb.com/public_html"
+http_root="http://ec2-54-226-103-245.compute-1.amazonaws.com"
+
+while read oldrev newrev ref
+do
+  branch=`echo $ref |cut -d/ -f3`
+  worktree="$worktree_root/$GL_REPO/$branch"
+  repo_sanitized=`echo ${GL_REPO//[-._]/}`
+  branch_sanitized=`echo ${branch//[-._]/}`
+  db_name="$repo_sanitized"_"$branch_sanitized"
+
+  # Did we delete a branch? Delete the DB and checkout 
+  if [ $newrev = '0000000000000000000000000000000000000000' ]; then
+    if [ ! $branch = 'master' ]; then
+      echo "Deleting working tree and DB for branch $branch."
+      rm -rf $worktree
+      mysqladmin -u "$mysql_user" --password="$mysql_pw" drop $db_name
+    else
+      echo "Refusing to delete working tree and db for master branch."
+      exit 1
+    fi
+  else
+    # Make the worktree if it doesn't exist
+    if [ ! -d "$worktree" ]; then 
+      mkdir -p $worktree
+    fi
+    # Check out the latest version in place.
+    git --work-tree=$worktree checkout -f $branch
+    echo "Checked out updated code to $http_root/$GL_REPO/$branch"
+    # Are we missing settings.php ? this could be a new branch or a fresh repo.
+    if [ ! -e "$worktree/sites/default/settings.php" ]; then
+      # Create settings.php from a template
+      cp /home/git/template.settings.php "$worktree"/sites/default/settings.php
+      sed -i -e "s/5rings_placeholder_/$db_name/g" "$worktree"/sites/default/settings.php
+    fi
+    # Is it a new branch?
+    if [ $oldrev = '0000000000000000000000000000000000000000' ]; then
+      # Create the DB
+      mysqladmin -u "$mysql_user" --password="$mysql_pw" create $db_name
+      # Copy the DB from master branch. This is asynchronous because some DBs take a loooong time.
+      email=`git log --format="%ae" "$newrev" -1`
+      ~git/clone-db-files.sh $repo_sanitized $branch_sanitized $email &
+      echo "New branch detected, setting up db and files directories. This can take some time, depending on the size of the site. We'll email your git address ($email) when it's ready to use."
+    fi
+  fi
+done
+  
