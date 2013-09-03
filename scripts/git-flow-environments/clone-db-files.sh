@@ -23,16 +23,21 @@ cat <(echo "$mysql_start_vars") <(mysqldump --opt --quick -u "$mysql_user" --pas
 # Copy the files directories - all sites except "all"
 cd $worktree_root/$project/master
 umask 002
-find ./sites -type d -not -path "*/sites/all/*" -name 'files' -print0|xargs -0 -I{} cp -R --no-preserve=mode,ownership --parents "{}" $worktree_root/$project/$branch/ >> $logfile &
+if [ `find ./sites -type d -not -path "*/sites/all/*" -name 'files' -print0` ]; then
+  find ./sites -type d -not -path "*/sites/all/*" -name 'files' -print0|xargs -0 -I{} cp -R --no-preserve=mode,ownership --parents "{}" $worktree_root/$project/$branch/ >> $logfile &
+  wait
+  # Certain systems don't respect no-preserve in copy, so this is a just-in-case to make sure file modes are OK
+  cd $worktree_root/$project/$branch
+  find ./sites -not -path "*/sites/all/*" -name 'files' -print0 |xargs -0 -i{} chmod -R ug+rw "{}"
+else
+  echo "WARN: No files directories found in Master branch checkout."
+fi
 
 # wait for the two previous commands to finish processing
 wait
 
-# Certain systems don't respect no-preserve in copy, so this is a just-in-case to make sure file modes are OK
-cd $worktree_root/$project/$branch
-find ./sites -not -path "*/sites/all/*" -name 'files' -print0 |xargs -0 -i{} chmod -R ug+rw "{}"
 
 # Send confirmation email
-message="Your new branch environment for $branch is ready to use. The database and files have been copied from the master branch, and code is checked out in place. You can access the new environment at $http_root/$repo_sanitized/$branch_sanitized."
+message="Your new branch environment for $branch is ready to use. The database and files have been copied from the master branch, and code is checked out in place. You can access the new environment at $http_root/$project/$branch."
 
 echo $message | /usr/bin/mail -s "Environment is ready for $project branch: $branch" $email

@@ -16,12 +16,17 @@ do
   branch_sanitized=`echo ${branch//[-._]/}`
   db_name="$repo_sanitized"_"$branch_sanitized"
 
+  # Exit nicely for gitolite-admin
+  if [ $GL_REPO = 'gitolite-admin' ]; then
+    exit 0
+  fi
+
   # Did we delete a branch? Delete the DB and checkout 
   if [ $newrev = '0000000000000000000000000000000000000000' ]; then
     if [ ! $branch = 'master' ]; then
       echo "Deleting working tree and DB for branch $branch."
       rm -rf $worktree
-      mysqladmin -u "$mysql_user" --password="$mysql_pw" drop $db_name
+      mysqladmin -f -u "$mysql_user" --password="$mysql_pw" drop $db_name
     else
       echo "Refusing to delete working tree and db for master branch."
       exit 1
@@ -32,7 +37,7 @@ do
       mkdir -p $worktree
     fi
     # Check out the latest version in place.
-    git --work-tree=$worktree checkout -f $branch
+    git --work-tree=$worktree checkout -f -q $branch
     echo "Checked out updated code to $http_root/$GL_REPO/$branch"
     # Are we missing settings.php ? this could be a new branch or a fresh repo.
     if [ ! -e "$worktree/sites/default/settings.php" ]; then
@@ -45,9 +50,20 @@ do
       # Create the DB
       mysqladmin -u "$mysql_user" --password="$mysql_pw" create $db_name
       # Copy the DB from master branch. This is asynchronous because some DBs take a loooong time.
-      email=`git log --format="%ae" "$newrev" -1`
-      ~git/clone-db-files.sh $repo_sanitized $branch_sanitized $email &
-      echo "New branch detected, setting up db and files directories. This can take some time, depending on the size of the site. We'll email your git address ($email) when it's ready to use."
+      if [ ! $branch = "master" ]; then
+        email=`git log --format="%ae" "$newrev" -1`
+        /home/git/clone-db-files.sh $GL_REPO $branch $email &
+        echo "New branch detected, setting up db and files directories. This can take some time, depending on the size of the site. We'll email your git address ($email) when it's ready to use."
+      else
+        # New repo! Create the files directory and give them the install URL.
+        mkdir $worktree/sites/default/files
+        chmod ug+rwx $worktree/sites/default/files
+        echo "New repo detected, creating empty DB and files directory. Your site is prepared; go and install Drupal at  $http_root/$GL_REPO/$branch/install.php"
+      fi
+    fi
+    if [ ! $branch = 'master' ]; then
+      # so that head always points at master
+      git --work-tree=$worktree_root/$GL_REPO/master checkout -q -f master &
     fi
   fi
 done
