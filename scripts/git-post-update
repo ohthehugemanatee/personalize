@@ -4,6 +4,8 @@
 
 export REPO_DIR=/var/www/dev.5ringsweb.com/public_html/$GL_REPO
 export GIT_DIR='.git'
+GL_REPO_SANITIZED=`echo ${GL_REPO//[-._]/}`
+DB_NAME="$GL_REPO_SANITIZED"_dev
 
 if [ "$GL_REPO" != "gitolite-admin" ]; then
   # pull the updated code to the repo dir
@@ -17,19 +19,29 @@ if [ "$GL_REPO" != "gitolite-admin" ]; then
       # get a list of files committed
       cd $REPO_DIR
       FILES=`git diff-tree --no-commit-id --name-only -r HEAD^..HEAD`
-      grep -q "custom" $FILES
-      if [ $? -eq 1 ]; then
+      if echo $FILES | grep -q custom; then
         # Looks like there's some custom code... or at least the word custom in a file path
         # run code review
         echo "Custom code detected. Running code review..."
+	cd $REPO_DIR
         for fn in $FILES; do
           drush dcs $fn
         done
       fi
 
       # Make sure user 1 is admin/admin
-      mysql -u root --password='J$va9Nq8' -e "UPDATE $DB_NAME.users SET name = 'admin' WHERE users.uid =1;"
-      /usr/bin/drush upwd admin --password="admin" --root=$REPO_DIR
+      #commented out for debugging
+      if [ `grep -q 'Drupal 7.0, 2011-01-05' $REPO_DIR/CHANGELOG.txt` ]; then
+        # D7 site
+        pw_hash=`/usr/bin/php $REPO_DIR/scripts/password-hash.sh 'admin'`
+        echo "Found a D7 site. Setting admin u/p"
+      else
+        # D6 site
+        pw_hash='$S$DKJQlFq/tGcyw1whIxKtGCcPKyq1S90OQ46Jb0mU4iyd0KGiPf9e'
+        echo "Found a D6 site. Setting admin u/p"
+      fi
+      mysql -u root --password='J$va9Nq8' -e "UPDATE $DB_NAME.users SET name = 'admin', pass='$pw_hash' WHERE users.uid =1;"
+
       if [ -w "$REPO_DIR/sites/default/settings.php" ]; then
         # if settings.php is writable, make it not writable
         chmod a-w "$REPO_DIR/sites/default/settings.php"
