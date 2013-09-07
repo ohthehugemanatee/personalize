@@ -1,8 +1,14 @@
-" Following lines added by drush vimrc-install on Tue, 12 Mar 2013 18:34:35 +0000.
+" Following lines added by drush vimrc-install on Sat, 07 Sep 2013 12:59:47 +0000.
 set nocompatible
-call pathogen#infect('/Users/campbellvertesi/.drush/vimrc/bundle')
-call pathogen#infect('/Users/campbellvertesi/.vim/bundle')
+" call pathogen#infect('/Users/campbellvertesi/.drush/vimrc/bundle')
+call pathogen#infect('/Users/campbellvertesi/.drush/vimrc/bundle/{}')
+" call pathogen#infect('/Users/campbellvertesi/.vim/bundle')
+call pathogen#infect('/Users/campbellvertesi/.vim/bundle/{}')
 " End of vimrc-install additions.
+
+source $VIMRUNTIME/vimrc_example.vim
+filetype plugin on
+filetype plugin indent on
 " My personal vim config
 
 " Editor behaviors
@@ -42,3 +48,5 @@ set visualbell "turn off audio beeps
 set background=dark
 let g:solarized_termcolors=16
 colorscheme solarized
+
+let g:syntastic_phpcs_conf="--standard=DrupalCodingStandard"
