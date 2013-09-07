@@ -3,3 +3,5 @@
 	email = campbell@vertesi.com
 [color]
 	ui = true
+[alias]
+	undo = reset --soft HEAD^
