@@ -1,30 +1,50 @@
-#!/bin/sh
+#!/bin/bash
 
-#fetch changesets for Redmine
-#sudo -u www-data ruby "/srv/www/projects.nodesymphony.com/chili/script/runner" -e production "GitHosting::run_post_receive_hook(\"$GL_REPO\")" >/dev/null 2>&1
-#/usr/bin/wget -O - -q -t 1 "http://projects.nodesymphony.com/sys/fetch_changesets?key=5iyXiH06cw2apnYjnFvW"
+# update dev.5ringsweb.com
 
-# update dev.nodesymphony.com
 export REPO_DIR=/var/www/dev.5ringsweb.com/public_html/$GL_REPO
 export GIT_DIR='.git'
+GL_REPO_SANITIZED=`echo ${GL_REPO//[-._]/}`
+DB_NAME="$GL_REPO_SANITIZED"_dev
 
 if [ "$GL_REPO" != "gitolite-admin" ]; then
-	if [ "$GL_REPO" != "personalize" ]; then
-        	cd $REPO_DIR
-        	umask 007 && git pull origin
-        	umask 007 && git reset --hard
-		if [ -e "$REPO_DIR/sites/default/default.settings.php" ]; then
-			if [ -e "$REPO_DIR/sites/default/settings.php" ]; then
-				if [ -w "$REPO_DIR/sites/default/settings.php" ]; then
-					chmod a-w "$REPO_DIR/sites/default/settings.php"
-				fi
-			else
-				/bin/cp "$REPO_DIR/sites/default/default.settings.php" "$REPO_DIR/sites/default/settings.php"
-				chmod a+w "$REPO_DIR/sites/default/settings.php"
-			fi
-		fi
-	fi
-else
-        echo "Refusing to post gitolite-admin or personalize to the internet."
+  # pull the updated code to the repo dir
+  cd $REPO_DIR
+  umask 007 && git pull --quiet origin
+  umask 007 && git reset --hard
+  if [ -e "$REPO_DIR/sites/default/default.settings.php" ]; then
+    if [ -e "$REPO_DIR/sites/default/settings.php" ]; then
+      # looks like an installed drupal site with a settings.php file
+
+      # get a list of files committed
+      cd $REPO_DIR
+      FILES=`git diff-tree --no-commit-id --name-only -r HEAD^..HEAD`
+      if echo $FILES | grep -q custom; then
+        # Looks like there's some custom code... or at least the word custom in a file path
+        # run code review
+        echo "Custom code detected. Running code review..."
+	cd $REPO_DIR
+        for fn in $FILES; do
+          drush dcs $fn
+        done
+      fi
+
+      # Make sure user 1 is admin/admin
+      #commented out for debugging
+      #mysql -u root --password='J$va9Nq8' -e "UPDATE $DB_NAME.users SET name = 'admin' WHERE users.uid =1;"
+      #/usr/bin/drush upwd admin --password="admin" --root=$REPO_DIR
+      if [ -w "$REPO_DIR/sites/default/settings.php" ]; then
+        # if settings.php is writable, make it not writable
+        chmod a-w "$REPO_DIR/sites/default/settings.php"
+      fi
+    else
+      # looks like this is a Drupal site, but settings.php isn't set up. Copy default.settings.php.
+      /bin/cp "$REPO_DIR/sites/default/default.settings.php" "$REPO_DIR/sites/default/settings.php"
+      # add in the 5rings included settings.php
+      echo "if (file_exists('sites/default/5rings.settings.php')) { include('sites/default/5rings.settings.php');}" >> $REPO_DIR/sites/default/settings.php
+      # make it writable, so the Drupal install script can modify it (it will lose write access on the next commit)
+      chmod a+w "$REPO_DIR/sites/default/settings.php"
+    fi
+  fi
 fi
 
