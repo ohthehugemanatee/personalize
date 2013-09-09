@@ -1,2 +1,4 @@
 .vim/.netrwhist
 .ssh/known_hosts
+.ssh/id_rsa
+.ssh/id_rsa.pub
