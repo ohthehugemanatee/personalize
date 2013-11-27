@@ -1,9 +1,9 @@
 " Following lines added by drush vimrc-install on Sat, 07 Sep 2013 12:59:47 +0000.
 set nocompatible
 " call pathogen#infect('/Users/campbellvertesi/.drush/vimrc/bundle')
-call pathogen#infect('/Users/campbellvertesi/.drush/vimrc/bundle/{}')
+call pathogen#infect('/$HOME/.drush/vimrc/bundle/{}')
 " call pathogen#infect('/Users/campbellvertesi/.vim/bundle')
-call pathogen#infect('/Users/campbellvertesi/.vim/bundle/{}')
+call pathogen#infect('/$HOME/.vim/bundle/{}')
 " End of vimrc-install additions.
 
 source $VIMRUNTIME/vimrc_example.vim
