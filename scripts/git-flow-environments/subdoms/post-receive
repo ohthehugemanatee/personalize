@@ -49,12 +49,12 @@ do
       # Create settings.php from a template
       # Check that it's a Drupal version, and get the version number
       if [ -e "$worktree/CHANGELOG.txt" ]; then
-	DRUPAL=0
+	DRUPAL='0'
         # Is it D6?
         sed -n 2p "$worktree/CHANGELOG.txt" | grep -cq 'Drupal 6.' && DRUPAL=6
         # Is it D7?
         sed -n 2p "$worktree/CHANGELOG.txt" | grep -cq 'Drupal 7.' && DRUPAL=7
-        if [[ $DRUPAL -eq 0]]; then
+        if [[ $DRUPAL == '0' ]]; then
           echo "Non-Drupal site detected. Skipping automated site setup."
 	  if [ ! $branch = 'master' ]; then
     	    # so that HEAD always sits at master
