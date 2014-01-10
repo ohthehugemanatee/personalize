@@ -1,15 +1,15 @@
 <?php
-
-// 5 Rings customized settings.php
-
+ 
+// Git flow settings.php template
+ 
 $databases = array (
-  'default' => 
+  'default' =>
   array (
-    'default' => 
+    'default' =>
     array (
-      'database' => '5rings_placeholder_',
-      'username' => '5ringsdev',
-      'password' => '*W!ub8&wr4da',
+      'database' => '_placeholder_',
+      'username' => 'org_admin',
+      'password' => 'pr0Ab2lu',
       'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
@@ -17,8 +17,8 @@ $databases = array (
     ),
   ),
 );
-
+ 
 # 5rings settings include. If you got custom settings, put em in here.
-if (file_exists('sites/default/5rings.settings.php')) { 
-  include('sites/default/5rings.settings.php'); 
+if (file_exists('sites/default/dev.settings.php')) {
+  include('sites/default/dev.settings.php');
 }
