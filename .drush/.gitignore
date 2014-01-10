@@ -1,3 +1,4 @@
 cache
 cache/*
-*.aliases.*
+db_dumps/*
+!db_dumps/.gitignore

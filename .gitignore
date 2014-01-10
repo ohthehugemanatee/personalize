@@ -1,4 +1,1 @@
-.vim/.netrwhist
-.ssh/known_hosts
-.ssh/id_rsa
-.ssh/id_rsa.pub
+# system subdirectories like .drush, .vim, and .ssh have their own .gitignores. Go look there.
