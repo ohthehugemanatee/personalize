@@ -22,8 +22,10 @@ do
  
   # Exit nicely if this is the gitolite-admin repo.
   if [ $GL_REPO == 'gitolite-admin' ] || [ $GL_REPO == 'personalize' ]; then
-    exit 0
+    echo "Cowardly refusing to make control repo public."
+    exit 1 
   fi
+  echo "Repo name $GL_REPO looks fine"
  
   # Did we delete a branch? Delete the DB and checkout
   if [ $newrev = '0000000000000000000000000000000000000000' ]; then
