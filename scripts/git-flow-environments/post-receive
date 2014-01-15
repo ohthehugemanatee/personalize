@@ -21,7 +21,7 @@ do
   db_name="$repo_sanitized"_"$branch_sanitized"
  
   # Exit nicely if this is the gitolite-admin repo.
-  if [ $GL_REPO == 'gitolite-admin' ] || [ $GL_REPO == 'internal/personalize' ]; then
+  if [ $GL_REPO == 'gitolite-admin' ] || [ $GL_REPO == 'internal/personalize' ] || [ $GL_REPO == 'personalize' ]; then
     echo "Cowardly refusing to make control repo $GL_REPO public."
     exit 1 
   fi
