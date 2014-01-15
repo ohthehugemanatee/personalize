@@ -2,14 +2,12 @@
 # sets up a new working tree for every branch.
 # cleans up after itself when branches are deleted
 # sets up provisional DBs, too
-
-#MODIFIED for subdomains
  
 mysql_user='root'
-mysql_pw='pE*DQD66A7'
-worktree_root="/var/www/dev.nodesymphony.com/public_html"
-http_root="dev.nodesymphony.com"
-support_files="/srv/git/support"
+mysql_pw='*Wd7%9@f'
+worktree_root="/var/www"
+http_root="http://localhost:9080"
+support_files="/home/git/support"
 
 umask 022 
 while read oldrev newrev ref
@@ -21,9 +19,8 @@ do
   db_name="$repo_sanitized"_"$branch_sanitized"
  
   # Exit nicely if this is the gitolite-admin repo.
-  if [ $GL_REPO == 'gitolite-admin' ] || [ $GL_REPO == 'internal/personalize' ]; then
-    echo "Cowardly refusing to make control repo $GL_REPO public."
-    exit 1 
+  if [ $GL_REPO = 'gitolite-admin' ]; then
+    exit 0
   fi
  
   # Did we delete a branch? Delete the DB and checkout
@@ -40,34 +37,14 @@ do
     # Make the worktree if it doesn't exist
     if [ ! -d "$worktree" ]; then
       mkdir -p $worktree
-      echo "New branch detected, creating work tree..."
     fi
     # Check out the latest version in place.
     git --work-tree=$worktree checkout -f -q $branch
-    echo "Checked out updated code to http://$GL_REPO.$http_root/$branch"
+    echo "Checked out updated code to $http_root/$GL_REPO/$branch"
     # Are we missing settings.php ? this could be a new branch or a fresh repo.
     if [ ! -e "$worktree/sites/default/settings.php" ]; then
       # Create settings.php from a template
-      # Check that it's a Drupal version, and get the version number
-      if [ -e "$worktree/CHANGELOG.txt" ]; then
-	      DRUPAL=0
-        # Is it D6?
-        sed -n 2p "$worktree/CHANGELOG.txt" | grep -cq 'Drupal 6.' && DRUPAL=6
-        # Is it D7?
-        sed -n 2p "$worktree/CHANGELOG.txt" | grep -cq 'Drupal 7.' && DRUPAL=7
-      fi
-      if [ -z $DRUPAL ] || [ $DRUPAL == 0 ]; then
-        echo "Non-Drupal site detected. Skipping automated site setup."
-        if [ ! $branch = 'master' ]; then
-          # so that HEAD always sits at master
-          git --work-tree=$worktree_root/$GL_REPO/master checkout -q -f master &
-        fi
-        exit 0
-      fi
-
-      echo "Creating settings.php for Drupal $DRUPAL in this branch."
-      
-      cp "$support_files"/template.settings.$DRUPAL.php "$worktree"/sites/default/settings.php
+      cp "$support_files"/template.settings.php "$worktree"/sites/default/settings.php
       sed -i -e "s/_placeholder_/$db_name/g" "$worktree"/sites/default/settings.php
     fi
     # Is it a new branch?
@@ -78,11 +55,12 @@ do
       if [ ! $branch = "master" ]; then
         email=`git log --format="%ae" "$newrev" -1`
         "$support_files"/clone-db-files.sh $GL_REPO $branch $email &
+        echo "New branch detected, setting up db and files directories. This can take some time, depending on the size of the site. We'll email your git address ($email) when it's ready to use."
       else
         # New repo! Create the files directory and give them the install URL.
         mkdir $worktree/sites/default/files
         chmod ug+rwx $worktree/sites/default/files
-        echo "New repo detected, creating empty DB and files directory. Your site is prepared; go and install Drupal at  http://$GL_REPO.$http_root/$branch/install.php"
+        echo "New repo detected, creating empty DB and files directory. Your site is prepared; go and install Drupal at  $http_root/$GL_REPO/$branch/install.php"
       fi
     fi
     if [ ! $branch = 'master' ]; then

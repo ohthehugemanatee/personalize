@@ -56,7 +56,7 @@ do
         # Is it D7?
         sed -n 2p "$worktree/CHANGELOG.txt" | grep -cq 'Drupal 7.' && DRUPAL=7
       fi
-      if [ -z $DRUPAL ] || [ $DRUPAL == 0 ]; then
+      if [ -z $DRUPAL] || [ $DRUPAL == 0 ]; then
         echo "Non-Drupal site detected. Skipping automated site setup."
         if [ ! $branch = 'master' ]; then
           # so that HEAD always sits at master
