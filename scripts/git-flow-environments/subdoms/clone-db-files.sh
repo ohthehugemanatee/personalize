@@ -36,7 +36,7 @@ fi
 echo "Copying the DB from Master branch. This can take some time, depending on the size of the site. We'll email your git address ($email) when it's ready."
 
 # Copy the DB from master branch
-cat <(echo "$mysql_start_vars") <(mysqldump --opt --quick -u "$mysql_user" --password="$mysql_pw" "$project"_master) <(echo "$mysql_stop_vars") | mysql -u "$mysql_user" --password="$mysql_pw" $db_name >> $logfile &
+cat <(echo "$mysql_start_vars") <(mysqldump --opt --quick -u "$mysql_user" --password="$mysql_pw" "$repo_sanitized"_master) <(echo "$mysql_stop_vars") | mysql -u "$mysql_user" --password="$mysql_pw" $db_name >> $logfile &
  
 # wait for the previous commands to finish processing
 wait
