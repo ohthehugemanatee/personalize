@@ -34,6 +34,8 @@ set title "update term title
 set visualbell "turn off audio beeps
 
 
+" Drupal coding standards for syntastic
+let g:syntastic_phpcs_conf="--standard=DrupalCodingStandard"
 
 "Tab sizes - use 2 spaces for tab spacing
 set softtabstop=2
@@ -41,38 +43,66 @@ set tabstop=2
 set shiftwidth=2
 set expandtab "save as spaces rather than tabs
 
-" Toggle Vexplore with Ctrl-E
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
+
+" begin new explorer shit
+fun! VexToggle(dir)
+  if exists("t:vex_buf_nr")
+    call VexClose()
   else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
+    call VexOpen(a:dir)
   endif
-endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+endf
 
-" Hit enter in the file browser to open the selected
-" file with :vsplit to the right of the browser.
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
+fun! VexOpen(dir)
+  let g:netrw_browse_split=4    " open files in previous window
+  let vex_width = 25
 
-" Default to tree mode
-let g:netrw_liststyle=3
+  execute "Vexplore " . a:dir
+  let t:vex_buf_nr = bufnr("%")
+  wincmd H
+
+  call VexSize(vex_width)
+endf
+noremap <Leader><Tab> :call VexToggle(getcwd())<CR>
+noremap <Leader>` :call VexToggle("")<CR>
+
+fun! VexClose()
+  let cur_win_nr = winnr()
+  let target_nr = ( cur_win_nr == 1 ? winnr("#") : cur_win_nr )
+
+  1wincmd w
+  close
+  unlet t:vex_buf_nr
+
+  execute (target_nr - 1) . "wincmd w"
+  call NormalizeWidths()
+endf
+
+fun! VexSize(vex_width)
+  execute "vertical resize" . a:vex_width
+  set winfixwidth
+  call NormalizeWidths()
+endf
+
+fun! NormalizeWidths()
+  let eadir_pref = &eadirection
+  set eadirection=hor
+  set equalalways! equalalways!
+  let &eadirection = eadir_pref
+endf
+augroup NetrwGroup
+  autocmd! BufEnter * call NormalizeWidths()
+augroup END
+
+let g:netrw_liststyle=0         " thin (change to 3 for tree)
+let g:netrw_banner=0            " no banner
+let g:netrw_altv=1              " open files on right
+let g:netrw_preview=1           " open previews vertically
 
 " Change directory to the current buffer when opening files.
 set autochdir
 
+" end new explorer shit
 " Enable omni completion (<C-X><C-O> when in Insert mode)
 set omnifunc=syntaxcomplete#Complete
 " Autocomplete behavior - complete as you type, use Enter to select.
@@ -90,6 +120,5 @@ set background=dark
 let g:solarized_termcolors=16
 colorscheme solarized
 
-let g:syntastic_phpcs_conf="--standard=DrupalCodingStandard"
-
-
+" Tagbar Toggle
+"nmap <C-T> :TagbarToggle<CR> 
