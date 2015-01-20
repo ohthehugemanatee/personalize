@@ -14,3 +14,8 @@
 [mergetool "diffmerge"]
 	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
 	trustExitCode = true
+[core]
+	autocrlf = input
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
