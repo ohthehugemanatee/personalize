@@ -13,14 +13,25 @@ alias vi='vim'
 # should be on the output of commands, not on the prompt
 color_prompt=yes
 
+function parse_git_branch () {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+RED="\[\033[0;31m\]"
+YELLOW="\[\033[0;33m\]"
+GREEN="\[\033[0;32m\]"
+NO_COLOR="\[\033[0m\]"
+
+PS1="$GREEN\u@\h$NO_COLOR:\w$YELLOW\$(parse_git_branch)$NO_COLOR\$ "
+
 if [ "$color_prompt" = yes ]; then
   export CLICOLOR=1
 
   # Use a nicer, color prompt.  Red if I'm root. (borrowed from Gentoo)
   if [[ ${EUID} == 0 ]] ; then
-    PS1='\[\033[01;31m\]\h\[\033[0;34m\] \W \$\[\033[00m\] '
+    PS1='\[\033[01;31m\]\h\[\033[0;34m\] \W \[\033[0;33m\](parse_git_branch) \$\[\033[00m\] '
   else
-    PS1='\[\033[01;32m\]\h\[\033[0;34m\] \w \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h\[\033[0;34m\] \w \[\033[0;33m\](parse_git_branch) \$\[\033[00m\] '
   fi
 else
     PS1='\u@\h:\w\$ '
