@@ -13,14 +13,18 @@ alias vi='vim'
 # should be on the output of commands, not on the prompt
 color_prompt=yes
 
+function parse_git_branch () {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 if [ "$color_prompt" = yes ]; then
   export CLICOLOR=1
 
   # Use a nicer, color prompt.  Red if I'm root. (borrowed from Gentoo)
   if [[ ${EUID} == 0 ]] ; then
-    PS1='\[\033[01;31m\]\h\[\033[0;34m\] \W \$\[\033[00m\] '
+    PS1='\[\033[01;31m\]\h\[\033[0;34m\] \W\[\033[0;33m\]$(parse_git_branch) \$\[\033[00m\] '
   else
-    PS1='\[\033[01;32m\]\h\[\033[0;34m\] \w \$\[\033[00m\] '
+    PS1='\[\033[01;32m\]\h\[\033[0;34m\] \w\[\033[0;33m\]$(parse_git_branch) \$\[\033[00m\] '
   fi
 else
     PS1='\u@\h:\w\$ '
@@ -52,3 +56,16 @@ if [ -f ~/.bashrc.local ]; then
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+echo $DIR
+if [ -f $DIR/contrib/git/git-completion.bash ]; then
+  . $DIR/contrib/git/git-completion.bash
+fi
+
