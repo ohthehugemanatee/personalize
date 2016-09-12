@@ -56,6 +56,8 @@ if [ -f ~/.bashrc.local ]; then
 fi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Put /user/local/bin at the front of PATH
+PATH=/usr/local/bin:$PATH
 
 SOURCE="${BASH_SOURCE[0]}"
 while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
