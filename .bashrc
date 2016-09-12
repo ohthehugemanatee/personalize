@@ -68,3 +68,7 @@ if [ -f $DIR/contrib/git/git-completion.bash ]; then
   . $DIR/contrib/git/git-completion.bash
 fi
 
+
+# Automatically added by Platform.sh CLI installer
+export PATH="/Users/ohthehugemanatee/.platformsh/bin:$PATH"
+. '/Users/ohthehugemanatee/.platformsh/shell-config.rc' 2>/dev/null
