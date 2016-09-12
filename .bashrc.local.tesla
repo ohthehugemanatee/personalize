@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# This setting is for the new UTF-8 terminal support
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# To make sure we always use the MAMP version of PHP
+PATH=/Applications/MAMP/Library/bin:/Applications/MAMP/bin/php/php5.3.14/bin:$PATH
+
+# Put /user/local/bin at the front of PATH
+PATH=/usr/local/bin:$PATH
+# Include gnu sed
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
+#aliases
+alias sshvpn="~/sshuttle/sshuttle --dns -vvr cvertesi@dev.nodesymphony.com 0/0"
+alias please="sudo !!"
+# docker stuff - amazeeio environment.
+#dockerhost env variable for connecting back to the host machine
+export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
+# bash shell
+alias dsh="docker-compose exec --user drupal drupal bash"
+# bash shell as root
+alias dshr="docker-compose exec drupal bash"
+# (re-)install popo project
+alias ppi="docker-compose exec --user drupal drupal bash -c \"source ~/.bash_envvars && cd web && drush si popo -y && drush uli\""
+alias ppic="ppi && say 'Installation complete' -v Vicki"
+# setup xdebug on amazeeio
+alias dxdebug="docker-compose exec drupal /var/www/drupal/public_html/update-xdebug-hostname.sh" 
+alias dxdebugcli="docker-compose exec drupal /var/www/drupal/public_html/enable-cli-xdebug.sh"
+alias dxd="dxdebug && dxdebugcli"
+
+alias ffs="chmod -R u+w sites/default"
+
+alias ppt="SIMPLETEST_BASE_URL=http://popo.docker.amazee.io SIMPLETEST_DB=mysql://org_admin:pr0Ab2lu@popo.docker.amazee.io/drupal8_tmp#simpletest ../vendor/bin/phpunit -c ./core --verbose  ./profiles/popo/modules/custom/"
+
+# Rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# npm
+export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
+export PATH="/usr/local/share/npm/bin:$PATH"
+
+# docker drush
+function ddrush() {
+  args=""
+  while [ "$1" != "" ]; do
+    args="${args} '$1'" && shift
+  done;
+
+  docker-compose exec --user drupal drupal bash -c "source ~/.bash_envvars && cd /var/www/drupal/public_html/\"\$WEBROOT\" && PATH=`pwd`/../vendor/bin:$PATH && drush ${args}"
+}
+
+# Automatically added by Platform.sh CLI installer
+export PATH="/Users/ohthehugemanatee/.platformsh/bin:$PATH"
+. '/Users/ohthehugemanatee/.platformsh/shell-config.rc' 2>/dev/null
