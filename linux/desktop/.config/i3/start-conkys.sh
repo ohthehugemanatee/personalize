@@ -1,6 +1,6 @@
 #!/bin/bash
-#
-#                                       
+# 
+#                                      
 # MMMMMMMMMMMMMMMMMMMMMMMMMmds+.        
 # MMm----::-://////////////oymNMd+`     
 # MMd      /++                -sNMd:    
@@ -56,5 +56,6 @@
 
 #conky -c ~/.config/i3/system-overview
 conky -c ~/.config/i3/system-shortcuts
+
 cd /home/ohthehugemanatee/.conky/Aurora/octupi
-conky -c "/home/ohthehugemanatee/.conky/Aurora/octupi/aurora_ds_octupi" >> /tmp/conky-startup.log
+conky -c "/home/ohthehugemanatee/.conky/Aurora/octupi/aurora_ds_octupi"
