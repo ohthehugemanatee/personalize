@@ -27,7 +27,9 @@ set hlsearch "highlight search matches
 set incsearch "highlight search matches as I type
 set laststatus=2 " Always show a status line at the bottom
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
-set backupdir =~/.vim/backup
+set backupdir=~/.vim/backup//
+set undodir=~/.vim/undo//
+set directory=/tmp//
 set wrap  "linewraps
 set scrolloff=5 "always show 5 lines before/after the cursor
 set title "update term title
