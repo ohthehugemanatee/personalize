@@ -1,0 +1,10 @@
+#!/bin/bash
+
+LANG="en-GB"
+
+if [ -n "${2}" ]; then
+  LANG=${2}
+fi
+pico2wave -l=${LANG} -w=/tmp/test.wav "${1}"
+aplay -q /tmp/test.wav
+rm /tmp/test.wav
