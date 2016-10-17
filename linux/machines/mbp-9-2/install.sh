@@ -9,3 +9,17 @@ sudo apt install xbacklight -y
 
 sudo ln -s $PWD/usr/local/bin/kb /usr/local/bin/kb
 sudo ln -s $PWD/usr/local/bin/say /usr/local/bin/say
+
+# Get the mbpfan tool from github, make install, and add the service
+SCRIPT_DIR=$PWD
+cd /tmp
+/usr/bin/wget https://github.com/dgraziotin/mbpfan/archive/master.zip
+unzip master.zip
+cd /tmp/mbpfan-master
+sudo apt install build-essential -y
+make && sudo make install && sudo make tests
+sudo mv /etc/mbpfan.conf /etc/mbpfan.conf.bak
+sudo ln -s $SCRIPT_DIR/etc/mbpfan.conf /etc/mbpfan.conf
+sudo cp mbpfan.service /etc/systemd/system/
+sudo systemctl enable mbpfan.service
+sudo service mbpfan start
