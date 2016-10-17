@@ -231,9 +231,9 @@ bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bol
 # use this line to tell which monitor is on the right
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
 
-# my current setup
-set $firstMonitor Monitor1
-set $secondMonitor Monitor2
+# Small screen=Monitor1, external=Monitor2
+set $firstMonitor LVDS1
+set $secondMonitor HDMI1
 
 #set $firstMonitor DVI-I-2
 #set $secondMonitor VGA-0
@@ -244,16 +244,20 @@ set $secondMonitor Monitor2
 #set $firstMonitor DVI-0
 #set $secondMonitor DVI-1
 
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
+# Small screen: terminal, chats, skype, music
+workspace 7 output $firstMonitor
+workspace 8 output $firstMonitor
+workspace 9 output $firstMonitor
+workspace 10 output $firstMonitor
+# Big screen: browser, code.
+workspace 2 output $secondMonitor
+workspace 3 output $secondMonitor
+
+# a couple extra workspaces each
+workspace 1 output $secondMonitor
+workspace 4 output $secondMonitor
 workspace 5 output $firstMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
-workspace 10 output $secondMonitor
+workspace 6 output $firstMonitor
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -281,14 +285,14 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 ################### ASSIGN ######################
 
-assign [class="gnome-terminal"]   → 1
-set $tag1 "1: term"
 assign [class="Firefox"]          → 2
 set $tag2 "2: www"
 assign [class="PHPStorm"]         → 3
 set $tag3 "3: code"
+assign [class="gnome-terminal"]   → 7
+set $tag1 "7: term"
+set $tag4 "8: slack"
 assign [class="Slack"]            → 8
-set $tag4 "4: slack"
 assign [class="Viber"]            → 9
 assign [class="Skype"]            → 9
 set $tag9 "9: chat"
@@ -328,7 +332,7 @@ exec dunst -config ~/.config/i3/dunstrc
 #mod1 = ALT
 
 bindsym control+mod1+f exec firefox-dev
-bindsym control+mod1+p exec phpstorm;workspace 4;focus
+bindsym control+mod1+p exec phpstorm;workspace 3;focus
 bindsym control+mod1+s exec /usr/share/simplenote/simplenote;workspace 5;focus
 bindsym control+mod1+o exec nemo
 bindsym control+mod1+t exec /opt/toggledesktop/ToggleDesktop
