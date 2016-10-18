@@ -23,3 +23,9 @@ sudo ln -s $SCRIPT_DIR/etc/mbpfan.conf /etc/mbpfan.conf
 sudo cp mbpfan.service /etc/systemd/system/
 sudo systemctl enable mbpfan.service
 sudo service mbpfan start
+
+# Add special udev rule for changing the sense of the Fn key when there's an external mac keyboard plugged in.
+cd $SCRIPT_DIR
+sudo ln -s $SCRIPT_DIR/toggle-fn.sh /usr/local/sbin
+sudo ln -s $SCRIPT_DIR/etc/udev/rules.d/* /etc/udev/rules.d
+sudo service udev restart
