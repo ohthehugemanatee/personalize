@@ -24,7 +24,6 @@ Currently i3. Installing the specific packages is handled by install.sh. It also
 * variety, wallpaper downloader/switcher
 * numlockx, numlock controller
 * lxappearance, GTK+ theme switcher
-* scrot, screenshot utility
 * unclutter, hides the cursor when typing
 * terminator, alternative terminal emulator
 

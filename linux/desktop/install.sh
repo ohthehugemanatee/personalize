@@ -14,3 +14,5 @@ ln -s $PWD/.config/i3 $HOME/.config/i3
 #simlink conky library into place
 ln -s $PWD/.conky $HOME/.conky
 
+#simlink screenshot script into place
+sudo ln -s $PWD/screenshot.sh /usr/local/bin/screenshot

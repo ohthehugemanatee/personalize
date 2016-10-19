@@ -359,8 +359,11 @@ for_window [urgent=latest] focus
 ################### SCREENSHOTS ######################
 
 
-bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
-bindsym Control+Print exec gnome-screenshot -i
+#bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+#bindsym Control+Print exec gnome-screenshot -i
+bindsym $mod1+Control+Shift+1 "screenshot"
+bindsym $mod1+Control+Shift+2 "screenshot -w"
+bindsym $mod1+Control+Shift+3 "screenshot -a"
 
 
 
