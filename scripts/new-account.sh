@@ -10,3 +10,4 @@ ln -s personalize/.vimrc
 ln -s personalize/.drush
 mkdir .vagrant.d
 ln -s personalize/Vagrantfile .vagrant.d/Vagrantfile
+ln -s personalize/.selected-editor
