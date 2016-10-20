@@ -309,6 +309,7 @@ for_window [class="Spotify"] move to workspace 10
 
 # num lock activated
 exec_always --no-startup-id numlockx on
+exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec dropbox start
 exec variety
@@ -361,9 +362,9 @@ for_window [urgent=latest] focus
 
 #bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
 #bindsym Control+Print exec gnome-screenshot -i
-bindsym $mod1+Control+Shift+1 "screenshot"
-bindsym $mod1+Control+Shift+2 "screenshot -w"
-bindsym $mod1+Control+Shift+3 "screenshot -a"
+bindsym $mod1+Control+Shift+1 /usr/local/bin/screenshot
+bindsym $mod1+Control+Shift+2 /usr/local/bin/screenshot -w
+bindsym $mod1+Control+Shift+3 /usr/local/bin/screenshot -a
 
 
 
