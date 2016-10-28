@@ -311,14 +311,15 @@ for_window [class="Spotify"] move to workspace $tag0
 exec_always --no-startup-id numlockx on
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
-exec dropbox start
-exec variety
-exec mintupdate-launcher
-exec volti
-exec pasystray
-exec blueberry-tray
-exec cinnamon-settings-daemon
-exec /home/ohthehugemanatee/pia.sh
+exec --no-startup-id dropbox start
+exec --no-startup-id variety
+exec --no-startup-id mintupdate-launcher
+exec --no-startup-id volti
+exec --no-startup-id pasystray
+exec --no-startup-id blueberry-tray
+exec --no-startup-id cinnamon-settings-daemon
+exec --no-startup-id /home/ohthehugemanatee/pia.sh
+exec --no-startup-id system-config-printer-applet
 
 
 # USER APPLICATIONS
