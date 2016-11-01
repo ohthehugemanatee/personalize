@@ -29,3 +29,13 @@ cd $SCRIPT_DIR
 sudo ln -s $SCRIPT_DIR/toggle-fn.sh /usr/local/sbin
 sudo ln -s $SCRIPT_DIR/etc/udev/rules.d/* /etc/udev/rules.d
 sudo service udev restart
+
+# Add power savings stuff.
+sudo apt install laptop-mode-tools powertop -y
+sudo mv /etc/rc.local /etc/rc.local.bak
+sudo ln -s $SCRIPT_DIR/linux/machines/mbp-9-2/etc/rc.local /etc/rc.local
+cd $SCRIPT_DIR/power
+sudo install 99-savings /etc/pm/sleep.d
+sudo install 99-savings /etc/pm/power.d
+sudo install 10-laptop-mode-tools /etc/pm/sleep.d
+sudo install 10-laptop-mode-tools /etc/pm/power.d
