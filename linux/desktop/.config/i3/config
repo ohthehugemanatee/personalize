@@ -180,7 +180,7 @@ bindsym $mod+r mode "resize"
 # font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
 # font pango:Droid Sans Mono Dotted 12
 # font pango:hermit 12
-# font pango:Inconsolata 15
+font pango:Inconsolata 15
 # font pango:monospace 12
 # font pango:SourceCodePro-SemiBold 11
 # font pango:Source Code Pro for Powerline, FontAwesome Regular, Icons 9
@@ -192,7 +192,7 @@ bindsym $mod+r mode "resize"
 # font pango:Sans 13 
 # font pango:Noto Mono Regular 13
 # font pango:DroidSansMono 13
-font pango:Noto Mono Regular 13
+#font pango:Noto Mono Regular 13
 
 
 ################### TERMINAL ######################
@@ -320,13 +320,14 @@ exec --no-startup-id blueberry-tray
 exec --no-startup-id cinnamon-settings-daemon
 exec --no-startup-id /home/ohthehugemanatee/pia.sh
 exec --no-startup-id system-config-printer-applet
+exec --no-startup-id redshift-gtk
 
 
 # USER APPLICATIONS
 
 #exec firefox
 #for_window [class="Firefox"] focus
-exec ~/.config/i3/start-conkys.sh
+#exec ~/.config/i3/start-conkys.sh
 exec dunst -config ~/.config/i3/dunstrc
 
 
