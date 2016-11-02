@@ -42,7 +42,7 @@ ac_power()
   ##
 
   # set the wifi to no power savings.
-  iwconfig wlan0 power off
+  iwconfig wlp2s0 power off
 
   ##
   ## CPU AND MEMORY
@@ -106,7 +106,7 @@ battery_power()
   ##
 
   # set the wifi to power savings.
-  iwconfig wlan0 power on
+  iwconfig wlp2s0 power on
 
   ##
   ## CPU AND MEMORY
