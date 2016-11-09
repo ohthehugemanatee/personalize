@@ -245,13 +245,13 @@ set $secondMonitor HDMI1
 #set $secondMonitor DVI-1
 
 # Small screen: terminal, chats, skype, music
-workspace 7 output $firstMonitor
-workspace 8 output $firstMonitor
-workspace 9 output $firstMonitor
-workspace 10 output $firstMonitor
+workspace $tag7 output $firstMonitor
+workspace $tag8 output $firstMonitor
+workspace $tag9 output $firstMonitor
+workspace $tag0 output $firstMonitor
 # Big screen: browser, code.
-workspace 2 output $secondMonitor
-workspace 3 output $secondMonitor
+workspace $tag2 output $secondMonitor
+workspace $tag3 output $secondMonitor
 
 # a couple extra workspaces each
 workspace 1 output $secondMonitor
@@ -307,20 +307,23 @@ for_window [class="Spotify"] move to workspace $tag0
 
 # TRAY APPLICATIONS
 
-# num lock activated
-exec_always --no-startup-id numlockx on
-exec --no-startup-id dunst
-exec --no-startup-id nm-applet
-exec --no-startup-id dropbox start
-exec --no-startup-id variety
-exec --no-startup-id mintupdate-launcher
-exec --no-startup-id volti
-exec --no-startup-id pasystray
-exec --no-startup-id blueberry-tray
+# invisible stuff:
 exec --no-startup-id cinnamon-settings-daemon
-exec --no-startup-id /home/ohthehugemanatee/pia.sh
-exec --no-startup-id system-config-printer-applet
-exec --no-startup-id redshift-gtk
+exec_always --no-startup-id numlockx on #enable numlock
+exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
+exec --no-startup-id fusuma # mouse gestures
+
+# visible stuff
+exec --no-startup-id system-config-printer-applet # printer status applet
+exec --no-startup-id /home/ohthehugemanatee/pia.sh #private internet access
+exec --no-startup-id redshift-gtk # red tinting the display
+exec --no-startup-id variety # wallpapers
+exec --no-startup-id dropbox start # dropbox
+exec --no-startup-id mintupdate-launcher # Mint update detection
+exec --no-startup-id blueberry-tray # bluetooth monitor
+exec --no-startup-id nm-applet # network connection manager
+exec --no-startup-id volti #sound control
+#exec --no-startup-id pasystray #pulse audio control
 
 
 # USER APPLICATIONS
@@ -328,7 +331,6 @@ exec --no-startup-id redshift-gtk
 #exec firefox
 #for_window [class="Firefox"] focus
 #exec ~/.config/i3/start-conkys.sh
-exec dunst -config ~/.config/i3/dunstrc
 
 
 ################### SHORTCUTS APPLICATIONS ######################
@@ -448,9 +450,11 @@ mode "$mode_system" {
 ################### AUDIO ######################
 
 
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-'"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+#handled by Volti
+#bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+'"
+#bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-'"
+#bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause" 
 bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next" 
 bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
