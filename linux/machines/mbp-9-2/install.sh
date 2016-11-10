@@ -31,11 +31,13 @@ sudo ln -s $SCRIPT_DIR/etc/udev/rules.d/* /etc/udev/rules.d
 sudo service udev restart
 
 # Add power savings stuff.
-sudo apt install laptop-mode-tools powertop -y
+sudo apt install powertop tlp tlp-rdw -y
 sudo mv /etc/rc.local /etc/rc.local.bak
 sudo ln -s $SCRIPT_DIR/linux/machines/mbp-9-2/etc/rc.local /etc/rc.local
 cd $SCRIPT_DIR/power
 sudo install 99-savings /etc/pm/sleep.d
 sudo install 99-savings /etc/pm/power.d
-sudo install 10-laptop-mode-tools /etc/pm/sleep.d
-sudo install 10-laptop-mode-tools /etc/pm/power.d
+
+# Reverse sense of ctrl and super keys
+ln -s $SCRIPT_DIR/xinitrc $HOME/.xinitrc
+ln -s $SCRIPT_DIR/Xmodmap $HOME/.Xmodmap
