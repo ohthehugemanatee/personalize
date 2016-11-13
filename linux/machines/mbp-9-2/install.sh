@@ -41,3 +41,7 @@ sudo install 99-savings /etc/pm/power.d
 # Reverse sense of ctrl and super keys
 ln -s $SCRIPT_DIR/xinitrc $HOME/.xinitrc
 ln -s $SCRIPT_DIR/Xmodmap $HOME/.Xmodmap
+
+
+echo "You may also consider modfying the values in /etc/UPower/UPower.conf for when the kernel should take action on low battery."
+
