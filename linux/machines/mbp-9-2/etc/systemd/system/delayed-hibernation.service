@@ -1,0 +1,14 @@
+[Unit]
+Description=Delayed hibernation trigger
+Before=suspend.target
+Conflicts=hibernate.target hybrid-suspend.target
+StopWhenUnneeded=true
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/delayed-hibernation.sh pre suspend
+ExecStop=/usr/local/bin/delayed-hibernation.sh post suspend
+
+[Install]
+WantedBy=sleep.target

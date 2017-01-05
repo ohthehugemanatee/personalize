@@ -45,3 +45,9 @@ ln -s $SCRIPT_DIR/Xmodmap $HOME/.Xmodmap
 
 echo "You may also consider modfying the values in /etc/UPower/UPower.conf for when the kernel should take action on low battery."
 
+# setup suspend-to-hibernate per http://askubuntu.com/a/785388
+sudo ln -s etc/systemd/system/* /etc/systemd/system
+sudo ln -s etc/delayed-hibernation.conf /etc
+sudo ln -s usr/local/bin/delayed-hibernation.sh /usr/local/bin/delayed-hibernation.sh
+sudo systemctl daemon-reload
+sudo systemctl enable delayed-hibernation
