@@ -51,3 +51,6 @@ sudo ln -s etc/delayed-hibernation.conf /etc
 sudo ln -s usr/local/bin/delayed-hibernation.sh /usr/local/bin/delayed-hibernation.sh
 sudo systemctl daemon-reload
 sudo systemctl enable delayed-hibernation
+
+# add special modprobe options for the SD card reader
+sudo cp $SCRIPT_DIR/etc/modprobe.d/* /etc/modprobe.d
