@@ -7,4 +7,7 @@ case $1 in
   "resume")
     iwlist scan
     ;;
+  "thaw")
+    iwlist scan
+    ;;
 esac

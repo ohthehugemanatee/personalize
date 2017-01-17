@@ -12,4 +12,4 @@ DefaultDependencies=no
 BindsTo=systemd-suspend.service
 After=systemd-suspend.service
 # Require our suspend-sedation script
-Requires=/etc/systemd/system/suspend.target
+Requires=/etc/systemd/system/delayed-hibernation.service
