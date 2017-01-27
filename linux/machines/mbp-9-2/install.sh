@@ -52,5 +52,12 @@ sudo ln -s usr/local/bin/delayed-hibernation.sh /usr/local/bin/delayed-hibernati
 sudo systemctl daemon-reload
 sudo systemctl enable delayed-hibernation
 
-# add special modprobe options for the SD card reader
-sudo cp $SCRIPT_DIR/etc/modprobe.d/* /etc/modprobe.d
+# Make sure we aren't using the proprietary broadcom driver.
+sudo apt install firmware-b43-installer
+sudo apt remove bcmwl-kernel-source
+# make sure the new module is enabled
+sudo modprobe b43
+
+
+# add special modprobe options for the SD card reader and wireless card
+sudo ln -s $SCRIPT_DIR/etc/modprobe.d/* /etc/modprobe.d
