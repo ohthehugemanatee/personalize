@@ -176,11 +176,11 @@ bindsym $mod+r mode "resize"
 # choose your font
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # font -misc-fixed-bold-r-normal-*-15-140-75-75-c-90-iso10646-1
-# font pango:DejaVu Sans Mono 12
+#font pango:DejaVu Sans Mono 12
 # font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
 # font pango:Droid Sans Mono Dotted 12
 # font pango:hermit 12
-font pango:Inconsolata 15
+# font pango:Inconsolata 15
 # font pango:monospace 12
 # font pango:SourceCodePro-SemiBold 11
 # font pango:Source Code Pro for Powerline, FontAwesome Regular, Icons 9
@@ -188,7 +188,7 @@ font pango:Inconsolata 15
 # font pango:UbuntuMono-regular 12
 # from ttf-chromeos-fonts
 # font pango:Cousine 13
-# font pango:Arimo 11
+font pango:Arimo 11
 # font pango:Sans 13 
 # font pango:Noto Mono Regular 13
 # font pango:DroidSansMono 13
@@ -321,7 +321,7 @@ exec --no-startup-id variety # wallpapers
 exec --no-startup-id dropbox start # dropbox
 exec --no-startup-id mintupdate-launcher # Mint update detection
 exec --no-startup-id blueberry-tray # bluetooth monitor
-exec --no-startup-id nm-applet # network connection manager
+exec --no-startup-id /usr/local/bin/nm-applet # network connection manager
 exec --no-startup-id volti #sound control
 #exec --no-startup-id pasystray #pulse audio control
 
@@ -511,6 +511,8 @@ exec unclutter
 
 bar {
 
+    
+    font pango:Arimo FontAwesome 11
 	# type status_command i3status without the config file and 
     # you will get the standard i3status bar
     # this is the standard statusbar with my personal settings
@@ -536,13 +538,13 @@ bar {
     workspace_buttons yes
     
     colors {
-            background #2F2F2F
-            statusline #eeeeee
+            statusline #2F2F2F
+            background  #f7f7f7
             separator #666666
             #                     border  backgr. text
             focused_workspace     #FFFFFF #CEB992 #222222
-            active_workspace      #CEB992 #222222 #CEB992
-            inactive_workspace    #585563 #222222 #585563
+            active_workspace      #CEB992 #CEB992 #222222 
+            inactive_workspace    #585563 #D5D5D5 #222222 
             urgent_workspace      #FFFFFF #890620 #FFFFFF
             }
     }
