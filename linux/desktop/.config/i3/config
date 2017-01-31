@@ -233,7 +233,8 @@ bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bol
 
 # Small screen=Monitor1, external=Monitor2
 set $firstMonitor LVDS1
-set $secondMonitor HDMI1
+#set $secondMonitor HDMI1
+set $secondMonitor DP1 # RAS monitor
 
 #set $firstMonitor DVI-I-2
 #set $secondMonitor VGA-0
@@ -554,7 +555,7 @@ bar {
 # class                 border  backgr. text    indicator
 client.placeholder      #242424 #242424 #242424
 client.background       #242424 #242424 #242424
-client.focused          #4A4A4A #4A4A4A #e5e5e5 #4A4A4A
+client.focused          #e5e5e5 #e5e5e5 #4A4A4A #e5e5e5
 client.unfocused        #222222 #222222 #aaaaaa #222222
 client.focused_inactive #222222 #222222 #a9a9a9 #222222
 client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
