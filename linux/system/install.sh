@@ -11,3 +11,5 @@ sudo apt install -y php php-ext-dom phpunit php-mbstring php-easyrdf openssh-ser
 sudo apt install -y dropbox slack
 
 sudo ln -s $PWD/wifi-on-resume.sh /etc/pm/sleep.d/wifi-on-resume
+# Use Overlay FS for docker
+sudo ln -s $PWD/etc/docker/daemon.json /etc/docker/daemon.json
