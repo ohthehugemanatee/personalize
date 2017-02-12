@@ -219,6 +219,8 @@ bindsym $mod+d exec dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=18'
 # start alternative menu j4-dmenu based on desktop files in /usr/share/applications
 bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bold:pixelsize=16' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#FFAF00'"
 
+#startup baby lock
+bindsym $mod+shift+l exec xtrlock
 # start up i3-dmenu-desktop
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
@@ -233,8 +235,8 @@ bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bol
 
 # Small screen=Monitor1, external=Monitor2
 set $firstMonitor LVDS1
-#set $secondMonitor HDMI1
-set $secondMonitor DP1 # RAS monitor
+set $secondMonitor HDMI1
+#set $secondMonitor DP1 # RAS monitor
 
 #set $firstMonitor DVI-I-2
 #set $secondMonitor VGA-0
@@ -435,12 +437,15 @@ bindsym $mod+Pause mode "$mode_system"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id ~/.config/i3/i3exit.sh lock, mode "default"
-    bindsym e exec --no-startup-id ~/.config/i3/i3exit.sh logout, mode "default"
+    #bindsym l exec --no-startup-id ~/.config/i3/i3exit.sh lock, mode "default"
+    bindsym l exec --no-startup-id exec cinnamon-screensaver-command -l, mode "default"
+    #bindsym e exec --no-startup-id ~/.config/i3/i3exit.sh logout, mode "default"
+    bindsym e exec --no-startup-id exec cinnamon-session-quit --logout, mode "default"
     bindsym s exec --no-startup-id ~/.config/i3/i3exit.sh suspend, mode "default"
     bindsym h exec --no-startup-id ~/.config/i3/i3exit.sh hibernate, mode "default"
     bindsym r exec --no-startup-id ~/.config/i3/i3exit.sh reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit.sh shutdown, mode "default"
+    #bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit.sh shutdown, mode "default"
+    bindsym Shift+s exec --no-startup-id exec cinnamon-session-quit --power-off, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -568,3 +573,9 @@ client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
 exec_always compton --config ~/.config/i3/compton.conf
 
 
+
+# i3-cinnamon
+#* use 'exec cinnamon-session-quit --logout'  : logout dialog
+#* use 'exec cinnamon-session-quit --power-off' : shutdown menu
+#* use 'exec cinnamon-screensaver-command -l' : locks the screen
+#* use 'exec cinnamon-screensaver-lock-dialog' : lockscreen with message
