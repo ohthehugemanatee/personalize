@@ -61,3 +61,7 @@ sudo modprobe b43
 
 # add special modprobe options for the SD card reader and wireless card
 sudo ln -s $SCRIPT_DIR/etc/modprobe.d/* /etc/modprobe.d
+
+# add service to force scan the wireless network on wake.
+ln -s $SCRIPT_DIR/etc/systemd/system/wlan-scan-on-wake.service /etc/systemd/system
+sudo systemctl enable wlan-scan-on-wake
