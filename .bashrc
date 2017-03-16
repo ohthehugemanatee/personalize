@@ -101,3 +101,6 @@ PATH=/usr/local/bin:$PATH
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+export NVM_DIR="/home/ohthehugemanatee/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
