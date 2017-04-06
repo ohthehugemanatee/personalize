@@ -48,8 +48,16 @@ alias sshproxy='ssh -D 8080 -Nf '
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin" 
 
+# Add composer to PATH
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
 # Put /user/local/bin at the front of PATH
 PATH=/usr/local/bin:$PATH
 
 export NVM_DIR="/home/ohthehugemanatee/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# gpg
+GPG_TTY=$(tty)
+export GPG_TTY
+export GPGKEY=758F4A3F
