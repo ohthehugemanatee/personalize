@@ -1,19 +1,17 @@
 [user]
 	name = Campbell Vertesi
 	email = campbell@vertesi.com
+	signingkey = 758F4A3F
 [color]
 	ui = true
 [alias]
 	undo = reset --soft HEAD^
-[diff]
-	tool = diffmerge
-[difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+  stash-all = stash save --include-untracked
+  glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [merge]
-	tool = diffmerge
-[mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-	trustExitCode = true
+  conflictstyle = diff3
+[commit]
+  gpgSign = true
 [core]
 	autocrlf = input
 [filter "media"]
@@ -21,4 +19,6 @@
 	smudge = git media smudge %f
 	required = true
 [push]
-	default = matching
+	default = simple
+[gpg]
+	program = gpg2
