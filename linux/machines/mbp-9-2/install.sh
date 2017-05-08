@@ -2,6 +2,10 @@
 
 # Installs the settings I need for the Macbook Pro 9,2
 
+SCRIPT_DIR=$PWD
+
+#trackpad setup, using the forked mtrack driver from https://github.com/p2rkw/xf86-input-mtrack
+sudo dpkg -i $SCRIPT_DIR/xserver-xorg-input-mtrack_0.4.1_amd64.deb
 mkdir -p /etc/X11/xorg.conf.d
 ln -s $PWD/etc/x11/xorg.conf.d/60-trackpad.conf /etc/X11/xorg.conf.d/60-trackpad.conf
 
@@ -17,7 +21,6 @@ sudo ln -s $PWD/usr/local/bin/kb /usr/local/bin/kb
 sudo ln -s $PWD/usr/local/bin/say /usr/local/bin/say
 
 # Get the mbpfan tool from github, make install, and add the service
-SCRIPT_DIR=$PWD
 cd /tmp
 /usr/bin/wget https://github.com/dgraziotin/mbpfan/archive/master.zip
 unzip master.zip
