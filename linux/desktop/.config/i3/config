@@ -311,10 +311,10 @@ for_window [class="Spotify"] move to workspace $tag0
 # TRAY APPLICATIONS
 
 # invisible stuff:
-exec --no-startup-id cinnamon-settings-daemon
+#exec --no-startup-id cinnamon-settings-daemon
 exec_always --no-startup-id numlockx on #enable numlock
 exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
-exec --no-startup-id fusuma # mouse gestures
+#exec --no-startup-id fusuma # mouse gestures
 
 # visible stuff
 exec --no-startup-id system-config-printer-applet # printer status applet
@@ -322,9 +322,8 @@ exec --no-startup-id /home/ohthehugemanatee/pia.sh #private internet access
 exec --no-startup-id redshift-gtk # red tinting the display
 exec --no-startup-id variety # wallpapers
 exec --no-startup-id dropbox start # dropbox
-exec --no-startup-id mintupdate-launcher # Mint update detection
-exec --no-startup-id blueberry-tray # bluetooth monitor
-exec --no-startup-id /usr/local/bin/nm-applet # network connection manager
+#exec --no-startup-id blueberry-tray # bluetooth monitor
+exec --no-startup-id nm-applet # network connection manager
 exec --no-startup-id volti #sound control
 #exec --no-startup-id pasystray #pulse audio control
 
@@ -438,14 +437,14 @@ bindsym $mod+Pause mode "$mode_system"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     #bindsym l exec --no-startup-id ~/.config/i3/i3exit.sh lock, mode "default"
-    bindsym l exec --no-startup-id exec cinnamon-screensaver-command -l, mode "default"
+#    bindsym l exec --no-startup-id exec cinnamon-screensaver-command -l, mode "default"
     #bindsym e exec --no-startup-id ~/.config/i3/i3exit.sh logout, mode "default"
-    bindsym e exec --no-startup-id exec cinnamon-session-quit --logout, mode "default"
-    bindsym s exec --no-startup-id ~/.config/i3/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.config/i3/i3exit.sh hibernate, mode "default"
-    bindsym r exec --no-startup-id ~/.config/i3/i3exit.sh reboot, mode "default"
+#    bindsym e exec --no-startup-id exec cinnamon-session-quit --logout, mode "default"
+#    bindsym s exec --no-startup-id ~/.config/i3/i3exit.sh suspend, mode "default"
+#    bindsym h exec --no-startup-id ~/.config/i3/i3exit.sh hibernate, mode "default"
+#    bindsym r exec --no-startup-id ~/.config/i3/i3exit.sh reboot, mode "default"
     #bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit.sh shutdown, mode "default"
-    bindsym Shift+s exec --no-startup-id exec cinnamon-session-quit --power-off, mode "default"
+#    bindsym Shift+s exec --no-startup-id exec cinnamon-session-quit --power-off, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -471,8 +470,12 @@ bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 #
 # # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+# xbacklight doesn't work on Ubuntu 17.04
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+
 #keyboard LED  brightness (doesn't work)
 #bindsym XF86KbdBrightnessDown exec --no-startup-id "cd /sys/class/leds/smc::kbd_backlight; cur=$(cat brightness); cur=$((cur-5)); if [ $cur -lt 0 ]; then cur=0; fi; echo $cur | sudo tee brightness "
 #bindsym XF86KbdBrightnessUp   exec --no-startup-id "cd /sys/class/leds/smc::kbd_backlight; cur=$(cat brightness); cur=$((cur+5)); if [ $cur -gt 255 ]; then cur=255; fi; echo $cur | sudo tee brightness "

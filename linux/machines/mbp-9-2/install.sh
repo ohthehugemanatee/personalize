@@ -3,11 +3,17 @@
 # Installs the settings I need for the Macbook Pro 9,2
 
 mkdir -p /etc/X11/xorg.conf.d
-ln -s $PWD/etc/x11/xorg.conf.d/60-synaptics.conf /etc/X11/xorg.conf.d/60-synaptics.conf
+ln -s $PWD/etc/x11/xorg.conf.d/60-trackpad.conf /etc/X11/xorg.conf.d/60-trackpad.conf
 
-sudo apt install xbacklight -y
+# install the "light" command from github to control screen brightness
+cd /tmp
+git clone https://github.com/haikarainen/light.git
+cd light
+make && sudo make install
 
+# keyboard backlight brightness script
 sudo ln -s $PWD/usr/local/bin/kb /usr/local/bin/kb
+# voice synthesis
 sudo ln -s $PWD/usr/local/bin/say /usr/local/bin/say
 
 # Get the mbpfan tool from github, make install, and add the service
@@ -38,30 +44,8 @@ cd $SCRIPT_DIR/power
 sudo install 99-savings /etc/pm/sleep.d
 sudo install 99-savings /etc/pm/power.d
 
-# Reverse sense of ctrl and super keys
-ln -s $SCRIPT_DIR/xinitrc $HOME/.xinitrc
-ln -s $SCRIPT_DIR/Xmodmap $HOME/.Xmodmap
-
-
 echo "You may also consider modfying the values in /etc/UPower/UPower.conf for when the kernel should take action on low battery."
 
-# setup suspend-to-hibernate per http://askubuntu.com/a/785388
-sudo ln -s etc/systemd/system/* /etc/systemd/system
-sudo ln -s etc/delayed-hibernation.conf /etc
-sudo ln -s usr/local/bin/delayed-hibernation.sh /usr/local/bin/delayed-hibernation.sh
-sudo systemctl daemon-reload
-sudo systemctl enable delayed-hibernation
-
-# Make sure we aren't using the proprietary broadcom driver.
-sudo apt install firmware-b43-installer
-sudo apt remove bcmwl-kernel-source
-# make sure the new module is enabled
-sudo modprobe b43
-
-
 # add special modprobe options for the SD card reader and wireless card
-sudo ln -s $SCRIPT_DIR/etc/modprobe.d/* /etc/modprobe.d
-
-# add service to force scan the wireless network on wake.
-ln -s $SCRIPT_DIR/etc/systemd/system/wlan-scan-on-wake.service /etc/systemd/system
-sudo systemctl enable wlan-scan-on-wake
+# still necessary?
+#sudo ln -s $SCRIPT_DIR/etc/modprobe.d/* /etc/modprobe.d
