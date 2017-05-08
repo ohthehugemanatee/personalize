@@ -54,9 +54,6 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 # Put /user/local/bin at the front of PATH
 PATH=/usr/local/bin:$PATH
 
-export NVM_DIR="/home/ohthehugemanatee/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # gpg
 GPG_TTY=$(tty)
 export GPG_TTY

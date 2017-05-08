@@ -4,7 +4,8 @@
 export DOCKERHOST=$(ifconfig | grep -E "([0-9]{1,3}\.){3}[0-9]{1,3}" | grep -v 127.0.0.1 | awk '{ print $2 }' | cut -f2 -d: | head -n1)
 alias ddown="dork-compose down"
 alias dup="dork-compose up -d"
-alias dupb="dork-compose up -d --build"
+alias dps="dork-compose ps"
+alias dlog="dork-compose logs -f"
 # bash shell inside the container
 alias dsh="dork-compose exec web bash"
 
