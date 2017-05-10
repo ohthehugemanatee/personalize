@@ -4,8 +4,7 @@
 
 SCRIPT_DIR=$PWD
 
-#trackpad setup, using the forked mtrack driver from https://github.com/p2rkw/xf86-input-mtrack
-sudo dpkg -i $SCRIPT_DIR/xserver-xorg-input-mtrack_0.4.1_amd64.deb
+#trackpad setup
 mkdir -p /etc/X11/xorg.conf.d
 ln -s $PWD/etc/x11/xorg.conf.d/60-trackpad.conf /etc/X11/xorg.conf.d/60-trackpad.conf
 
