@@ -234,8 +234,8 @@ bindsym $mod+shift+l exec xtrlock
 # xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
 
 # Small screen=Monitor1, external=Monitor2
-set $firstMonitor LVDS1
-set $secondMonitor HDMI1
+set $firstMonitor LVDS-1
+set $secondMonitor HDMI-1
 #set $secondMonitor DP1 # RAS monitor
 
 #set $firstMonitor DVI-I-2
@@ -247,40 +247,39 @@ set $secondMonitor HDMI1
 #set $firstMonitor DVI-0
 #set $secondMonitor DVI-1
 
-# Small screen: terminal, chats, skype, music
+# Small screen: chats, skype, music
+workspace $tag5 output $firstMonitor
+workspace $tag6 output $firstMonitor
 workspace $tag7 output $firstMonitor
 workspace $tag8 output $firstMonitor
 workspace $tag9 output $firstMonitor
 workspace $tag0 output $firstMonitor
 # Big screen: browser, code.
+workspace $tag1 output $secondMonitor
 workspace $tag2 output $secondMonitor
 workspace $tag3 output $secondMonitor
+workspace $tag4 output $secondMonitor
 
-# a couple extra workspaces each
-workspace 1 output $secondMonitor
-workspace 4 output $secondMonitor
-workspace 5 output $firstMonitor
-workspace 6 output $firstMonitor
 
 # switch to workspace
-bindsym $mod+1 workspace 1
+bindsym $mod+1 workspace $tag1
 bindsym $mod+2 workspace $tag2 
 bindsym $mod+3 workspace $tag3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
 bindsym $mod+7 workspace $tag7
 bindsym $mod+8 workspace $tag8
 bindsym $mod+9 workspace $tag9
 bindsym $mod+0 workspace $tag0
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+1 move container to workspace $tag1
 bindsym $mod+Shift+2 move container to workspace $tag2
 bindsym $mod+Shift+3 move container to workspace $tag3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace $tag6
 bindsym $mod+Shift+7 move container to workspace $tag7
 bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
@@ -288,18 +287,26 @@ bindsym $mod+Shift+0 move container to workspace $tag0
 
 ################### ASSIGN ######################
 
-assign [class="Firefox"]          → $tag2
+assign [class="gnome-terminal"]   $tag1
+assign [class="terminator"]   $tag1
+set $tag1 "1:term"
+assign [class="Firefox"]          $tag2
 set $tag2 "2:www"
-assign [class="PHPStorm"]         → $tag3
+assign [class="PHPStorm"]         $tag3
 set $tag3 "3:code"
-assign [class="gnome-terminal"]   → $tag7
-set $tag7 "7:term"
-assign [class="Slack"]            → $tag8
-set $tag8 "8:slack"
-assign [class="Viber"]            → $tag9
-assign [class="Skype"]            → $tag9
-set $tag9 "9:chat"
-assign [class="Spotify"]          → $tag10
+set $tag4 "4"
+assign [class="Toggl"]         $tag5
+set $tag5 "5:time"
+set $tag6 "6:video"
+set $tag7 "7"
+assign [class="Slack"]            $tag8
+assign [class="Franz"]            $tag8
+set $tag8 "8:Chat"
+assign [class="Viber"]            $tag9
+assign [class="Skype"]            $tag9
+set $tag9 "9:Comms"
+assign [class="Spotify"]          $tag0
+assign [class="VLC media player"]          $tag0
 set $tag0 "10:Music"
 #fix for spotify not moving to workspace 10
 for_window [class="Spotify"] move to workspace $tag0
