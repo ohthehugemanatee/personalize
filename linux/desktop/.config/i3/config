@@ -229,7 +229,7 @@ bindsym $mod+shift+l exec xtrlock
 # setting variables for later use
 # use xrandr to know the names of your monitors
 # use this line to tell which monitor is on the right
-# xrandr --output DVI-I-2 --right-of DVI-I-1 --auto
+# xrandr --output HDMI-1 --left-of LVDS-1 --auto
 
 # Small screen=Monitor1, external=Monitor2
 set $firstMonitor LVDS-1
@@ -338,7 +338,7 @@ exec --no-startup-id volti #sound control
 #exec ~/.config/i3/start-conkys.sh
 
 
-################### SHORTCUTS APPLICATIONS ######################
+################### SHORTCUTS ######################
 #mod1 = ALT
 
 bindsym control+mod1+f exec firefox-dev
@@ -347,6 +347,7 @@ bindsym control+mod1+s exec /usr/share/simplenote/simplenote;workspace $tag5;foc
 bindsym control+mod1+o exec nemo
 bindsym control+mod1+t exec /opt/toggldesktop/TogglDesktop
 bindsym $mod+F10 exec spotify;workspace $tag0;focus
+bindsym $mod+m exec /usr/bin/xrandr --output HDMI-1 --left-of LVDS-1 --auto
 
 
 ################### SHORTCUTS WORKSPACES ######################
