@@ -1,7 +1,7 @@
 [user]
 	name = Campbell Vertesi
 	email = campbell@vertesi.com
-	signingkey = 758F4A3F
+	signingkey = 490B098AB818E8493A13227657B6A751988839C3
 [color]
 	ui = true
 [alias]
@@ -20,5 +20,3 @@
 	required = true
 [push]
 	default = simple
-[gpg]
-  #program = gpg2
