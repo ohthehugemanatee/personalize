@@ -381,7 +381,7 @@ bindsym --release Control+Shift+3 exec /usr/local/bin/screenshot -a
 ################### FLOATING OR TILED ######################
 
 
-#floating enabled from some programs
+#floating enabled from some programs. use xprop to get the criteria.
 for_window [class="Gnome-disks"] floating enable
 for_window [class="^Skype$"] floating enable
 for_window [class="^Gnome-font-viewer$"] floating enable
@@ -410,6 +410,7 @@ for_window [class="Galculator"] floating enable
 for_window [class="Usb-creator-gtk"] floating enable
 for_window [class="MintUpdate.py"] floating enable
 for_window [class="Hexchat"] floating disable
+for_window [class="Gdebi-gtk"] floating enable
 
 #Popups during fullscreen mode
 popup_during_fullscreen smart
