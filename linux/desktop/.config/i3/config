@@ -283,29 +283,31 @@ bindsym $mod+Shift+8 move container to workspace $tag8
 bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag0
 
-################### ASSIGN ######################
 
-assign [class="gnome-terminal"]   $tag1
-assign [class="terminator"]   $tag1
+################### LABEL ######################
 set $tag1 "1:term"
-assign [class="Firefox"]          $tag2
 set $tag2 "2:www"
-assign [class="PHPStorm"]         $tag3
 set $tag3 "3:code"
 set $tag4 "4"
-assign [class="Toggl"]         $tag5
 set $tag5 "5:time"
 set $tag6 "6:video"
 set $tag7 "7"
+set $tag8 "8:Chat"
+set $tag9 "9:Comms"
+set $tag0 "10:Music"
+
+################### ASSIGN ######################
+assign [class="gnome-terminal"]   $tag1
+assign [class="terminator"]       $tag1
+assign [class="Firefox"]          $tag2
+assign [class="PHPStorm"]         $tag3
+assign [class="Toggl"]            $tag5
 assign [class="Slack"]            $tag8
 assign [class="Franz"]            $tag8
-set $tag8 "8:Chat"
 assign [class="Viber"]            $tag9
 assign [class="Skype"]            $tag9
-set $tag9 "9:Comms"
 assign [class="Spotify"]          $tag0
-assign [class="VLC media player"]          $tag0
-set $tag0 "10:Music"
+assign [class="VLC media player"] $tag0
 #fix for spotify not moving to workspace 10
 for_window [class="Spotify"] move to workspace $tag0
 
@@ -381,7 +383,8 @@ bindsym --release Control+Shift+3 exec /usr/local/bin/screenshot -a
 ################### FLOATING OR TILED ######################
 
 
-#floating enabled from some programs. use xprop to get the criteria.
+# floating enabled from some programs. use xprop to get the criteria.
+
 for_window [class="Gnome-disks"] floating enable
 for_window [class="^Skype$"] floating enable
 for_window [class="^Gnome-font-viewer$"] floating enable
