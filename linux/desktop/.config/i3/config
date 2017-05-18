@@ -297,17 +297,18 @@ set $tag9 "9:Comms"
 set $tag0 "10:Music"
 
 ################### ASSIGN ######################
-assign [class="gnome-terminal"]   $tag1
-assign [class="terminator"]       $tag1
-assign [class="Firefox"]          $tag2
-assign [class="PHPStorm"]         $tag3
-assign [class="Toggl"]            $tag5
-assign [class="Slack"]            $tag8
-assign [class="Franz"]            $tag8
-assign [class="Viber"]            $tag9
-assign [class="Skype"]            $tag9
-assign [class="Spotify"]          $tag0
-assign [class="VLC media player"] $tag0
+assign [class="gnome-terminal"]     $tag1
+assign [class="terminator"]         $tag1
+assign [class="Firefox"]            $tag2
+assign [class="jetbrains-phpstorm"] $tag3
+assign [class="Toggl"]              $tag5
+assign [class="zoom"]               $tag6
+assign [class="Slack"]              $tag8
+assign [class="Franz"]              $tag8
+assign [class="Viber"]              $tag9
+assign [class="Skype"]              $tag9
+assign [class="Spotify"]            $tag0
+assign [class="VLC media player"]   $tag0
 #fix for spotify not moving to workspace 10
 for_window [class="Spotify"] move to workspace $tag0
 
