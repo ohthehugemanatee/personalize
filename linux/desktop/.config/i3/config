@@ -437,7 +437,7 @@ bindsym mod1+f exec variety -f
 ################### MODE_SYSTEM ######################
 
 
-bindsym $mod+shift+e mode "$mode_system"
+bindsym $mod+shift+e mode "$mode_system"; exec "i3-nagbar -m 'System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown'"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -451,9 +451,19 @@ mode "$mode_system" {
     bindsym Shift+s exec --no-startup-id exec cinnamon-session-quit --power-off, mode "default"
 
     # back to normal: Enter or Escape
+    bindsym Return mode "default"; exec killall i3-nagbar
+    bindsym Escape mode "default"; exec killall i3-nagbar
+}
+
+set $mode_scrot [s]election | [a]ctive window
+mode "$mode_scrot" {
+    bindsym --release s mode "default", exec --no-startup-id scrot -s /home/user/Pictures/screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+    bindsym --release a mode "default", exec --no-startup-id scrot -u -d 4 /home/user/Pictures/screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+bindsym $mod+Shift+s mode "$mode_scrot"
 
 
 ################### AUDIO ######################
