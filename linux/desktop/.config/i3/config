@@ -230,10 +230,15 @@ bindsym $mod+shift+l exec xtrlock
 # use xrandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output HDMI-1 --left-of LVDS-1 --auto
-
 # Small screen=Monitor1, external=Monitor2
+
+# Macbook Pro setup
 set $firstMonitor LVDS-1
 set $secondMonitor HDMI-1
+
+# Ubuntu desktop setup
+#set $firstMonitor DVI-0
+#set $secondMonitor HDMI-0
 #set $secondMonitor DP1 # RAS monitor
 
 #set $firstMonitor DVI-I-2
@@ -415,6 +420,7 @@ for_window [class="Usb-creator-gtk"] floating enable
 for_window [class="MintUpdate.py"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Gdebi-gtk"] floating enable
+for_window [class="Chromium-browser" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
 
 #Popups during fullscreen mode
 popup_during_fullscreen smart
