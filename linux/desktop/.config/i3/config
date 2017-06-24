@@ -324,7 +324,7 @@ for_window [class="Spotify"] move to workspace $tag0
 # TRAY APPLICATIONS
 
 # invisible stuff:
-#exec --no-startup-id cinnamon-settings-daemon
+exec --no-startup-id xrandr --dpi 220
 exec_always --no-startup-id numlockx on #enable numlock
 exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
 
@@ -486,8 +486,8 @@ bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer
 bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight +20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -20 # decrease screen brightness
 
 # keyboard brightness
 bindsym XF86KbdBrightnessDown exec "sudo kb down"
