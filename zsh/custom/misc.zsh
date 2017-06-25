@@ -58,3 +58,7 @@ PATH=/usr/local/bin:$PATH
 GPG_TTY=$(tty)
 export GPG_TTY
 export GPGKEY=758F4A3F
+
+# packages installed with pip
+export PATH=$PATH:$HOME/.local/bin
+
