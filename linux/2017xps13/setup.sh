@@ -56,18 +56,29 @@ ln -sf $PERSONAlIZE/.conky $HOME/.conky
 sudo ln -sf $PERSONAlIZE/screenshot.sh /usr/local/bin/screenshot
 
 # Install applications and tools I like, want, and need.
-
 sudo apt install -y php phpunit php-mbstring openssh-server composer bundler ruby-dev powertop gcc build-essential dropbox steam
 
 # Use Overlay FS for docker
-
 sudo ln -sf $PERSONAlIZE/etc/docker/daemon.json /etc/docker/daemon.json
+
+# Toggl desktop client
+cd /tmp
+wget http://fr.archive.ubuntu.com/ubuntu/pool/main/g/gst-plugins-base0.10/libgstreamer-plugins-base0.10-0_0.10.36-1_amd64.deb # no longer available in Ubuntu > 16.04
+wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/g/gstreamer0.10/libgstreamer0.10-0_0.10.36-1.5ubuntu1_amd64.deb # no longer available in Ubuntu > 16.04
+sudo dpkg -i libgstreamer*.deb
+wget https://toggl.com/api/v8/installer?app=td&platform=deb64&channel=stable
+sudo dpkg -i toggldesktop_*.deb
+
+# Zoom meetings
+cd /tmp
+sudo apt install libxcb-xtest0 libxcb-xtest0-dev -y
+wget https://zoom.us/client/latest/zoom_amd64.deb
+sudo dpkg -i zoom_amd64.deb
 
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
 * Firefox developer edition
-* Toggl
 * PrivateInternetAccess
 * Spotify
 * PHPStorm
