@@ -18,7 +18,8 @@ sudo add-apt-repository ppa:numix/ppa # themes.
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo add-apt-repository "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" 
 sudo add-apt-repository multiverse # various. Notably Steam.
-sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/php # php modules
+sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
 
 sudo apt update
 
