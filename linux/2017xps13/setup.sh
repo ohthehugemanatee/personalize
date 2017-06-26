@@ -81,6 +81,10 @@ sudo apt install libxcb-xtest0 libxcb-xtest0-dev -y
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo dpkg -i zoom_amd64.deb
 
+# mouse, synaptics configuration.
+sudo mkdir -p /etc/X11/xorg.conf.d
+sudo ln -sf $PERSONALIZE/60-trackpad.conf /etc/X11/xorg.conf.d/
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
