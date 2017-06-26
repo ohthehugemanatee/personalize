@@ -420,7 +420,9 @@ for_window [class="Usb-creator-gtk"] floating enable
 for_window [class="MintUpdate.py"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Gdebi-gtk"] floating enable
-for_window [class="Chromium-browser" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable
+for_window [class="Chromium-browser" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable # Signal messenger
+for_window [class="Audacious"] sticky enable
+for_window [class="Audacious"] floating enable
 
 #Popups during fullscreen mode
 popup_during_fullscreen smart
