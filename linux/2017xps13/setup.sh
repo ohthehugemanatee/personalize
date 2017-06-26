@@ -11,10 +11,12 @@ if [ -d /etc/apt/sources.list.d ]; then
 fi
 # Add some manual keys and repos.
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - # google talk/hangouts
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - # docker
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E # dropbox
 sudo add-apt-repository ppa:numix/ppa # themes.
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" 
 sudo add-apt-repository multiverse # various. Notably Steam.
 sudo add-apt-repository ppa:ondrej/php
 
@@ -37,10 +39,11 @@ sudo apt update
 # * lxappearance, GTK+ theme switcher
 # * unclutter, hides the cursor when typing
 # * terminator, alternative terminal emulator
+# * j4-dmenu-desktop, dMenu for .desktop files
 # 
 # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
 
-sudo apt install i3 i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel terminator -y
+sudo apt install i3 i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel terminator j4-dmenu-desktop -y
 
 #simlink i3 config into place.
 mkdir -p $HOME/.config
@@ -52,11 +55,9 @@ ln -sf $PERSONAlIZE/.conky $HOME/.conky
 #simlink screenshot script into place
 sudo ln -sf $PERSONAlIZE/screenshot.sh /usr/local/bin/screenshot
 
-# Installs applications and tools I like, want, and need.
+# Install applications and tools I like, want, and need.
 
-sudo apt install -y php phpunit php-mbstring php-easyrdf openssh-server composer bundler ruby-dev cpupower cpufrequtils powertop gcc build-essential
-
-sudo apt install -y dropbox steam
+sudo apt install -y php phpunit php-mbstring openssh-server composer bundler ruby-dev powertop gcc build-essential dropbox steam
 
 # Use Overlay FS for docker
 
@@ -68,4 +69,11 @@ echo "These applications must be manually installed from their websites. How cra
 * Firefox developer edition
 * Toggl
 * PrivateInternetAccess
-* Spotify"
+* Spotify
+* PHPStorm
+* Franz
+* Whatsie
+* Viber
+* Zoom
+
+If I'm smart, I've kept my /opt directory so you can just symlink (by hand)."
