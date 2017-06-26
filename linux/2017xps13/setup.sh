@@ -89,8 +89,8 @@ sudo dpkg -i simplenote-1.0.8.deb
 
 # Skype for Linux
 cd /tmp
-wget https://go.skype.com/linux.deb
-sudo dpkg -i linux.deb
+wget https://go.skype.com/skypeforlinux-64.deb
+sudo dpkg -i skypeforlinux-64.deb
 
 # mouse, synaptics configuration.
 sudo mkdir -p /etc/X11/xorg.conf.d
