@@ -85,7 +85,12 @@ sudo dpkg -i zoom_amd64.deb
 # Simplenote
 cd /tmp
 wget https://github.com/Automattic/simplenote-electron/releases/download/v1.0.8/simplenote-1.0.8.deb
-sudo apt install simplenote-1.0.8.deb
+sudo dpkg -i simplenote-1.0.8.deb
+
+# Skype for Linux
+cd /tmp
+wget https://go.skype.com/linux.deb
+sudo dpkg -i linux.deb
 
 # mouse, synaptics configuration.
 sudo mkdir -p /etc/X11/xorg.conf.d
