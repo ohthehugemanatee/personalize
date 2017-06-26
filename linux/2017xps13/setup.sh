@@ -82,6 +82,11 @@ sudo apt install libxcb-xtest0 libxcb-xtest0-dev -y
 wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo dpkg -i zoom_amd64.deb
 
+# Simplenote
+cd /tmp
+wget https://github.com/Automattic/simplenote-electron/releases/download/v1.0.8/simplenote-1.0.8.deb
+sudo apt install simplenote-1.0.8.deb
+
 # mouse, synaptics configuration.
 sudo mkdir -p /etc/X11/xorg.conf.d
 sudo ln -sf $PERSONALIZE/60-trackpad.conf /etc/X11/xorg.conf.d/
