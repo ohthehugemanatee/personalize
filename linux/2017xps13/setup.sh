@@ -68,6 +68,12 @@ wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/g/gstreamer0.10/libgstrea
 sudo dpkg -i libgstreamer*.deb
 wget https://toggl.com/api/v8/installer?app=td&platform=deb64&channel=stable
 sudo dpkg -i toggldesktop_*.deb
+# If font sizes are fucked on hiDPI, you have to download/install Qt manually, and remove the Qt libs bundled with Toggl.
+cd /tmp
+wget http://download.qt.io/official_releases/qt/5.9/5.9.0/qt-opensource-linux-x64-5.9.0.run
+sh ./qt-opensource-linux-x64-5.9.0.run
+sudo rm -rf /opt/toggldesktop/lib/libQt*
+# the oh-my-zsh misc.zsh startup script sets env variable QT_AUTO_SCREEN_SCALE_FACTOR=1 which is what really makes the scaling magic happen.
 
 # Zoom meetings
 cd /tmp

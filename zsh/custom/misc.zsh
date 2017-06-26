@@ -62,3 +62,5 @@ export GPGKEY=758F4A3F
 # packages installed with pip
 export PATH=$PATH:$HOME/.local/bin
 
+# Toggl Desktop needs this to size the fonts.
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
