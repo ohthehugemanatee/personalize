@@ -1,9 +1,6 @@
 My linux configs
 ===
 
-Two scripts:
+One script: setup.sh. It sets up the system environment just how I like it
 
-* setup-hardware.sh: any hardware support stuff the system needs. Special drivers, etc.
-* setup.sh: sets up the system environment just how I like it
-
-Everything is documented in the scripts themselves.
+Everything is documented in the script itself.
