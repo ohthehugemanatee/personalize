@@ -88,3 +88,6 @@ echo "These applications must be manually installed from their websites. How cra
 * Zoom
 
 If I'm smart, I've kept my /opt directory so you can just symlink (by hand)."
+
+# Set DPI explicitly when starting lightDM.
+ln -sf $PERSONALIZE/20-displaysetup.conf /usr/share/lightdm/lightdm.conf.d/
