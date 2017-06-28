@@ -64,3 +64,6 @@ export PATH=$PATH:$HOME/.local/bin
 
 # Toggl Desktop needs this to size the fonts.
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+# phpunit test from the repo root
+alias phpu='SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=sqlite://localhost//tmp/db.sqlite $PWD/vendor/bin/phpunit -c $PWD/web/core --verbose'
