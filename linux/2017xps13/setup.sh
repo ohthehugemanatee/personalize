@@ -57,7 +57,7 @@ ln -sf $PERSONAlIZE/.conky $HOME/.conky
 sudo ln -sf $PERSONAlIZE/screenshot.sh /usr/local/bin/screenshot
 
 # Install applications and tools I like, want, and need.
-sudo apt install -y php phpunit php-mbstring openssh-server composer bundler ruby-dev powertop gcc build-essential dropbox steam
+sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server composer bundler ruby-dev powertop gcc build-essential dropbox steam
 
 # Use Overlay FS for docker
 sudo ln -sf $PERSONAlIZE/etc/docker/daemon.json /etc/docker/daemon.json
@@ -95,6 +95,9 @@ sudo dpkg -i skypeforlinux-64.deb
 # mouse, synaptics configuration.
 sudo mkdir -p /etc/X11/xorg.conf.d
 sudo ln -sf $PERSONALIZE/60-trackpad.conf /etc/X11/xorg.conf.d/
+
+# set default editor to vim (option 3)
+sudo update-alternatives --config editor <<< '3'
 
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
