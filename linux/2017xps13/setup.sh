@@ -109,8 +109,9 @@ sudo ln -sf $PERSONALIZE/etc/X11/xorg.conf.d/60-trackpad.conf /etc/X11/xorg.conf
 # set default editor to vim (option 3)
 sudo update-alternatives --config editor <<< '3'
 
-# simlink my screenshot script.
+# simlink my scripts.
 sudo ln -sf $PERSONALIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
+sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-screens.sh
 
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.

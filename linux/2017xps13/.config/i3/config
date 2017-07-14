@@ -230,25 +230,13 @@ bindsym $mod+shift+l exec xtrlock
 # use xrandr to know the names of your monitors
 # use this line to tell which monitor is on the right
 # xrandr --output HDMI-1 --left-of LVDS-1 --auto
-# Small screen=Monitor1, external=Monitor2
 
-# Macbook Pro setup
-set $firstMonitor LVDS-1
-set $secondMonitor HDMI-1
+exec /usr/local/bin/configure-screens.sh
 
-# Ubuntu desktop setup
-#set $firstMonitor DVI-0
-#set $secondMonitor HDMI-0
-#set $secondMonitor DP1 # RAS monitor
-
-#set $firstMonitor DVI-I-2
-#set $secondMonitor VGA-0
-
-#set $firstMonitor DVI-I-2
-#set $secondMonitor DVI-I-3
-
-#set $firstMonitor DVI-0
-#set $secondMonitor DVI-1
+# Assign monitor variables to specific screens.
+# Small screen=firstMonitor, external=secondMonitor
+set $firstMonitor eDP1
+set $secondMonitor DP1
 
 # Small screen: chats, skype, music
 workspace $tag5 output $firstMonitor
@@ -324,7 +312,9 @@ for_window [class="Spotify"] move to workspace $tag0
 # TRAY APPLICATIONS
 
 # invisible stuff:
-exec --no-startup-id xrandr --dpi 220
+exec --no-startup-id xrandr --dpi 220 --fb 7040x2160
+exec --no-startup-id xrandr --output DP1 --scale 2x2 --mode 1920x1080 --pos 0x0
+exec --no-startup-id xrandr --output eDP1 --scale 1x1 --pos 3840x0
 exec_always --no-startup-id numlockx on #enable numlock
 exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
 
