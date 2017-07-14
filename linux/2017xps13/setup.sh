@@ -104,7 +104,7 @@ sudo dpkg -i skypeforlinux-64.deb
 
 # mouse, synaptics configuration.
 sudo mkdir -p /etc/X11/xorg.conf.d
-sudo ln -sf $PERSONALIZE/60-trackpad.conf /etc/X11/xorg.conf.d/
+sudo ln -sf $PERSONALIZE/etc/X11/xorg.conf.d/60-trackpad.conf /etc/X11/xorg.conf.d/
 
 # set default editor to vim (option 3)
 sudo update-alternatives --config editor <<< '3'
