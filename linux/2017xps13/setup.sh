@@ -113,6 +113,10 @@ sudo update-alternatives --config editor <<< '3'
 sudo ln -sf $PERSONALIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
 sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-screens.sh
 
+# Screen config for lightdm
+sudo mkdir -p /etc/lightdm/lightdm.conf.d
+sudo ln -sf $PERSONALIZE/etc/lightdm/lightdm.conf.d/60-configure-screens.conf /etc/lightdm/lightdm.conf.d/
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
