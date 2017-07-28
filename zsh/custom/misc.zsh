@@ -67,3 +67,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 # phpunit test from the repo root
 alias phpu='SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=sqlite://localhost//tmp/db.sqlite $PWD/vendor/bin/phpunit -c $PWD/web/core --verbose'
+
+# hidpi support for Qt apps
+QT_DEVICE_PIXEL_RATIO=2
+QT_AUTO_SCREEN_SCALE_FACTOR=2
