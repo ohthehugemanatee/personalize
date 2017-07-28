@@ -117,6 +117,9 @@ sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/confi
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo ln -sf $PERSONALIZE/etc/lightdm/lightdm.conf.d/60-configure-screens.conf /etc/lightdm/lightdm.conf.d/
 
+# Xmodmap for euro key. Note otherwise I should be on dell US keyboard layout, with options lv3:switch, compose:ralt, terminate:ctrl_alt_bksp.
+ln -sf $PERSONALIZE/Xmodmap $HOME/.Xmodmap
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
