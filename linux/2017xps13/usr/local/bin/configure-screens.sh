@@ -14,8 +14,11 @@
 # Count connected monitors
 MONITORS=$(xrandr -q | grep ' connected'|wc -l)
 
+# Either way, set the DPI.
+xrandr --dpi 221
+
 if [ $MONITORS = "2" ]; then
-  xrandr --dpi 220 --fb 7040x2160
+  xrandr --fb 7040x2160
   xrandr --output DP1 --scale 2x2 --mode 1920x1080 --pos 0x0
   xrandr --output eDP1 --scale 1x1 --mode 3200x1800 --pos 3840x0
 elif [ $MONITORS = "1" ]; then
