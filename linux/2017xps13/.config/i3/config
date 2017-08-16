@@ -217,6 +217,9 @@ bindsym $mod+d exec dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=18'
 # start alternative menu j4-dmenu based on desktop files in /usr/share/applications
 bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bold:pixelsize=16' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#FFAF00'"
 
+# start pass dmenu interface
+bindsym $mod+shift+p exec /usr/share/doc/pass/examples/dmenu/passmenu
+
 #startup baby lock
 bindsym $mod+shift+l exec xtrlock
 # start up i3-dmenu-desktop
