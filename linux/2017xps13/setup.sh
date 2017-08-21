@@ -127,6 +127,10 @@ ln -sf $PERSONALIZE/Xmodmap $HOME/.Xmodmap
 sudo apt install qtpass -y
 sudo ln -sf /usr/share/doc/pass/passmenu /usr/local/bin/
 
+# Thefuck shell script.
+sudo apt install python3-dev python3-pip -y
+pip3 install thefuck
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
