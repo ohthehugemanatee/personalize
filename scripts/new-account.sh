@@ -11,3 +11,4 @@ ln -s personalize/.drush
 mkdir .vagrant.d
 ln -s personalize/Vagrantfile .vagrant.d/Vagrantfile
 ln -s personalize/.selected-editor
+cd ~/.oh-my-zsh/custom && ln -sf personalize/zsh/custom/*
