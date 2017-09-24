@@ -329,6 +329,7 @@ exec --no-startup-id variety # wallpapers
 exec --no-startup-id dropbox start # dropbox
 exec --no-startup-id nm-applet # network connection manager
 exec --no-startup-id volti #sound control
+exec --no-startup-id veracrypt --auto-mount=favorites # encrypted volume
 
 
 # USER APPLICATIONS
