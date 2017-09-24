@@ -318,6 +318,7 @@ for_window [class="Spotify"] move to workspace $tag0
 exec_always --no-startup-id numlockx on #enable numlock
 exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
 exec gpg-agent --daemon # GPG as an ssh agent.
+exec xmodmap ~/.Xmodmap
 
 # visible stuff
 exec --no-startup-id system-config-printer-applet # printer status applet
