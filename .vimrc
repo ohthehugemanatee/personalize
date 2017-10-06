@@ -7,14 +7,12 @@ call pathogen#infect('/$HOME/.vim/bundle/{}')
 " End of vimrc-install additions.
 
 source $VIMRUNTIME/vimrc_example.vim
-filetype plugin on
-filetype plugin indent on
 " My personal vim config
 
 " Editor behaviors
+filetype off " required for Vundle
 set nocompatible " to get all the Vim-only options
 syntax enable " enable syntax highlighting
-filetype plugin indent on "enable filetype detection
 set showmode  " shows the current mode
 set backspace=indent,eol,start "backspaces behave like backspaces
 set hidden "good multi-file behaviors
@@ -124,3 +122,22 @@ let g:solarized_contrast="high"
 " Tagbar Toggle
 nmap <C-T> :TagbarToggle<CR> 
 
+" Vundle setup.
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" End Vundle setup.
