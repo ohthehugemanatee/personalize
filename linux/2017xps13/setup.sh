@@ -49,6 +49,8 @@ sudo apt install i3 i3lock suckless-tools i3status dmenu i3lock xbacklight feh c
 #simlink i3 config into place.
 mkdir -p $HOME/.config
 ln -sf $PERSONAlIZE/.config/i3 $HOME/.config/i3
+#simlink terminator config into place
+ln -sf $PERSONALIZE/.config/terminator $HOME/.config/terminator
 
 #simlink conky library into place
 ln -sf $PERSONAlIZE/.conky $HOME/.conky
