@@ -102,24 +102,24 @@ let g:netrw_altv=1              " open files on right
 let g:netrw_preview=1           " open previews vertically
 
 " Change directory to the current buffer when opening files.
-"set autochdir
+set autochdir
 
 " end new explorer shit
 " Enable omni completion (<C-X><C-O> when in Insert mode)
 set omnifunc=syntaxcomplete#Complete
 " Autocomplete behavior - complete as you type, use Enter to select.
 set completeopt=longest,menuone
-"inoremap <expr> <CR> pumvisible() ? "<C-y>" : "\<C-g>u\<CR>"
-"inoremap <expr> <C-n> pumvisible() ? '<C-n>' : <C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <CR> pumvisible() ? "<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : <C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-"inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-"  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 "Solarized VIM color scheme
 set background=dark
 let g:solarized_termcolors=16
 colorscheme solarized
+let g:solarized_contrast="high"
 
 " Tagbar Toggle
 nmap <C-T> :TagbarToggle<CR> 
