@@ -208,7 +208,7 @@ font pango:Verdana Mono Regular Awesome 11
 # personal preference for tuning the look
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec terminator;focus
-bindsym $mod+Return exec uxterm;focus
+bindsym $mod+Return exec xterm;focus
 
 #bindsym $mod+Return exec gnome-terminal;focus
 
