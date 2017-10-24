@@ -212,13 +212,11 @@ bindsym $mod+Return exec terminator;focus
 
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=18' 
+#bindsym $mod+d exec dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=18' 
+bindsym $mod+d exec rofi -show combi 
 
 # start alternative menu j4-dmenu based on desktop files in /usr/share/applications
-bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bold:pixelsize=16' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#FFAF00'"
-
-# start pass dmenu interface
-bindsym $mod+shift+p exec /usr/share/doc/pass/examples/dmenu/passmenu
+#bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bold:pixelsize=16' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#FFAF00'"
 
 #startup baby lock
 bindsym $mod+shift+l exec xtrlock
@@ -317,7 +315,7 @@ for_window [class="Spotify"] move to workspace $tag0
 # invisible stuff:
 exec_always --no-startup-id numlockx on #enable numlock
 exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
-exec gpg-agent --daemon # GPG as an ssh agent.
+exec gpg-agent --daemon --debug-level expert # GPG as an ssh agent.
 exec xmodmap ~/.Xmodmap
 
 # visible stuff
