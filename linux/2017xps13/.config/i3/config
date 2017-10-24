@@ -116,6 +116,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+bindsym $mod+Shift+b exec $HOME/.config/polybar/launch.sh
 
 
 ################### RESIZE ##############################
@@ -195,8 +196,8 @@ bindsym $mod+r mode "resize"
 #font pango:Noto Mono Regular 13
 font pango:Verdana Mono Regular Awesome 11
 
-
-################### TERMINAL ######################
+######### BAR ############
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # went from thunar from xfce4 to nemo of Linux mint for svg design reasons
 # open terminal and icon in panel point to terminator rather than gnome-terminal
@@ -285,16 +286,16 @@ bindsym $mod+Shift+0 move container to workspace $tag0
 
 ################### LABEL ######################
 # Labels from FontAwesome.
-set $tag1 "1 &#xf120; "
-set $tag2 "2 &#xf269; "
-set $tag3 "3 &#xf121; "
-set $tag4 "4 &#xf2d2; "
-set $tag5 "5 &#xf017; "
-set $tag6 "6 &#xf03d; "
-set $tag7 "7 &#xf2d2; "
-set $tag8 "8 &#xf198; " 
-set $tag9 "9 &#xf0e6; "
-set $tag0 "10 &#xf001; " 
+set $tag1 "1"
+set $tag2 "2"
+set $tag3 "3"
+set $tag4 "4"
+set $tag5 "5"
+set $tag6 "6"
+set $tag7 "7"
+set $tag8 "8"
+set $tag9 "9"
+set $tag0 "10"
 
 ################### ASSIGN ######################
 assign [class="gnome-terminal"]     $tag1
@@ -475,8 +476,8 @@ bindsym $mod+Shift+s mode "$mode_scrot"
 
 
 #handled by Volti
-bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '5%+'"
-bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '5%-'"
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '10%+'"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '10%-'"
 bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
 
 bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause" 
@@ -504,7 +505,7 @@ bindsym $mod+b bar mode toggle
 
 # Border control
 hide_edge_borders both
-bindsym $mod+shift+b exec i3-msg border toggle
+# bindsym $mod+shift+b exec i3-msg border toggle
 
 #changing border style
 bindsym $mod+t border normal
@@ -524,48 +525,6 @@ exec unclutter
 
 
 
-################### BAR APPEARANCE ######################
-
-
-bar {
-
-    
-    font pango:Verdana Mono Regular Awesome 12
-	  # type status_command i3status without the config file and 
-    # you will get the standard i3status bar
-    # this is the standard statusbar with my personal settings
-	 status_command i3status -c ~/.config/i3/i3status.conf
-
-    # https://github.com/vivien/i3blocks
-    # another way to provide text in the statusbar
-    # step 10 of https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon/tree/master/installation
-    # put hastag in front if not installed
-    # status_command i3blocks -c ~/.config/i3/i3blocks.conf
-
-    # You can also replace the istatus bar with a conky
-    # be sure to install conky
-    # step 10 folder conky
-    # font awesome should be installed script + font
-    # start-conky-i3statusbar.sh is started and conky will follow
-    # documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
-    # conky configuration is in conky-i3statusbar
-	# status_command ~/.config/i3/start-conky-i3statusbar.sh
-
-	
-	#height 25
-    workspace_buttons yes
-    
-    colors {
-            statusline #2F2F2F
-            background  #f7f7f7
-            separator #666666
-            #                     border  backgr. text
-            focused_workspace     #FFFFFF #CEB992 #222222
-            active_workspace      #CEB992 #CEB992 #222222 
-            inactive_workspace    #585563 #D5D5D5 #222222 
-            urgent_workspace      #FFFFFF #890620 #FFFFFF
-            }
-    }
 
 # DarkGrey background with white text - not focus grey background - black text
 # Windows decoration colors
