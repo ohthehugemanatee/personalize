@@ -1,5 +1,5 @@
 ! "Enabled modi" Set from: Default
-! rofi.modi:                           window,run,ssh
+rofi.modi:                           combi
 ! "Window width" Set from: Default
 ! rofi.width:                          50
 ! "Number of lines" Set from: Default
@@ -7,7 +7,7 @@
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
-! rofi.font:                           mono 12
+rofi.font:                           pango:Verdana Mono Regular 28 
 ! "Color scheme for normal row" Set from: Default
 ! rofi.color-normal:                   #fdf6e3,#002b36,#eee8d5,#586e75,#eee8d5
 ! "Color scheme for urgent row" Set from: Default
@@ -61,7 +61,7 @@
 ! "Parse known_hosts file for ssh mode" Set from: Default
 ! rofi.parse-known-hosts:              true
 ! "Set the modi to combine in combi mode" Set from: Default
-! rofi.combi-modi:                     window,run
+rofi.combi-modi:                     window,drun,run
 ! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
 ! rofi.matching:                       normal
 ! "Tokenize input string" Set from: Default

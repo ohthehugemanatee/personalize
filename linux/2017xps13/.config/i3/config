@@ -28,12 +28,6 @@
 set $mod Mod4
 
 
-################### FONTS ######################
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-# font pango:monospace 8
-
 
 ###################       STOPPING A PROGRAM      ##############################
 
@@ -186,11 +180,12 @@ bindsym $mod+r mode "resize"
 # font pango:UbuntuMono-regular 12
 # from ttf-chromeos-fonts
 # font pango:Cousine 13
-font pango:Arimo 11
+#font pango:Arimo 11
 # font pango:Sans 13 
 # font pango:Noto Mono Regular 13
 # font pango:DroidSansMono 13
 #font pango:Noto Mono Regular 13
+font pango:Verdana Mono Regular Awesome 11
 
 
 ################### TERMINAL ######################
@@ -279,16 +274,17 @@ bindsym $mod+Shift+0 move container to workspace $tag0
 
 
 ################### LABEL ######################
-set $tag1 "1:term"
-set $tag2 "2:www"
-set $tag3 "3:code"
-set $tag4 "4"
-set $tag5 "5:time"
-set $tag6 "6:video"
-set $tag7 "7"
-set $tag8 "8:Chat"
-set $tag9 "9:Comms"
-set $tag0 "10:Music"
+# Labels from FontAwesome.
+set $tag1 "1 &#xf120; "
+set $tag2 "2 &#xf269; "
+set $tag3 "3 &#xf121; "
+set $tag4 "4 &#xf2d2; "
+set $tag5 "5 &#xf017; "
+set $tag6 "6 &#xf03d; "
+set $tag7 "7 &#xf2d2; "
+set $tag8 "8 &#xf198; " 
+set $tag9 "9 &#xf0e6; "
+set $tag0 "10 &#xf001; " 
 
 ################### ASSIGN ######################
 assign [class="gnome-terminal"]     $tag1
@@ -524,7 +520,7 @@ exec unclutter
 bar {
 
     
-    font pango:Arimo FontAwesome 11
+    font pango:Verdana Mono Regular Awesome 12
 	  # type status_command i3status without the config file and 
     # you will get the standard i3status bar
     # this is the standard statusbar with my personal settings
