@@ -39,27 +39,38 @@ sudo apt update
 # * numlockx, numlock controller
 # * lxappearance, GTK+ theme switcher
 # * unclutter, hides the cursor when typing
-# * terminator, alternative terminal emulator
 # * j4-dmenu-desktop, dMenu for .desktop files
 # * rofi, alternative dmenu replacement.
 # 
 # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
 
-sudo apt install i3 i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel terminator j4-dmenu-desktop -y
+sudo apt install i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel j4-dmenu-desktop -y
 
+# replace i3 with i3-gaps
+sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev dh-autoreconf -y 
+cd /tmp; git clone --recursive https://github.com/Airblader/xcb-util-xrm.git; cd xcb-util-xrm
+./autogen; make; sudo ldconfig
+cd /tmp; git clone https://www.github.com/Airblader/i3 i3-gaps; cd i3-gaps
+autoreconf --force --install
+rm -Rf build/; mkdir build; cd build/; ../configure --prefix=/usr --sysconfdir=/etc; make; make -j8
+sudo make install
 #simlink i3 config into place.
 mkdir -p $HOME/.config
 ln -sf $PERSONAlIZE/.config/i3 $HOME/.config/i3
-#simlink terminator config into place
-ln -sf $PERSONALIZE/.config/terminator $HOME/.config/terminator
 #simlink rofi config into place
 ln -sf $PERSONALIZE/.config/rofi $HOME/.config/rofi
 #simlink conky library into place
 ln -sf $PERSONAlIZE/.conky $HOME/.conky
-#simlink screenshot script into place
-sudo ln -sf $PERSONAlIZE/screenshot.sh /usr/local/bin/screenshot
+#simlink Xresources into place.
+ln -sf $PERSONALIZE/.Xresources ~/.Xresources
+#Add fancy powerline fonts for the terminal
+cd /tmp; git clone git@github.com:powerline/fonts.git; cd fonts; ./install.sh
+
 #copy fonts into place.
 cp $PERSONALIZE/.fonts/* $HOME/.fonts
+
+#simlink screenshot script into place
+sudo ln -sf $PERSONAlIZE/screenshot.sh /usr/local/bin/screenshot
 
 # Install applications and tools I like, want, and need.
 sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam
