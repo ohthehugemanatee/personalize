@@ -41,6 +41,7 @@ sudo apt update
 # * unclutter, hides the cursor when typing
 # * terminator, alternative terminal emulator
 # * j4-dmenu-desktop, dMenu for .desktop files
+# * rofi, alternative dmenu replacement.
 # 
 # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
 
@@ -51,12 +52,14 @@ mkdir -p $HOME/.config
 ln -sf $PERSONAlIZE/.config/i3 $HOME/.config/i3
 #simlink terminator config into place
 ln -sf $PERSONALIZE/.config/terminator $HOME/.config/terminator
-
+#simlink rofi config into place
+ln -sf $PERSONALIZE/.config/rofi $HOME/.config/rofi
 #simlink conky library into place
 ln -sf $PERSONAlIZE/.conky $HOME/.conky
-
 #simlink screenshot script into place
 sudo ln -sf $PERSONAlIZE/screenshot.sh /usr/local/bin/screenshot
+#copy fonts into place.
+cp $PERSONALIZE/.fonts/* $HOME/.fonts
 
 # Install applications and tools I like, want, and need.
 sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam
