@@ -42,7 +42,6 @@ sudo apt update
 # * j4-dmenu-desktop, dMenu for .desktop files
 # * rofi, alternative dmenu replacement.
 # * polybar, a more awesome i3-bar
-# * urxvt-unicode, a lightweight terminal emulator.
 # 
 # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
 
@@ -61,8 +60,6 @@ mkdir -p $HOME/.config
 ln -sf $PERSONAlIZE/.config/i3 $HOME/.config/i3
 #simlink rofi config into place
 ln -sf $PERSONALIZE/.config/rofi $HOME/.config/rofi
-#simlink urxvt config into place.
-ln -sf $PERSONALIZE/.Xdefaults ~/.Xdefaults
 #simlink polybar config into place. NB: This will probably need extra fonts that I missed. :|
 ln -sf $PERSONALIZE/.config/polybar $HOME/.config/polybar
 #simlink conky library into place

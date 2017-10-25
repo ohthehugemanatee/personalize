@@ -209,9 +209,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # personal preference for tuning the look
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec terminator;focus
-bindsym $mod+Return exec urxvtcd;focus
+#bindsym $mod+Return exec urxvtcd;focus
 
-#bindsym $mod+Return exec gnome-terminal;focus
+bindsym $mod+Return exec gnome-terminal;focus
 
 
 ################### MENU ######################
