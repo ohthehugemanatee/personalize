@@ -171,7 +171,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 output = eDP1
 enable-scroll = true
-format = <ramp> <label> <bar>
+format = <ramp> <bar>
 label = BL
 
 ramp-0 = 
@@ -257,12 +257,13 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+label-volume = 
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted =  |──────────
+
+
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -336,9 +337,9 @@ label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 
