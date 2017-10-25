@@ -42,10 +42,11 @@ sudo apt update
 # * j4-dmenu-desktop, dMenu for .desktop files
 # * rofi, alternative dmenu replacement.
 # * polybar, a more awesome i3-bar
+# * urxvt-unicode, a lightweight terminal emulator.
 # 
 # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
 
-sudo apt install i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel j4-dmenu-desktop -y
+sudo apt install i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel j4-dmenu-desktop rxvt-unicode-256color ncurses-term -y
 
 # replace i3 with i3-gaps
 sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev dh-autoreconf -y 
@@ -60,6 +61,8 @@ mkdir -p $HOME/.config
 ln -sf $PERSONAlIZE/.config/i3 $HOME/.config/i3
 #simlink rofi config into place
 ln -sf $PERSONALIZE/.config/rofi $HOME/.config/rofi
+#simlink urxvt config into place.
+ln -sf $PERSONALIZE/.Xdefaults ~/.Xdefaults
 #simlink polybar config into place. NB: This will probably need extra fonts that I missed. :|
 ln -sf $PERSONALIZE/.config/polybar $HOME/.config/polybar
 #simlink conky library into place
