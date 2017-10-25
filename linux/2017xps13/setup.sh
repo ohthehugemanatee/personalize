@@ -133,7 +133,7 @@ sudo ln -sf $PERSONALIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
 sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-screens.sh
 sudo ln -sf $PERSONALIZE/usr/local/bin/battery-nag.sh /usr/local/bin/battery-nag.sh
 # add battery-nag to the crontab.
-(crontab -l ; echo "* * * * * /usr/local/bin/battery-nag.sh") | crontab -
+(crontab -l ; echo "*/1 * * * * /usr/local/bin/battery-nag.sh") | crontab -
 
 # Screen config for lightdm
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
