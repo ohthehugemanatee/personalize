@@ -328,7 +328,7 @@ exec xmodmap ~/.Xmodmap
 # visible stuff
 exec --no-startup-id system-config-printer-applet # printer status applet
 exec --no-startup-id blueman-applet # bluetooth monitor
-exec --no-startup-id /home/ohthehugemanatee/pia.sh #private internet access
+#exec --no-startup-id /home/ohthehugemanatee/pia.sh #private internet access
 exec --no-startup-id redshift-gtk # red tinting the display
 exec --no-startup-id variety # wallpapers
 exec --no-startup-id dropbox start # dropbox
