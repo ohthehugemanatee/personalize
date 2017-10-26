@@ -197,10 +197,17 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
+format = <ramp-load> <label>
+
+ramp-load-0 = " "
+ramp-load-0-foreground = #669ED6
+ramp-load-1 = " "
+ramp-load-1-foreground = #ffa900
+ramp-load-2 = " "
+ramp-load-2-foreground = #f53c3c
 
 [module/memory]
 type = internal/memory
@@ -338,8 +345,13 @@ label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0-foreground = #669ED6
+ramp-1 = 
+ramp-1-foreground = #669ED6
+ramp-2 = 
+ramp-2-foreground = #ffa900
+ramp-3 = 
+ramp-3-foreground = #f53c3c
 ramp-foreground = ${colors.foreground-alt}
 
 
