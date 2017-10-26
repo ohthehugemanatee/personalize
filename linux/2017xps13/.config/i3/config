@@ -322,7 +322,8 @@ for_window [class="Spotify"] move to workspace $tag0
 # invisible stuff:
 exec_always --no-startup-id numlockx on #enable numlock
 exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
-exec gpg-agent --daemon --debug-level expert # GPG as an ssh agent.
+# maybe this is what's fucking up my agent?
+#exec gpg-agent --daemon --debug-level expert # GPG as an ssh agent.
 exec xmodmap ~/.Xmodmap
 
 # visible stuff
@@ -333,7 +334,7 @@ exec --no-startup-id redshift-gtk # red tinting the display
 exec --no-startup-id variety # wallpapers
 exec --no-startup-id dropbox start # dropbox
 exec --no-startup-id nm-applet # network connection manager
-exec --no-startup-id volti #sound control
+#exec --no-startup-id volti #sound control
 exec --no-startup-id veracrypt --auto-mount=favorites # encrypted volume
 
 
