@@ -332,8 +332,8 @@ bar-capacity-empty-foreground = #44ffffff
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+thermal-zone = 7
+warn-temperature = 80
 
 format = <ramp> <label>
 format-underline = #f50a4d
@@ -344,14 +344,18 @@ label = %temperature%
 label-warn = %temperature%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
+ramp-0 =  
 ramp-0-foreground = #669ED6
-ramp-1 = 
+ramp-1 = 
 ramp-1-foreground = #669ED6
-ramp-2 = 
-ramp-2-foreground = #ffa900
-ramp-3 = 
-ramp-3-foreground = #f53c3c
+ramp-2 = 
+ramp-2-foreground = #669ED6
+ramp-3 = 
+ramp-3-foreground = #669ED6
+ramp-4 = 
+ramp-4-foreground = #ffa900
+ramp-5 = 
+ramp-5-foreground = #f53c3c
 ramp-foreground = ${colors.foreground-alt}
 
 
