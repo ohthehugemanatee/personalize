@@ -72,9 +72,6 @@ cd /tmp; git clone git@github.com:powerline/fonts.git; cd fonts; ./install.scree
 #copy fonts into place.
 cp $PERSONALIZE/.fonts/* $HOME/.fonts
 
-#simlink screenshot script into place
-sudo ln -sf $PERSONAlIZE/screenshot.sh /usr/local/bin/screenshot
-
 # Install applications and tools I like, want, and need.
 sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam
 
@@ -129,6 +126,8 @@ sudo ln -sf $PERSONALIZE/etc/X11/xorg.conf.d/60-trackpad.conf /etc/X11/xorg.conf
 sudo update-alternatives --config editor <<< '3'
 
 # simlink my scripts.
+sudo ln -sf $PERSONAlIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
+sudo ln -sf $PERSONALIZE/usr/local/bin/toggle-fn.sh /usr/local/bin/toggle-fn.sh
 sudo ln -sf $PERSONALIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
 sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-screens.sh
 sudo ln -sf $PERSONALIZE/usr/local/bin/battery-nag.sh /usr/local/bin/battery-nag.sh
