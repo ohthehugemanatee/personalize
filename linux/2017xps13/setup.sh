@@ -127,9 +127,11 @@ sudo update-alternatives --config editor <<< '3'
 
 # simlink my scripts.
 sudo ln -sf $PERSONAlIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
-sudo ln -sf $PERSONALIZE/usr/local/bin/toggle-fn.sh /usr/local/bin/toggle-fn.sh
 sudo ln -sf $PERSONALIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
 sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-screens.sh
+sudo ln -sf $PERSONALIZE/usr/local/bin/toggle-fn.sh /usr/local/bin/toggle-fn.sh
+# Add udev rule for toggling Fn when plugging in an Apple keyboard.
+sudo ln -sf $PERSONALIZE/etc/udev/rules.d/85-external-mac-keyboard.rules /etc/udev/rules.d/85-external-mac-keyboard.rules
 sudo ln -sf $PERSONALIZE/usr/local/bin/battery-nag.sh /usr/local/bin/battery-nag.sh
 # add battery-nag to the crontab.
 (crontab -l ; echo "*/1 * * * * /usr/local/bin/battery-nag.sh") | crontab -
