@@ -1,9 +1,11 @@
 ! "Enabled modi" Set from: Default
-rofi.modi:                           combi
+rofi.modi:                           combi,window
 ! "Window width" Set from: Default
 ! rofi.width:                          50
+rofi.width:                          25
 ! "Number of lines" Set from: Default
 ! rofi.lines:                          15
+rofi.lines:                          5
 ! "Number of columns" Set from: Default
 ! rofi.columns:                        1
 ! "Font to use" Set from: Default
@@ -61,7 +63,7 @@ rofi.font:                           pango:Verdana Mono Regular 28
 ! "Parse known_hosts file for ssh mode" Set from: Default
 ! rofi.parse-known-hosts:              true
 ! "Set the modi to combine in combi mode" Set from: Default
-rofi.combi-modi:                     window,drun,run
+rofi.combi-modi:                     drun,run
 ! "Set the matching algorithm. (normal, regex, glob, fuzzy)" Set from: Default
 ! rofi.matching:                       normal
 ! "Tokenize input string" Set from: Default
@@ -84,6 +86,7 @@ rofi.combi-modi:                     window,drun,run
 ! rofi.fake-transparency:              false
 ! "DPI" Set from: Default
 ! rofi.dpi:                            -1
+rofi.dpi:                            221
 ! "Threads to use for string matching" Set from: Default
 ! rofi.threads:                        0
 ! "Scrollbar width" Set from: Default
@@ -220,3 +223,4 @@ rofi.combi-modi:                     window,drun,run
 ! rofi.display-windowcd:               
 ! "The display name of this browser" Set from: Default
 ! rofi.display-combi:                  
+rofi.theme: /usr/local/share//rofi/themes//arthur.rasi

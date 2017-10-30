@@ -5,6 +5,8 @@
 
 # Globals.
 PERSONALIZE=$PWD
+mkdir $HOME/tmp
+
 # Add my apt sources.
 if [ -d /etc/apt/sources.list.d ]; then
   sudo ln -sf sources.list.d/* /etc/apt/sources.list.d/
@@ -46,6 +48,17 @@ sudo apt update
 # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
 
 sudo apt install i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel j4-dmenu-desktop rxvt-unicode-256color ncurses-term -y
+
+# build and install rofi from git (apt sources are very old)
+cd $HOME/tmp
+git clone https://github.com/DaveDavenport/rofi\; cd rofi; git checkout 1.4.2
+git submodule update --init; autoreconf -i
+sudo apt install -y bison flex librsvg2-dev 
+mkdir build; cd build; ../configure --disable-check
+make && sudo make install
+# download rofi themes
+mkdir -p $HOME/.local/share/rofi
+git clone git@github.com:DaveDavenport/rofi-themes.git themes
 
 # replace i3 with i3-gaps
 sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev dh-autoreconf -y 
