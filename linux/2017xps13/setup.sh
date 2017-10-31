@@ -22,6 +22,9 @@ sudo add-apt-repository "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) 
 sudo add-apt-repository multiverse # various. Notably Steam.
 sudo add-apt-repository ppa:ondrej/php # php modules
 sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
+curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+ 
 
 sudo apt update
 
@@ -44,10 +47,11 @@ sudo apt update
 # * j4-dmenu-desktop, dMenu for .desktop files
 # * rofi, alternative dmenu replacement.
 # * polybar, a more awesome i3-bar
+# * Signal desktop
 # 
 # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
 
-sudo apt install i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel j4-dmenu-desktop rxvt-unicode-256color ncurses-term -y
+sudo apt install i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel j4-dmenu-desktop rxvt-unicode-256color ncurses-term signal-desktop -y
 
 # build and install rofi from git (apt sources are very old)
 cd $HOME/tmp
