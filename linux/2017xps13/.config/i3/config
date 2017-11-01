@@ -90,7 +90,7 @@ bindsym $mod+e layout toggle split
 
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+q focus parent
@@ -220,6 +220,7 @@ bindsym $mod+Return exec gnome-terminal;focus
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=18' 
 bindsym $mod+d exec rofi -show combi 
+bindsym $mod+space exec rofi -show combi 
 
 # start alternative menu j4-dmenu based on desktop files in /usr/share/applications
 #bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bold:pixelsize=16' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#FFAF00'"
