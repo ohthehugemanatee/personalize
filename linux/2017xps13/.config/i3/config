@@ -435,6 +435,8 @@ for_window [class="Gdebi-gtk"] floating enable
 for_window [class="Chromium-browser" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable # Signal messenger
 for_window [class="Audacious"] sticky enable
 for_window [class="Audacious"] floating enable
+# until I have a chance to figure out the sizing issue.
+for_window [window_role="GtkFileChooserDialog"] floating disable
 
 #Popups during fullscreen mode
 popup_during_fullscreen smart
