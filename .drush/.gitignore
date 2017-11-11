@@ -3,4 +3,5 @@ cache/*
 db_dumps/*
 !db_dumps/.gitignore
 *.aliases.drushrc.php
+*.alias.drushrc.yml
 *.bak.php
