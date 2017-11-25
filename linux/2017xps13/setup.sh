@@ -22,6 +22,10 @@ sudo add-apt-repository "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) 
 sudo add-apt-repository multiverse # various. Notably Steam.
 sudo add-apt-repository ppa:ondrej/php # php modules
 sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
+#install ubuntu-x ppa.
+# nb: If you are upgrading from one release to another with this PPA activated, please install the ppa-purge package and use it to downgrade everything in here beforehand. sudo ppa-purge ppa:ubuntu-x-swat/updates will do it.
+sudo add-apt-repository ppa:ubuntu-x-swat/updates
+
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
  
