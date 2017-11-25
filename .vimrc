@@ -28,7 +28,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set backupdir=~/.vim/backup//
 set undodir=~/.vim/undo//
 set directory=/tmp//
-set wrap  "linewraps
+set wrap  "soft linewraps
+set formatoptions-=t " disable hard linewraps
 set scrolloff=5 "always show 5 lines before/after the cursor
 set title "update term title
 set visualbell "turn off audio beeps
