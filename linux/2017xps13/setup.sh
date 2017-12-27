@@ -22,6 +22,7 @@ sudo add-apt-repository "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) 
 sudo add-apt-repository multiverse # various. Notably Steam.
 sudo add-apt-repository ppa:ondrej/php # php modules
 sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
+sudo apt-add-repository -y ppa:teejee2008/ppa # timeshift system backup utility
 #install ubuntu-x ppa.
 # nb: If you are upgrading from one release to another with this PPA activated, please install the ppa-purge package and use it to downgrade everything in here beforehand. sudo ppa-purge ppa:ubuntu-x-swat/updates will do it.
 sudo add-apt-repository ppa:ubuntu-x-swat/updates
@@ -29,7 +30,6 @@ sudo add-apt-repository ppa:ubuntu-x-swat/updates
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
 echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
  
-
 sudo apt update
 
 # i3 desktop.
@@ -94,7 +94,7 @@ cd /tmp; git clone git@github.com:powerline/fonts.git; cd fonts; ./install.scree
 cp $PERSONALIZE/.fonts/* $HOME/.fonts
 
 # Install applications and tools I like, want, and need.
-sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam
+sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam timeshift
 
 # Install composer to scripts directory.
 if [ ! -f $HOME/scripts/composer.phar ]; then
@@ -107,7 +107,7 @@ fi
 sudo ln -sf $HOME/scripts/composer.phar /usr/local/bin/
 
 # Use Overlay FS for docker
-sudo ln -sf $PERSONAlIZE/etc/docker/daemon.json /etc/docker/daemon.json
+sudo ln -sf $PERSONALIZE/etc/docker/daemon.json /etc/docker/daemon.json
 
 # Toggl desktop client
 cd /tmp
@@ -116,6 +116,11 @@ wget http://fr.archive.ubuntu.com/ubuntu/pool/universe/g/gstreamer0.10/libgstrea
 sudo dpkg -i libgstreamer*.deb
 wget https://toggl.com/api/v8/installer?app=td&platform=deb64&channel=stable
 sudo dpkg -i toggldesktop_*.deb
+
+# timeshift configuration and cronjob.
+sudo ln -sf $PERSONALIZE/linux/2017xps13/etc/timeshift.json /etc/timeshift.json
+sudo ln -s $PERSONALIZE/linux/2017xps13/etc/cron.d/timeshift-hourly /etc/cron.d/timeshift-hourly
+
 # If font sizes are fucked on hiDPI, you have to download/install Qt manually, and remove the Qt libs bundled with Toggl.
 cd /tmp
 wget http://download.qt.io/official_releases/qt/5.9/5.9.0/qt-opensource-linux-x64-5.9.0.run
