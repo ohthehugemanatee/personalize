@@ -180,6 +180,9 @@ sudo ln -sf /usr/share/doc/pass/passmenu /usr/local/bin/
 sudo apt install python3-dev python3-pip -y
 pip3 install thefuck
 
+# PHPStorm IDE.
+sudo snap install phpstorm --classic
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
@@ -187,7 +190,6 @@ echo "These applications must be manually installed from their websites. How cra
 * Browserpass extension
 * PrivateInternetAccess
 * Spotify
-* PHPStorm
 * Franz
 * Whatsie
 * Viber
