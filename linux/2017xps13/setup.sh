@@ -172,10 +172,6 @@ sudo apt install ukuu -y
 # Xmodmap for euro key. Note otherwise I should be on dell US keyboard layout, with options lv3:switch, compose:ralt, terminate:ctrl_alt_bksp.
 ln -sf $PERSONALIZE/Xmodmap $HOME/.Xmodmap
 
-# Pass password manager.
-sudo apt install qtpass -y
-sudo ln -sf /usr/share/doc/pass/passmenu /usr/local/bin/
-
 # Thefuck shell script.
 sudo apt install python3-dev python3-pip -y
 pip3 install thefuck
@@ -187,7 +183,6 @@ sudo snap install phpstorm --classic
 echo "These applications must be manually installed from their websites. How crappy.
 
 * Firefox Nightly
-* Browserpass extension
 * PrivateInternetAccess
 * Spotify
 * Franz
