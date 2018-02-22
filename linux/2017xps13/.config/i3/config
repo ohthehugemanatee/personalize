@@ -103,8 +103,8 @@ bindsym $mod+e layout toggle split
 # hide window titles.
 for_window [class="^.*"] border pixel 0
 # set gap widths.
-gaps inner 21 
-gaps outer -8
+gaps inner 11 
+gaps outer -5
 
 
 ################### RELOAD ##############################
