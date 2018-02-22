@@ -29,6 +29,7 @@ set backupdir=~/.vim/backup//
 set undodir=~/.vim/undo//
 set directory=/tmp//
 set wrap  "soft linewraps
+set textwidth=0 wrapmargin=0
 set formatoptions-=t " disable hard linewraps
 set scrolloff=5 "always show 5 lines before/after the cursor
 set title "update term title
