@@ -256,7 +256,8 @@ bindsym $mod+shift+l exec xtrlock
 # Assign monitor variables to specific screens.
 # Small screen=firstMonitor, external=secondMonitor
 set $firstMonitor eDP1
-set $secondMonitor DP1
+#set $secondMonitor DP1
+set $secondMonitor DVI-I-1-1
 
 # Small screen: chats, skype, music
 workspace $tag5 output $firstMonitor
