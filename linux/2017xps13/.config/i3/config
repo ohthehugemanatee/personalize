@@ -369,6 +369,10 @@ bindsym control+mod1+o exec nautilus; focus
 bindsym control+mod1+t exec /opt/toggldesktop/TogglDesktop
 bindsym $mod+F10 exec spotify;workspace $tag0;focus
 bindsym $mod+m exec /usr/local/bin/configure-screens.sh
+# Screen rotation
+bindsym control+$mod+r exec xrandr --output eDP1 --rotate right
+bindsym control+$mod+l exec xrandr --output eDP1 --rotate left
+bindsym control+$mod+n exec xrandr --output eDP1 --rotate normal
 
 
 ################### SHORTCUTS WORKSPACES ######################
