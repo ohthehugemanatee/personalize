@@ -203,11 +203,11 @@ format-underline = #f90000
 label = %percentage:2%%
 format = <ramp-load> <label>
 
-ramp-load-0 = " "
+ramp-load-0 = ""
 ramp-load-0-foreground = #669ED6
-ramp-load-1 = " "
+ramp-load-1 = ""
 ramp-load-1-foreground = #ffa900
-ramp-load-2 = " "
+ramp-load-2 = ""
 ramp-load-2-foreground = #f53c3c
 
 [module/memory]
@@ -225,7 +225,7 @@ interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
-label-connected = %essid% %local_ip%
+label-connected = %essid%
 
 ;format-disconnected =
 ;format-disconnected = <label-disconnected>
