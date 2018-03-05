@@ -256,8 +256,8 @@ bindsym $mod+shift+l exec xtrlock
 # Assign monitor variables to specific screens.
 # Small screen=firstMonitor, external=secondMonitor
 set $firstMonitor eDP1
-#set $secondMonitor DP1
-set $secondMonitor DVI-I-1-1
+set $secondMonitor DP1
+#set $secondMonitor DVI-I-1-1
 
 # Small screen: chats, skype, music
 workspace $tag5 output $firstMonitor
@@ -369,7 +369,6 @@ bindsym control+mod1+o exec nautilus; focus
 bindsym control+mod1+t exec /opt/toggldesktop/TogglDesktop
 bindsym $mod+F10 exec spotify;workspace $tag0;focus
 bindsym $mod+m exec /usr/local/bin/configure-screens.sh
-# Screen rotation
 bindsym control+$mod+r exec xrandr --output eDP1 --rotate right
 bindsym control+$mod+l exec xrandr --output eDP1 --rotate left
 bindsym control+$mod+n exec xrandr --output eDP1 --rotate normal
