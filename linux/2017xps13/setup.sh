@@ -87,6 +87,9 @@ ln -sf $PERSONALIZE/.config/polybar $HOME/.config/polybar
 ln -sf $PERSONAlIZE/.conky $HOME/.conky
 #simlink Xresources into place.
 ln -sf $PERSONALIZE/.Xresources ~/.Xresources
+# simlink swaywm config into place
+ln -sf $PERSONALIZE/.config/sway $HOME/.config/sway
+
 #Add fancy powerline fonts for the terminal
 cd /tmp; git clone git@github.com:powerline/fonts.git; cd fonts; ./install.screenshot
 

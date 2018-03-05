@@ -1,0 +1,515 @@
+# My custom sway configuration
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Your preferred terminal emulator
+set $term gnome-terminal
+# Your preferred application launcher
+#set $menu dmenu_run
+set $menu rofi -show combi; focus
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+output eDP-1 scale 2 resolution 3200x1800
+
+
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+# Touchpad
+input "DLL075B:01 06CB:76AF Touchpad" {
+  accel_profile adaptive
+  click_method clickfinger
+  drag_lock disabled
+  dwt enabled
+  natural_scroll enabled
+  pointer_accel 0.5
+  scroll_method two_finger
+  tap disabled
+}
+
+### Key bindings
+#
+# Basics:
+#
+    # start a terminal
+    bindsym $mod+Return exec $term
+
+    # kill focused window
+    bindsym $mod+Shift+q kill
+
+    # start your launcher
+    #bindsym $mod+d exec $menu
+    bindsym $mod+space exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # reload the configuration file
+    bindsym $mod+Shift+r reload
+
+    # exit sway (logs you out of your wayland session)
+    bindsym $mod+Shift+e exit
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # _move_ the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    #bindsym $mod+space focus mode_toggle
+
+    # move focus to the parent container
+    bindsym $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+#
+# Gaps
+#
+
+# hide window titles
+for_window [class="^.*"] border pixel 0
+#set gap widths.
+gaps inner 11
+gaps outer -5
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # bigger jumps with shift.
+    bindsym Shift+Left resize shrink width 50 px or 50 ppt
+    bindsym Shift+Down resize grow height 50 px or 50 ppt
+    bindsym Shift+Up resize shrink height 50 px or 50 ppt
+    bindsym Shift+Right resize grow width 50 px or 50 ppt
+
+    # HUGE jumps with ctrl+shift.
+    bindsym Ctrl+Shift+Left resize shrink width 200 px or 200 ppt
+    bindsym Ctrl+Shift+Down resize grow height 200 px or 200 ppt
+    bindsym Ctrl+Shift+Up resize shrink height 200 px or 200 ppt
+    bindsym Ctrl+Shift+Right resize grow width 200 px or 200 ppt
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+################### FONTS ######################
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# choose your font
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-bold-r-normal-*-15-140-75-75-c-90-iso10646-1
+#font pango:DejaVu Sans Mono 12
+# font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
+# font pango:Droid Sans Mono Dotted 12
+# font pango:hermit 12
+# font pango:Inconsolata 15
+# font pango:monospace 12
+# font pango:SourceCodePro-SemiBold 11
+# font pango:Source Code Pro for Powerline, FontAwesome Regular, Icons 9
+# font pango:Terminus 14px
+# font pango:UbuntuMono-regular 12
+# from ttf-chromeos-fonts
+# font pango:Cousine 13
+#font pango:Arimo 11
+# font pango:Sans 13 
+# font pango:Noto Mono Regular 13
+# font pango:DroidSansMono 13
+#font pango:Noto Mono Regular 13
+font pango:Verdana Mono Regular Awesome 11
+
+# Kid lock
+bind $mod+shift+l exec xtrlock
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position bottom
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
+
+include /etc/sway/config.d/*
+
+
+################### DUAL SCREEN ######################
+
+
+# setting variables for later use
+# 
+# Assign monitor variables to specific screens.
+# Small screen=firstMonitor, external=secondMonitor
+set $firstMonitor eDP-1
+#set $secondMonitor DP1
+set $secondMonitor DVI-I-1-1
+
+
+################### LABEL ######################
+# Set cool font icon labels here.
+set $tag1 "1"
+set $tag2 "2"
+set $tag3 "3"
+set $tag4 "4"
+set $tag5 "5"
+set $tag6 "6"
+set $tag7 "7"
+set $tag8 "8"
+set $tag9 "9"
+set $tag0 "10"
+
+# Small screen: chats, skype, music
+workspace $tag5 output $firstMonitor
+workspace $tag6 output $firstMonitor
+workspace $tag7 output $firstMonitor
+workspace $tag8 output $firstMonitor
+workspace $tag9 output $firstMonitor
+workspace $tag0 output $firstMonitor
+# Big screen: browser, code.
+workspace $tag1 output $secondMonitor
+workspace $tag2 output $secondMonitor
+workspace $tag3 output $secondMonitor
+workspace $tag4 output $secondMonitor
+
+# switch to workspace
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2 
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace $tag6
+bindsym $mod+7 workspace $tag7
+bindsym $mod+8 workspace $tag8
+bindsym $mod+9 workspace $tag9
+bindsym $mod+0 workspace $tag0
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3
+bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace $tag6
+bindsym $mod+Shift+7 move container to workspace $tag7
+bindsym $mod+Shift+8 move container to workspace $tag8
+bindsym $mod+Shift+9 move container to workspace $tag9
+bindsym $mod+Shift+0 move container to workspace $tag0
+
+
+################### ASSIGN ######################
+assign [class="gnome-terminal"]     $tag1
+assign [class="terminator"]         $tag1
+assign [class="Firefox"]            $tag2
+assign [class="jetbrains-phpstorm"] $tag3
+assign [class="Toggl"]              $tag5
+assign [class="zoom"]               $tag6
+assign [class="Slack"]              $tag8
+assign [class="Franz"]              $tag8
+assign [class="Viber"]              $tag9
+assign [class="Skype"]              $tag9
+assign [class="Spotify"]            $tag0
+assign [class="VLC media player"]   $tag0
+#fix for spotify not moving to workspace 10
+for_window [class="Spotify"] move to workspace $tag0
+
+
+################### EXECUTE ######################
+
+
+# TRAY APPLICATIONS
+
+# invisible stuff:
+exec_always --no-startup-id numlockx on #enable numlock
+exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
+# maybe this is what's fucking up my agent?
+#exec gpg-agent --daemon --debug-level expert # GPG as an ssh agent.
+exec xmodmap ~/.Xmodmap
+
+# visible stuff
+exec --no-startup-id system-config-printer-applet # printer status applet
+exec --no-startup-id blueman-applet # bluetooth monitor
+#exec --no-startup-id /home/ohthehugemanatee/pia.sh #private internet access
+exec --no-startup-id redshift-gtk # red tinting the display
+exec --no-startup-id variety # wallpapers
+exec --no-startup-id dropbox start # dropbox
+exec --no-startup-id nm-applet # network connection manager
+#exec --no-startup-id volti #sound control
+exec --no-startup-id veracrypt --auto-mount=favorites # encrypted volume
+
+
+# USER APPLICATIONS
+
+#exec firefox
+#for_window [class="Firefox"] focus
+#exec ~/.config/i3/start-conkys.sh
+
+
+################### SHORTCUTS ######################
+#mod1 = ALT
+
+bindsym control+mod1+f exec firefox-dev
+bindsym control+mod1+p exec phpstorm;workspace $tag3;focus
+bindsym control+mod1+s exec /usr/share/simplenote/simplenote;workspace $tag5;focus
+bindsym control+mod1+o exec nautilus; focus
+bindsym control+mod1+t exec /opt/toggldesktop/TogglDesktop
+bindsym $mod+F10 exec spotify;workspace $tag0;focus
+bindsym $mod+m exec /usr/local/bin/configure-screens.sh
+bindsym control+$mod+r exec xrandr --output eDP1 --rotate right
+bindsym control+$mod+l exec xrandr --output eDP1 --rotate left
+bindsym control+$mod+n exec xrandr --output eDP1 --rotate normal
+
+
+################### SHORTCUTS WORKSPACES ######################
+
+
+# next/previous workspace
+
+bindsym Mod1+Tab workspace next
+bindsym Mod1+Shift+Tab workspace prev
+bindsym $mod+Tab workspace back_and_forth
+
+#navigate workspaces next / previous
+bindsym Mod1+Ctrl+Right workspace next
+bindsym Mod1+Ctrl+Left workspace prev
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+
+################### SCREENSHOTS ######################
+
+
+#bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+#bindsym Control+Print exec gnome-screenshot -i
+bindsym --release Control+Shift+1 exec /usr/local/bin/screenshot
+bindsym --release Control+Shift+2 exec /usr/local/bin/screenshot -w
+bindsym --release Control+Shift+3 exec /usr/local/bin/screenshot -a
+
+
+
+################### FLOATING OR TILED ######################
+
+
+# floating enabled from some programs. use xprop to get the criteria.
+
+for_window [class="Gnome-disks"] floating enable
+for_window [class="^Skype$"] floating enable
+for_window [class="^Gnome-font-viewer$"] floating enable
+for_window [class="^Nemo$"] floating enable
+for_window [class="^Gpick$"] floating enable
+for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
+for_window [instance="variety"] floating enable
+for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="Brasero"] floating enable
+for_window [class="Xfburn"] floating enable
+for_window [class="Xfce4-appfinder"] floating enable
+for_window [class="Wine"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="^Preferences$"] floating enable
+for_window [window_role="setup"] floating enable
+for_window [title="^Terminator Preferences$"] floating enable
+for_window [class="Font-manager"] floating enable
+for_window [class="System-config-printer.py"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [title="Copying"] floating enable  
+for_window [title="Deleting"] floating enable  
+for_window [title="Moving"] floating enable
+for_window [class="Unetbootin.elf"] floating enable
+for_window [class="Galculator"] floating enable
+for_window [class="Usb-creator-gtk"] floating enable
+for_window [class="MintUpdate.py"] floating enable
+for_window [class="Hexchat"] floating disable
+for_window [class="Gdebi-gtk"] floating enable
+for_window [class="Chromium-browser" instance="crx_gaedmjdfmmahhbjefcbgaolhhanlaolb"] floating enable # Signal messenger
+for_window [class="Audacious"] sticky enable
+for_window [class="Audacious"] floating enable
+# until I have a chance to figure out the sizing issue.
+for_window [window_role="GtkFileChooserDialog"] floating disable
+
+#Popups during fullscreen mode
+popup_during_fullscreen smart
+
+
+################### VARIETY ######################
+
+
+#Variety keybindings
+# trash wallpaper
+bindsym mod1+t exec variety -t
+# next wallpaper
+bindsym mod1+n exec variety -n
+# previous wallpaper
+bindsym mod1+p exec variety -p
+# favorite wallpaper
+bindsym mod1+f exec variety -f
+
+
+################### MODE_SYSTEM ######################
+
+
+#bindsym $mod+shift+e mode "$mode_system"; exec "i3-nagbar -m 'System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown'"
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+
+    bindsym l exec --no-startup-id ~/.config/i3/i3exit.sh lock, mode "default"
+    bindsym e exec --no-startup-id ~/.config/i3/i3exit.sh logout, mode "default"
+    bindsym s exec --no-startup-id ~/.config/i3/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.config/i3/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.config/i3/i3exit.sh reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.config/i3/i3exit.sh shutdown, mode "default"
+    bindsym Shift+s exec --no-startup-id exec cinnamon-session-quit --power-off, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"; exec killall i3-nagbar
+    bindsym Escape mode "default"; exec killall i3-nagbar
+}
+
+set $mode_scrot [s]election | [a]ctive window
+mode "$mode_scrot" {
+    bindsym --release s mode "default", exec --no-startup-id scrot -s /home/user/Pictures/screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+    bindsym --release a mode "default", exec --no-startup-id scrot -u -d 4 /home/user/Pictures/screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+s mode "$mode_scrot"
+
+
+################### AUDIO ######################
+
+
+#handled by Volti
+bindsym XF86AudioRaiseVolume exec "amixer -D pulse sset Master '10%+'"
+bindsym XF86AudioLowerVolume exec "amixer -D pulse sset Master '10%-'"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle"
+
+bindsym XF86AudioPlay exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause" 
+bindsym XF86AudioNext exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next" 
+bindsym XF86AudioPrev exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioStop exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight +20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -20 # decrease screen brightness
+
+# keyboard brightness
+bindsym XF86KbdBrightnessDown exec "sudo kb down"
+bindsym XF86KbdBrightnessUp exec "sudo kb up"
+
+###################       UNCLUTTER      ##############################
+
+
+# get the mouse out of the way with unclutter
+exec unclutter 
+
+
+# DarkGrey background with white text - not focus grey background - black text
+# Windows decoration colors
+# class                 border  backgr. text    indicator
+client.placeholder      #242424 #242424 #242424
+client.background       #242424 #242424 #242424
+client.focused          #e5e5e5 #e5e5e5 #4A4A4A #e5e5e5
+client.unfocused        #222222 #222222 #aaaaaa #222222
+client.focused_inactive #222222 #222222 #a9a9a9 #222222
+client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
+
+
+# status bar.
+exec_always --no-startup-id i3status
+exec_always --no-startup-id xembedsniproxy
