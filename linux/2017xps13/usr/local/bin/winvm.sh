@@ -18,15 +18,14 @@ ZENITY=$(which zenity)
 case "$1" in
   start)
     echo "Starting Azure workstation and connecting via RDP."
-    #zenity --info --text="Starting Azure workstation" && \
     ${AZ} vm start -g $GROUP -n $MACHINE |\
-    $ZENITY --progress --auto-close --pulsate --text="Starting Azure workstation" && \
+    $ZENITY --progress --auto-kill --auto-close --pulsate --text="Starting Azure workstation" && \
     ${REMMINA} -c $RDPCONFIG
     ;;
   stop)
-    echo "Shutting down Azure workstation..."
-    ${AZ} vm stop -g $GROUP -n $MACHINE
-    echo "Shutting down Remmina..."
+    echo "Shutting down Azure workstation and killing Remmina..."
+    ${AZ} vm deallocate -g $GROUP -n $MACHINE |\
+    $ZENITY --progress --auto-kill --auto-close --pulsate --text="Shutting down Azure workstation" && \
     ${REMMINA} -q
     ;;
   restart)
