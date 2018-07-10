@@ -24,7 +24,7 @@ if [ $MONITOR_COUNT = "2" ]; then
   if echo $MONITORS | grep -q 'DVI-I-1-1'; then
     echo "Found MS workspace monitor"
     xrandr --fb 7040x2160
-    xrandr --output DVI-I-1-1 --scale 2x2 --mode 1920x1080 --pos 0x0
+    xrandr --output DVI-I-1-1 --scale 1x1 --mode 1920x1080 --pos 0x0
     xrandr --output eDP1 --scale 1x1 --mode 3200x1800 --pos 3840x0
   elif echo $MONITORS | grep -q 'DP1'; then 
     echo "Found home workspace monitor"
