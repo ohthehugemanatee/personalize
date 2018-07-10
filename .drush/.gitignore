@@ -10,3 +10,4 @@ db_dumps/*
 *.site.yml
 *.site.yml.bak
 *.bak.php
+composer
