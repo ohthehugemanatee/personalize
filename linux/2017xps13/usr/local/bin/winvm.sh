@@ -7,9 +7,9 @@
 # 
 
 # Change these values to match your VM.
-GROUP=WORKSTATION
-MACHINE=win10work2
-RDPCONFIG=~/.remmina/1518788004229.remmina
+GROUP=workstation
+MACHINE=WindowsVM
+RDPCONFIG=~/.remmina/1523027214464.remmina
 
 REMMINA=$(which remmina)
 AZ=$(which az)
