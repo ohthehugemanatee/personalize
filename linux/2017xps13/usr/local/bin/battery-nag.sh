@@ -61,7 +61,7 @@ FULL=`grep "POWER_SUPPLY_CHARGE_FULL_DESIGN" $ACPI_PATH/uevent | cut -d= -f2`
 PERCENT=`echo $(( $REM * 100 / $FULL ))`
 
 # set error message
-MESSAGE="AWW SNAP! I am running out of juice ...  Please, charge me or I'll have to power down."
+MESSAGE="Running low on power! Must... reach... utility... belt..."
 
 # set energy limit in percent, where warning should be displayed
 LIMIT="10"
