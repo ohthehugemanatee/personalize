@@ -339,6 +339,7 @@ exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
 # maybe this is what's fucking up my agent?
 #exec gpg-agent --daemon --debug-level expert # GPG as an ssh agent.
 exec xmodmap ~/.Xmodmap
+exec --no-startup-id /usr/bin/indicator-sound-switcher # sound sink switcher
 
 # visible stuff
 exec --no-startup-id system-config-printer-applet # printer status applet
@@ -368,7 +369,7 @@ bindsym control+mod1+s exec /usr/share/simplenote/simplenote;workspace $tag5;foc
 bindsym control+mod1+o exec nautilus; focus
 bindsym control+mod1+t exec /opt/toggldesktop/TogglDesktop
 bindsym $mod+F10 exec spotify;workspace $tag0;focus
-bindsym $mod+m exec /usr/local/bin/configure-screens.sh
+bindsym $mod+m exec /usr/local/bin/configure-screens.sh && $HOME/.config/polybar/launch.sh
 bindsym control+$mod+r exec xrandr --output eDP1 --rotate right
 bindsym control+$mod+l exec xrandr --output eDP1 --rotate left
 bindsym control+$mod+n exec xrandr --output eDP1 --rotate normal
@@ -563,3 +564,5 @@ client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
 #if you want transparency on non-focused windows
 exec_always compton --config ~/.config/i3/compton.conf
 
+# Fusuma - trackpad gestures. The default config happens to be just right.
+exec_always fusuma
