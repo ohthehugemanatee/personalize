@@ -99,6 +99,11 @@ cp $PERSONALIZE/.fonts/* $HOME/.fonts
 # Install applications and tools I like, want, and need.
 sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam timeshift
 
+# Install nodeJS LTS
+sudo apt-get install curl python-software-properties -y
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash
+sudo apt install nodejs -y
+
 # Install composer to scripts directory.
 if [ ! -f $HOME/scripts/composer.phar ]; then
   cd $HOME/scripts
@@ -159,6 +164,7 @@ sudo ln -sf $PERSONAlIZE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
 sudo ln -sf $PERSONALIZE/usr/local/bin/winvm.sh /usr/local/bin/winvm
 sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-screens.sh
 sudo ln -sf $PERSONALIZE/usr/local/bin/toggle-fn.sh /usr/local/bin/toggle-fn.sh
+sudo ln -s $PWD/linux/2017xps13/usr/local/bin/dunst_push_notify.sh /usr/local/bin/dunst_push_notify.sh
 
 # Add udev rule for toggling Fn when plugging in an Apple keyboard.
 sudo ln -sf $PERSONALIZE/etc/udev/rules.d/85-external-mac-keyboard.rules /etc/udev/rules.d/85-external-mac-keyboard.rules
