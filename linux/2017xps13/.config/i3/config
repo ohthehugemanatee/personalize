@@ -312,16 +312,23 @@ set $tag9 "9"
 set $tag0 "10"
 
 ################### ASSIGN ######################
-assign [class="gnome-terminal"]     $tag1
+assign [class="Gnome-terminal"]     $tag1
 assign [class="terminator"]         $tag1
 assign [class="Firefox"]            $tag2
+assign [class="Nightly"]            $tag2
 assign [class="jetbrains-phpstorm"] $tag3
-assign [class="Toggl"]              $tag5
+assign [class="Code - Insiders"]    $tag3
+assign [class="chromium-browser"]   $tag4
+assign [class="google-chrome"]      $tag4
+assign [class="VirtualBox"]         $tag5
+assign [class="VirtualBox"]         $tag5
 assign [class="zoom"]               $tag6
+assign [class="Toggl"]              $tag7
 assign [class="Slack"]              $tag8
 assign [class="Franz"]              $tag8
 assign [class="Viber"]              $tag9
 assign [class="Skype"]              $tag9
+assign [class="Signal"]             $tag9
 assign [class="Spotify"]            $tag0
 assign [class="VLC media player"]   $tag0
 #fix for spotify not moving to workspace 10
