@@ -99,6 +99,12 @@ cp $PERSONALIZE/.fonts/* $HOME/.fonts
 # Install applications and tools I like, want, and need.
 sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam timeshift
 
+# install Signal messenger
+curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+sudo apt update && sudo apt install signal-desktop
+
+
 # Install nodeJS LTS
 sudo apt-get install curl python-software-properties -y
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash
