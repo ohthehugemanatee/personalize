@@ -312,7 +312,7 @@ set $tag9 "9"
 set $tag0 "10"
 
 ################### ASSIGN ######################
-assign [class="Gnome-terminal"]     $tag1
+#assign [class="Gnome-terminal"]     $tag1 # I like to pop up terminals whereever
 assign [class="terminator"]         $tag1
 assign [class="Firefox"]            $tag2
 assign [class="Nightly"]            $tag2
