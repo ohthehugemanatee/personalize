@@ -201,9 +201,13 @@ echo "These applications must be manually installed from their websites. How cra
 * Firefox Nightly
 * PrivateInternetAccess
 * Spotify
-* Franz
 * Whatsie
 * Viber
-* Zoom
+
+Other manual steps:
+
+* Dell's BIOS wants to take control of the fans, and it never uses them until it's already throttled the CPU. I have to compile a program to flip a bit in the CMOS, along with a modified version of dell_smm_hwmon. 
+@See https://github.com/vitorafsr/i8kutils/issues/6#issuecomment-318267697
+@See https://daenney.github.io/2017/11/11/arch-linux-xps-13-9360
 
 If I'm smart, I've kept my /opt directory so you can just symlink (by hand)."
