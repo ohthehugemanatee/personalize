@@ -123,6 +123,8 @@ sudo ln -sf $HOME/scripts/composer.phar /usr/local/bin/
 sudo ln -sf $HOME/personalize/linux/2017xps13/usr/local/bin/prettyping /usr/local/bin/prettyping
 # Diff-so-fancy
 sudo ln -sf $HOME/personalize/linux/2017xps13/usr/local/bin/diff-so-fancy /usr/local/bin/diff-so-fancy
+# HTTPie
+sudo apt install httpie -y 
 
 # Use Overlay FS for docker
 sudo ln -sf $PERSONALIZE/etc/docker/daemon.json /etc/docker/daemon.json
