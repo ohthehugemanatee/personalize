@@ -120,7 +120,9 @@ if [ ! -f $HOME/scripts/composer.phar ]; then
 fi
 sudo ln -sf $HOME/scripts/composer.phar /usr/local/bin/
 # Pretty ping.
-sudo ln -s $HOME/personalize/linux/2017xps13/usr/local/bin/prettyping /usr/local/bin/prettyping
+sudo ln -sf $HOME/personalize/linux/2017xps13/usr/local/bin/prettyping /usr/local/bin/prettyping
+# Diff-so-fancy
+sudo ln -sf $HOME/personalize/linux/2017xps13/usr/local/bin/diff-so-fancy /usr/local/bin/diff-so-fancy
 
 # Use Overlay FS for docker
 sudo ln -sf $PERSONALIZE/etc/docker/daemon.json /etc/docker/daemon.json
