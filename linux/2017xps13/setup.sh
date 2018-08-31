@@ -119,6 +119,8 @@ if [ ! -f $HOME/scripts/composer.phar ]; then
   php -r "unlink('composer-setup.php');"
 fi
 sudo ln -sf $HOME/scripts/composer.phar /usr/local/bin/
+# Pretty ping.
+sudo ln -s $HOME/personalize/linux/2017xps13/usr/local/bin/prettyping /usr/local/bin/prettyping
 
 # Use Overlay FS for docker
 sudo ln -sf $PERSONALIZE/etc/docker/daemon.json /etc/docker/daemon.json
