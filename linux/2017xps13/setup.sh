@@ -199,6 +199,9 @@ pip3 install thefuck
 # PHPStorm IDE.
 sudo snap install phpstorm --classic
 
+# TLDR manpages
+npm install -g tldr
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
