@@ -178,6 +178,13 @@ sudo ln -sf $PERSONALIZE/usr/local/bin/configure-screens.sh /usr/local/bin/confi
 sudo ln -sf $PERSONALIZE/usr/local/bin/toggle-fn.sh /usr/local/bin/toggle-fn.sh
 sudo ln -s $PWD/linux/2017xps13/usr/local/bin/dunst_push_notify.sh /usr/local/bin/dunst_push_notify.sh
 
+# mutt et al
+sudo apt install mutt w3m w3m-img urlscan msmtp goobook notmuch -y
+sudo ln -sf $PERSONALIZE/usr/local/bin/msmtp-offline /usr/local/bin/
+sudo ln -sf $PERSONALIZE/usr/local/bin/msmtp-queue /usr/local/bin/
+mkdir $HOME/log
+# don't forget to run `goobook authenticate`!
+
 # Add udev rule for toggling Fn when plugging in an Apple keyboard.
 sudo ln -sf $PERSONALIZE/etc/udev/rules.d/85-external-mac-keyboard.rules /etc/udev/rules.d/85-external-mac-keyboard.rules
 sudo ln -sf $PERSONALIZE/usr/local/bin/battery-nag.sh /usr/local/bin/battery-nag.sh
