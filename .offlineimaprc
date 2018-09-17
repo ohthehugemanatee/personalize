@@ -1,0 +1,46 @@
+[general]
+ui = TTY.TTYUI
+accounts = campbellVertesi
+pythonfile=~/.mutt/offlineimap.py
+fsync = False
+
+[Account campbellVertesi]
+localrepository = campbellVertesi-Local
+remoterepository = campbellVertesi-Remote
+status_backend = sqlite
+postsynchook = notmuch new
+
+[Repository campbellVertesi-Local]
+type = Maildir
+localfolders = ~/.mail/campbell-vertesi.com
+nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
+                            'sent':    '[Gmail]/Sent Mail',
+                            'flagged': '[Gmail]/Starred',
+                            'trash':   '[Gmail]/Trash',
+                            'archive': '[Gmail]/All Mail',
+                            }.get(folder, folder)
+
+[Repository campbellVertesi-Remote]
+maxconnections = 1
+type = Gmail
+remoteuser = campbell@vertesi.com
+remotepasseval = mailpasswd("campbell@vertesi.com")
+realdelete = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
+                            '[Gmail]/Sent Mail': 'sent',
+                            '[Gmail]/Starred':   'flagged',
+                            '[Gmail]/Trash':     'trash',
+                            '[Gmail]/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             'cvertesi@5ringsweb.com',
+                                             'info@thecastmusic.com',
+                                             'Work',
+                                             'Junk E-mail',
+                                             'Facebook',
+                                             'Pho',
+                                             'SLED',
+                                             ]
