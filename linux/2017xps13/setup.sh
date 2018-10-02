@@ -182,6 +182,8 @@ sudo ln -s $PWD/linux/2017xps13/usr/local/bin/dunst_push_notify.sh /usr/local/bi
 sudo apt install mutt w3m w3m-img urlscan msmtp goobook notmuch -y
 sudo ln -sf $PERSONALIZE/usr/local/bin/msmtp-offline /usr/local/bin/
 sudo ln -sf $PERSONALIZE/usr/local/bin/msmtp-queue /usr/local/bin/
+sudo ln -sf $PERSONALIZE/usr/local/bin/text2mime-markdown.pl /usr/local/bin/
+sudo ln -sf $PERSONALIZE/usr/local/bin/text2mime-sendmail.pl /usr/local/bin/
 mkdir $HOME/log
 # don't forget to run `goobook authenticate`!
 

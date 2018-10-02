@@ -147,7 +147,7 @@ set reply_to = yes                         # reply to Reply to: field
 set reverse_name = yes                     # reply as whomever it was to
 set include = yes                          # include message in replies
 set forward_quote = yes                    # include message in forwards
-set editor = "vim"        # Use terminal Vim to compose email.
+#set editor = "vim"        # Use terminal Vim to compose email.
 
 # Postpone messages for later
 bind compose p postpone-message
@@ -158,7 +158,7 @@ set from     = "campbell@vertesi.com"
 # Use msmtp-offline script from https://github.com/venkytv/msmtp-offline
 #set sendmail = "/usr/bin/msmtp -a campbellvertesi"
 #set sendmail_wait = 0
-set sendmail = /usr/local/bin/msmtp-offline
+#set sendmail = /usr/local/bin/msmtp-offline
 set sendmail_wait = -1
 unset record
 
@@ -198,3 +198,9 @@ set vfolder_format = "%6n(%6N) %f"
 
 # Actually trigger search
 macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py ~/.mail/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
+# Markdown to HTML email.
+set editor=vim
+macro compose H ":set editor=text2mime-markdown.pl<enter>E:set editor=vim<enter>a/tmp/html-markdown-alternative.html<enter>^Du"
+#send-hook . 'push H'
+set sendmail=text2mime-sendmail.pl
