@@ -204,3 +204,22 @@ set editor=vim
 macro compose H ":set editor=text2mime-markdown.pl<enter>E:set editor=vim<enter>a/tmp/html-markdown-alternative.html<enter>^Du"
 #send-hook . 'push H'
 set sendmail=text2mime-sendmail.pl
+
+# GPG for Mutt. @see http://tldp.org/HOWTO/Mutt-GnuPG-PGP-HOWTO-6.html
+source ~/.mutt/gpg.rc
+# if this variables is set, Mutt will ask to sign all the outbound messages.
+set pgp_autosign
+# if this variable is set, Mutt will ask to encrypt all the outbound messages.
+unset pgp_autoencrypt
+# when you answer a signed message, the response message will be signed too.
+set pgp_replysign
+# when you answer an encrypted message, the response message will be encrypted too.
+set pgp_replyencrypt
+# Do you want to automatically verify incoming signed messages?
+set pgp_verify_sig=yes
+# what key do you want to use to sign outgoing messages?
+set pgp_sign_as="490B098AB818E8493A13227657B6A751988839C3"
+# use "quoted-printable" when PGP requires it.
+set pgp_strict_enc
+# use 64 bit IDs
+set pgp_long_ids
