@@ -12,9 +12,15 @@ image/gif; ~/.mutt/view_attachment.sh %s gif
 application/pdf; ~/.mutt/view_attachment.sh %s pdf
 
 # HTML
-#text/html; ~/.mutt/view_attachment.sh %s html
-#text/html; w3m -I %{charset} -T text/html; copiousoutput;
-text/html; w3m -o auto_image=TRUE -I %{charset} -T text/html %s; copiousoutput;
+# Pandoc convert to markdown. Advertising mails are often formatted with ugly tables, though.
+#text/html; pandoc -f html -t markdown; copiousoutput; description=HTML Text; test=type pandoc >/dev/null
+# Lynx dumps to text and does a better job with formatting. Also lists links at the bottom.
+text/html; lynx -stdin -dump -force_html -width 70; copiousoutput; description=HTML Text; test=type lynx >/dev/null
+# Use w3m, rendering images as ascii.
+text/html; w3m -dump -T text/html -cols 70 -o auto_image=TRUE; copiousoutput; description=HTML Text; test=type w3m >/dev/null
+# A last-ditch effort with html2text.
+text/html; html2text -width 70; copiousoutput; description=HTML Text; test=type html2text >/dev/null
+#text/html; w3m -o auto_image=TRUE -I %{charset} -T text/html %s; copiousoutput;
 
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
