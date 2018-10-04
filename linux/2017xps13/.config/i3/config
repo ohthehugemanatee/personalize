@@ -233,6 +233,9 @@ bindsym $mod+Return exec gnome-terminal;focus
 #bindsym $mod+d exec dmenu_run -fn 'NotoMonoRegular:bold:pixelsize=18' 
 bindsym $mod+d exec rofi -show combi 
 bindsym $mod+space exec rofi -show combi 
+# Rofi clipboard manager from https://bitbucket.org/pandozer/rofi-clipboard-manager.git
+bindsym control+alt+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+exec --no-startup-id /usr/local/bin/greenclip daemon
 
 # start alternative menu j4-dmenu based on desktop files in /usr/share/applications
 #bindsym $mod+shift+d exec j4-dmenu-desktop --dmenu="dmenu -fn 'DroidSansMono:bold:pixelsize=16' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#FFAF00'"

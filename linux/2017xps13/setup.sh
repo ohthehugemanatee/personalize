@@ -81,6 +81,8 @@ mkdir -p $HOME/.config
 ln -sf $PERSONAlIZE/.config/i3 $HOME/.config/i3
 #simlink rofi config into place
 ln -sf $PERSONALIZE/.config/rofi $HOME/.config/rofi
+# and the rofi clipboard manager
+ln -sf $PERSONALIZE/usr/local/bin/greenclip /usr/local/bin/
 #simlink polybar config into place. NB: This will probably need extra fonts that I missed. :|
 ln -sf $PERSONALIZE/.config/polybar $HOME/.config/polybar
 #simlink conky library into place
