@@ -71,3 +71,6 @@ alias phpu='SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=sqlite://localhos
 # hidpi support for Qt apps
 QT_DEVICE_PIXEL_RATIO=2
 QT_AUTO_SCREEN_SCALE_FACTOR=2
+
+# tmp file
+alias tmp='vi ~/tmp/tmp.txt'
