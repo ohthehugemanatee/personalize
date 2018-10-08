@@ -23,6 +23,12 @@ sudo add-apt-repository multiverse # various. Notably Steam.
 sudo add-apt-repository ppa:ondrej/php # php modules
 sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
 sudo apt-add-repository -y ppa:teejee2008/ppa # timeshift system backup utility
+
+# s-tui system monitor.
+sudo add-apt-repository ppa:amanusk/python-s-tui
+sudo apt-get update
+sudo apt-get install python3-s-tui -y
+
 #install ubuntu-x ppa.
 # nb: If you are upgrading from one release to another with this PPA activated, please install the ppa-purge package and use it to downgrade everything in here beforehand. sudo ppa-purge ppa:ubuntu-x-swat/updates will do it.
 sudo add-apt-repository ppa:ubuntu-x-swat/updates
