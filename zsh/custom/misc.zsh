@@ -51,6 +51,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add composer to PATH
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
+# Add go binaries to PATH
+export PATH="$PATH:$HOME/go/bin"
+
 # Put /user/local/bin at the front of PATH
 PATH=/usr/local/bin:$PATH
 
