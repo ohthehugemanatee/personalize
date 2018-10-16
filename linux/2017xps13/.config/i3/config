@@ -101,7 +101,7 @@ bindsym $mod+e layout toggle split
 
 ################### GAPS ############################
 # hide window titles.
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 1
 # set gap widths.
 gaps inner 11 
 gaps outer -5
@@ -539,9 +539,9 @@ hide_edge_borders both
 # bindsym $mod+shift+b exec i3-msg border toggle
 
 #changing border style
-#bindsym $mod+t border normal
-#bindsym $mod+y border 1pixel
-#bindsym $mod+u border none
+bindsym $mod+t border normal
+bindsym $mod+y border 1pixel
+bindsym $mod+u border none
 
 
 #new_window 1pixel
@@ -572,7 +572,13 @@ client.urgent           #4A4A4A #4A4A4A #f7f7f7 #4A4A4A
 ###################       C O M P T O N      ##############################
 ###########################################################################
 #if you want transparency on non-focused windows
-exec_always compton --config ~/.config/i3/compton.conf
+#exec_always compton --config ~/.config/i3/compton.conf
+# Replacement for compton window focus behavior.
+# class                 border  backgr. text    indicator child_border                                                                     
+client.focused_inactive #0d1010 #212121 #d9d9d9 #0d1010 #063340                                                                            
+client.unfocused        #0d1010 #212121 #d9d9d9 #424242 #063340                                                                            
+client.focused          #d9d9d9 #cecece #000000 #d9d9d9 #d9d9d9                                                                            
+
 
 # Fusuma - trackpad gestures. The default config happens to be just right.
 exec_always fusuma
