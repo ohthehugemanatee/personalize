@@ -236,4 +236,6 @@ Other manual steps:
 @See https://github.com/vitorafsr/i8kutils/issues/6#issuecomment-318267697
 @See https://daenney.github.io/2017/11/11/arch-linux-xps-13-9360
 
+* Killer wireless has problematic firmware. Use an upstream one from github. Take /lib/firmware/ath10k/QCA6174/hw3.0/ board.bin, board-2.bin, and firmware-6.bin from https://github.com/kvalo/ath10k-firmware/
+
 If I'm smart, I've kept my /opt directory so you can just symlink (by hand)."
