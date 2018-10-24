@@ -15,10 +15,8 @@ fi
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - # google talk/hangouts
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - # docker
-sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E # dropbox
 sudo add-apt-repository ppa:numix/ppa # themes.
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo add-apt-repository "deb http://linux.dropbox.com/ubuntu $(lsb_release -sc) main" 
 sudo add-apt-repository multiverse # various. Notably Steam.
 sudo add-apt-repository ppa:ondrej/php # php modules
 sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
@@ -105,7 +103,7 @@ cd /tmp; git clone git@github.com:powerline/fonts.git; cd fonts; ./install.scree
 cp $PERSONALIZE/.fonts/* $HOME/.fonts
 
 # Install applications and tools I like, want, and need.
-sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential dropbox steam timeshift
+sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential steam timeshift
 
 # install Signal messenger
 curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
