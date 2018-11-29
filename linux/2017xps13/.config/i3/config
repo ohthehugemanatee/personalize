@@ -363,6 +363,7 @@ exec --no-startup-id veracrypt --auto-mount=favorites # encrypted volume
 
 # Dropbox disabled in favor of Nextcloud
 # exec --no-startup-id dropbox start # dropbox
+exec --no-startup-id nextcloud #nextcloud
 
 
 # USER APPLICATIONS
