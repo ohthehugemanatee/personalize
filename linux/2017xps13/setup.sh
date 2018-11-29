@@ -219,6 +219,14 @@ sudo snap install phpstorm --classic
 # TLDR manpages
 npm install -g tldr
 
+# Dell fan control 
+#Dell's BIOS wants to take control of the fans, and it never uses them until it's already throttled the CPU. I have to compile a program to flip a bit in the CMOS (https://github.com/TomFreudenberg/dell-bios-fan-control.git). Use the linked systemctl script which enables/disables bios fan control with the i8kmon service. You can validate it's working by turning all the fans on max with `i8kfan 2 2`.
+#@See https://github.com/vitorafsr/i8kutils/issues/6#issuecomment-318267697
+#@See https://daenney.github.io/2017/11/11/arch-linux-xps-13-9360
+sudo ln -sf $PERSONALIZE/usr/local/bin/dell-bios-fan-control /usr/local/bin
+sudo apt install -y i8kutils 
+sudo ln -sf $PERSONALIZE/etc/systemd/system/multi-user.target.wants/i8kmon.service /etc/systemd/system/multi-user.target.wants
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
@@ -229,10 +237,6 @@ echo "These applications must be manually installed from their websites. How cra
 * Viber
 
 Other manual steps:
-
-* Dell's BIOS wants to take control of the fans, and it never uses them until it's already throttled the CPU. I have to compile a program to flip a bit in the CMOS, along with a modified version of dell_smm_hwmon. 
-@See https://github.com/vitorafsr/i8kutils/issues/6#issuecomment-318267697
-@See https://daenney.github.io/2017/11/11/arch-linux-xps-13-9360
 
 * Killer wireless has problematic firmware. Use an upstream one from github. Take /lib/firmware/ath10k/QCA6174/hw3.0/ board.bin, board-2.bin, and firmware-6.bin from https://github.com/kvalo/ath10k-firmware/
 
