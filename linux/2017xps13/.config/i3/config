@@ -329,6 +329,7 @@ assign [class="zoom"]               $tag6
 assign [class="Toggl"]              $tag7
 assign [class="Slack"]              $tag8
 assign [class="Franz"]              $tag8
+assign [class="teams-for-linux"]    $tag8
 assign [class="Viber"]              $tag9
 assign [class="Skype"]              $tag9
 assign [class="Signal"]             $tag9
