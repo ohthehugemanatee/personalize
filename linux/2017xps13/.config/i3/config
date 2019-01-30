@@ -414,6 +414,7 @@ for_window [urgent=latest] focus
 bindsym --release Control+Shift+1 exec /usr/local/bin/screenshot
 bindsym --release Control+Shift+2 exec /usr/local/bin/screenshot -w
 bindsym --release Control+Shift+3 exec /usr/local/bin/screenshot -a
+bindsym --release Control+Shift+4 exec /usr/local/bin/screenshot -ac
 
 
 
