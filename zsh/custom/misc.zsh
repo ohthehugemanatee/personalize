@@ -83,6 +83,3 @@ alias tmp='vi ~/tmp/tmp.txt'
 
 # s-tui hw monitor
 alias monitor='s-tui'
-
-# msftvpn
-alias msftvpn="sudo sed -i '1i###Begin MSFTVPN\nsearch corp.microsoft.com\nnameserver 10.221.18.5\n###End MSFTVPN' /etc/resolv.conf && /usr/local/bin/msftvpn; sudo perl -0777 -pi -e 's/###Begin MSFTVPN(.*)###End MSFTVPN\n//igs' /etc/resolv.conf"
