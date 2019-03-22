@@ -20,6 +20,7 @@ echo "Monitor count is $MONITOR_COUNT"
 # Either way, set the DPI.
 #xrandr --dpi 221
 if [ $MONITOR_COUNT -gt 1 ]; then
+  xrandr --auto
   # Check for different combinations of monitors.
   if echo $MONITOR_IDS | grep -q 'C34H89x'; then
     echo "Found home curved monitor"
@@ -39,6 +40,10 @@ if [ $MONITOR_COUNT -gt 1 ]; then
     #xrandr --fb 7040x2160
     #xrandr --output DP1 --scale 2x2 --mode 1920x1080 --pos 0x0
     #xrandr --output eDP1 --scale 1x1 --mode 3200x1800 --pos 3840x0
+  fi;
+  if echo $MONITOR_IDS |grep -q 'EA273WMi'; then
+    echo "Found MS UdL desk monitor"
+    $HOME/.screenlayout/ms-udl-desk.sh
   fi;
 elif [ $MONITOR_COUNT = "1" ]; then
   xrandr --auto
