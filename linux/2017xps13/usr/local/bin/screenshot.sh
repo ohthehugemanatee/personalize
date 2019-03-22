@@ -4,10 +4,10 @@
 FILENAME=Screenshots/Screenshot_`date +%Y-%m-%d-%H.%M.%S`.png
 
 # Select an area and save the screenshot. We pass our arguments directly to gnome-screenshot
+mkdir -p /tmp/Screenshots
 
 # If we're saving to a file.
 if [[ $* != *c* ]]; then
-  mkdir -p /tmp/Screenshots
   gnome-screenshot -f "/tmp/${FILENAME}" "$*"
   # Add to nextcloud.
   cloud-dl -u "/tmp/${FILENAME}" Screenshots
