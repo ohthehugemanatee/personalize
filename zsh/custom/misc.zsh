@@ -52,7 +52,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 # Add go binaries to PATH
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
 
 # Add yarn binaries to PATH
 export PATH="$PATH:$HOME/.yarn/bin"
