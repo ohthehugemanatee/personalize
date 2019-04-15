@@ -24,8 +24,10 @@ if [ $MONITOR_COUNT = "3" ]; then
   if [ `echo $MONITOR_IDS | grep -q 'C34H89X'` -a `echo $MONITOR_IDS | grep -q 'ASUS VS247'` ]; then
     echo "Found home docking station with two monitors."
     $HOME/.screenlayout/home-dock.sh
+    $HOME/.screenlayout/home-dock.i3.sh
   fi;
 elif [ $MONITOR_COUNT = "2" ]; then
+  $HOME/screenlayout/standard.i3.sh DP1 eDP1
   # Check for different combinations of monitors.
   if echo $MONITOR_IDS | grep -q 'C34H89x'; then
     echo "Found home curved monitor"
