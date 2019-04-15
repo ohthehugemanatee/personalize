@@ -48,6 +48,7 @@ elif [ $MONITOR_COUNT = "2" ]; then
   fi;
 elif [ $MONITOR_COUNT = "1" ]; then
   echo "Only the internal monitor was found."
+  $HOME/.screenlayout/standard.i3.sh eDP1 eDP1
   # No extra config necessary. `xrandr --auto` is enough.
 fi;
 # Update the wallpaper.
