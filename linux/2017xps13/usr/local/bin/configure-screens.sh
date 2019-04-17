@@ -24,7 +24,6 @@ if [ $MONITOR_COUNT = "3" ]; then
   if [ `echo $MONITOR_IDS | grep -q 'C34H89X'` -a `echo $MONITOR_IDS | grep -q 'ASUS VS247'` ]; then
     echo "Found home docking station with two monitors."
     $HOME/.screenlayout/home-dock.sh
-    $HOME/.screenlayout/home-dock.i3.sh
   fi;
 elif [ $MONITOR_COUNT = "2" ]; then
   $HOME/screenlayout/standard.i3.sh DP1 eDP1
@@ -48,7 +47,6 @@ elif [ $MONITOR_COUNT = "2" ]; then
   fi;
 elif [ $MONITOR_COUNT = "1" ]; then
   echo "Only the internal monitor was found."
-  $HOME/.screenlayout/standard.i3.sh eDP1 eDP1
   # No extra config necessary. `xrandr --auto` is enough.
 fi;
 # Update the wallpaper.

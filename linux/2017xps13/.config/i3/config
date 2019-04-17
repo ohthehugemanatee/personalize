@@ -258,22 +258,31 @@ bindsym $mod+shift+l exec xtrlock
 
 # Assign monitor variables to specific screens.
 # Small screen=firstMonitor, external=secondMonitor
-set $firstMonitor eDP1
-set $secondMonitor DP1
-#set $secondMonitor DVI-I-1-1
+#set DP1 DVI-I-1-1
 
-# Small screen: chats, skype, music
-workspace $tag5 output $firstMonitor
-workspace $tag6 output $firstMonitor
-workspace $tag7 output $firstMonitor
-workspace $tag8 output $firstMonitor
-workspace $tag9 output $firstMonitor
-workspace $tag0 output $firstMonitor
-# Big screen: browser, code.
-workspace $tag1 output $secondMonitor
-workspace $tag2 output $secondMonitor
-workspace $tag3 output $secondMonitor
-workspace $tag4 output $secondMonitor
+################### LABEL ######################
+# Labels from FontAwesome.
+set $tag1 "1"
+set $tag2 "2"
+set $tag3 "3"
+set $tag4 "4"
+set $tag5 "5"
+set $tag6 "6"
+set $tag7 "7"
+set $tag8 "8"
+set $tag9 "9"
+set $tag0 "10"
+
+workspace $tag1 output DP2-1 DP1 eDP1
+workspace $tag2 output DP2-1 DP1 eDP1
+workspace $tag3 output DP2-1 DP1 eDP1
+workspace $tag4 output DP1-2 DP1 eDP1
+workspace $tag5 output DP1-2 eDP1
+workspace $tag6 output DP1-2 eDP1
+workspace $tag7 output eDP1
+workspace $tag8 output eDP1
+workspace $tag9 output eDP1
+workspace $tag0 output eDP1
 
 
 # switch to workspace
@@ -301,18 +310,6 @@ bindsym $mod+Shift+9 move container to workspace $tag9
 bindsym $mod+Shift+0 move container to workspace $tag0
 
 
-################### LABEL ######################
-# Labels from FontAwesome.
-set $tag1 "1"
-set $tag2 "2"
-set $tag3 "3"
-set $tag4 "4"
-set $tag5 "5"
-set $tag6 "6"
-set $tag7 "7"
-set $tag8 "8"
-set $tag9 "9"
-set $tag0 "10"
 
 ################### ASSIGN ######################
 #assign [class="Gnome-terminal"]     $tag1 # I like to pop up terminals whereever
