@@ -26,7 +26,7 @@ dpi = 221
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false
+fixed-center = true
 bottom = true
 
 background = ${colors.background}
@@ -53,8 +53,9 @@ font-3 = Material Icons:pixelsize=11;0
 ;font-2 = siji:pixelsize=10;1
 
 modules-left = i3
-modules-center = mpd
-modules-right = filesystem cpu temperature wlan battery xbacklight volume date powermenu
+;modules-center = mpd
+modules-center = filesystem cpu temperature wlan battery 
+modules-right = xbacklight volume date
 
 tray-position = ${env:TRAY_POSITION:right}
 tray-padding = 1 
