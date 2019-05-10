@@ -18,35 +18,38 @@ MONITOR_IDS=$(ls /sys/class/drm/*/edid | xargs -i{} sh -c "echo {}; parse-edid <
 echo "Monitor count is $MONITOR_COUNT"
 
 xrandr --auto
-
-if [ $MONITOR_COUNT = "3" ]; then
-  # We've only got one config of 3 monitors... but check just in case.
-  if [ `echo $MONITOR_IDS | grep -q 'C34H89X'` -a `echo $MONITOR_IDS | grep -q 'ASUS VS247'` ]; then
-    echo "Found home docking station with two monitors."
-    $HOME/.screenlayout/home-dock.sh
-  fi;
-elif [ $MONITOR_COUNT = "2" ]; then
-  $HOME/screenlayout/standard.i3.sh DP1 eDP1
-  # Check for different combinations of monitors.
-  if echo $MONITOR_IDS | grep -q 'C34H89x'; then
-    echo "Found home curved monitor"
-    $HOME/.screenlayout/big-home.sh
-  fi;
-  if echo $MONITORS | grep -q 'DVI-I-1-1'; then
-    echo "Found MS workspace monitor"
-    echo "No saved screenlayout yet. Starting arandr"
-    /usr/bin/arandr
-  fi;
-  if echo $MONITOR_IDS | grep -q 'ASUS VS247'; then 
-    echo "Found home workspace monitor"
-    $HOME/.screenlayout/asus-home.sh
-  fi;
-  if echo $MONITOR_IDS |grep -q 'EA273WMi'; then
-    echo "Found MS UdL desk monitor"
-    $HOME/.screenlayout/ms-udl-desk.sh
-  fi;
-elif [ $MONITOR_COUNT = "1" ]; then
-  echo "Only the internal monitor was found."
-  # No extra config necessary. `xrandr --auto` is enough.
-fi;
+case  $MONITOR_COUNT  in
+  "3")
+    # We've only got one config of 3 monitors... but check just in case.
+    if [ `echo $MONITOR_IDS | grep -q 'C34H89X'` -a `echo $MONITOR_IDS | grep -q 'ASUS VS247'` ]; then
+      echo "Found home docking station with two monitors."
+      $HOME/.screenlayout/home-dock.sh
+    fi;
+    ;;
+  "2")
+    # Check for different combinations of monitors.
+    if echo $MONITOR_IDS | grep -q 'C34H89x'; then
+      echo "Found home curved monitor"
+      $HOME/.screenlayout/big-home.sh
+    fi;
+    if echo $MONITORS | grep -q 'DVI-I-1-1'; then
+      echo "Found MS workspace monitor"
+      echo "No saved screenlayout yet. Starting arandr"
+      /usr/bin/arandr
+    fi;
+    if echo $MONITOR_IDS | grep -q 'ASUS VS247'; then 
+      echo "Found home workspace monitor"
+      $HOME/.screenlayout/asus-home.sh
+    fi;
+    if echo $MONITOR_IDS |grep -q 'EA273WMi'; then
+      echo "Found MS UdL desk monitor"
+      $HOME/.screenlayout/ms-udl-desk.sh
+    fi;
+    ;;            
+  "1")
+    echo "Only the internal monitor was found."
+    # No extra config necessary. `xrandr --auto` is enough.
+    ;;
+  *)              
+esac 
 
