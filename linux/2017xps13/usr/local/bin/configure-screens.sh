@@ -32,6 +32,10 @@ case  $MONITOR_COUNT  in
       echo "Found home curved monitor"
       $HOME/.screenlayout/big-home.sh
     fi;
+    if echo $MONITOR_IDS | grep -q 'CF791'; then
+      echo "Found Alexanderplatz curved samsung monitor"
+      $HOME/.screenlayout/alexplatz-curved-samsung.sh
+    fi;
     if echo $MONITORS | grep -q 'DVI-I-1-1'; then
       echo "Found MS workspace monitor"
       echo "No saved screenlayout yet. Starting arandr"
