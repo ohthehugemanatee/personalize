@@ -53,7 +53,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(pass git git-extras npm command-not-found composer common-aliases debian docker last-working-dir sudo systemd wd z zsh-autosuggestions gpg-agent)
+plugins=(git git-extras npm command-not-found composer common-aliases debian docker last-working-dir sudo systemd wd z zsh-autosuggestions gpg-agent golang)
 
 source $ZSH/oh-my-zsh.sh
 
