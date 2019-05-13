@@ -28,6 +28,10 @@ case  $MONITOR_COUNT  in
     ;;
   "2")
     # Check for different combinations of monitors.
+    if echo $MONITOR_IDS | grep -q 'Crestron'; then
+      echo "Found MS meeting room Crestron MONITOR_IDS"
+      $HOME/.screenlayout/crestron.sh
+    fi;
     if echo $MONITOR_IDS | grep -q 'C34H89x'; then
       echo "Found home curved monitor"
       $HOME/.screenlayout/big-home.sh
