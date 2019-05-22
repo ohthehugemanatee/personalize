@@ -25,11 +25,15 @@ case  $MONITOR_COUNT  in
       echo "Found home docking station with two monitors."
       $HOME/.screenlayout/home-dock.sh
     fi;
+    if echo $MONITOR_IDS | grep -q 'LG HDR 5K'; then
+      echo "Found Laura's monitor"
+      $HOME/.screenlayout/laura.sh
+    fi;
     ;;
   "2")
     # Check for different combinations of monitors.
     if echo $MONITOR_IDS | grep -q 'Crestron'; then
-      echo "Found MS meeting room Crestron MONITOR_IDS"
+      echo "Found MS meeting room Crestron"
       $HOME/.screenlayout/crestron.sh
     fi;
     if echo $MONITOR_IDS | grep -q 'C34H89x'; then
