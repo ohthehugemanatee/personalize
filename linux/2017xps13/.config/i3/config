@@ -343,7 +343,7 @@ for_window [class="Spotify"] move to workspace $tag0
 
 # invisible stuff:
 exec_always --no-startup-id numlockx on #enable numlock
-exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
+#exec --no-startup-id dunst -config ~/.config/i3/dunstrc # notification daemon
 # maybe this is what's fucking up my agent?
 #exec gpg-agent --daemon --debug-level expert # GPG as an ssh agent.
 exec xmodmap ~/.Xmodmap
