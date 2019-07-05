@@ -57,6 +57,10 @@ case  $MONITOR_COUNT  in
       echo "Found MS UdL desk monitor"
       $HOME/.screenlayout/ms-udl-desk.sh
     fi;
+    if echo $MONITOR_IDS | grep -q 'P2715Q'; then
+      echo "Found MS UdL desk Dell monitor"
+      $HOME/.screenlayout/dell-alexanderplatz.sh
+    fi;
     ;;            
   "1")
     echo "Only the internal monitor was found."
