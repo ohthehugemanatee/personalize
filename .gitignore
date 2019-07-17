@@ -1,1 +1,2 @@
 # system subdirectories like .drush, .vim, and .ssh have their own .gitignores. Go look there.
+.ssh/known_hosts*
