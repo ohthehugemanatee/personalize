@@ -9,121 +9,33 @@ PERSONALIZE=$HOME/personalize
 #mkdir $HOME/tmp
 
 # Add my apt sources.
-# if [ -d /etc/apt/sources.list.d ]; then
-#   sudo add-apt-repository ppa:teejee2008/ppa
-#   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
-#   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EF4186FE247510BE
-#   sudo ln -sf sources.list.d/* /etc/apt/sources.list.d/
-# fi
-# # Add some manual keys and repos.
-# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
-# wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - # google talk/hangouts
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - # docker
-# sudo add-apt-repository ppa:numix/ppa # themes.
-# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-# sudo add-apt-repository multiverse # various. Notably Steam.
-# sudo add-apt-repository ppa:ondrej/php # php modules
-# sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
-# sudo apt-add-repository -y ppa:teejee2008/ppa # timeshift system backup utility
-# 
-# # s-tui system monitor.
-# sudo add-apt-repository ppa:amanusk/python-s-tui
-# sudo apt-get update
-# sudo apt-get install python3-s-tui -y
-# 
-# #install ubuntu-x ppa.
-# # nb: If you are upgrading from one release to another with this PPA activated, please install the ppa-purge package and use it to downgrade everything in here beforehand. sudo ppa-purge ppa:ubuntu-x-swat/updates will do it.
-# sudo add-apt-repository ppa:ubuntu-x-swat/updates
-# 
-# curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-# echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-#  
-# sudo apt update
-# 
-# # i3 desktop.
-# #
-# # 
-# # * I3 tiling window manager
-# # * i3 lock screen provider
-# # * i3 status bar provider
-# # * i3's dmenu menu provider
-# # * compton, i3 compatible compositor
-# # * xbacklight, for controlling screen backlight
-# # * feh, command line image viewer
-# # * conky, conky-manager for lightweight status widgets
-# # * pulseaudio and pa\* tools: audio interface and corresponding taskbar item
-# # * variety, wallpaper downloader/switcher
-# # * numlockx, numlock controller
-# # * lxappearance, GTK+ theme switcher
-# # * unclutter, hides the cursor when typing
-# # * j4-dmenu-desktop, dMenu for .desktop files
-# # * rofi, alternative dmenu replacement.
-# # * polybar, a more awesome i3-bar
-# # * Signal desktop
-# # 
-# # A lot of the desktop setup comes from https://github.com/erikdubois/i3-on-Linux-Mint-18-Cinnamon.git and the corresponding blog post.
-# 
-# sudo apt install i3lock suckless-tools i3status dmenu i3lock xbacklight feh conky pasystray paman paprefs pavumeter pulseaudio-module-zeroconf pavucontrol variety numlockx lxappearance xsel j4-dmenu-desktop rxvt-unicode-256color ncurses-term signal-desktop -y
+if [ -d /etc/apt/sources.list.d ]; then
+  sudo add-apt-repository ppa:teejee2008/ppa
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EF4186FE247510BE
+  sudo ln -sf sources.list.d/* /etc/apt/sources.list.d/
+fi
+# Add some manual keys and repos.
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - # google talk/hangouts
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - # docker
+sudo add-apt-repository ppa:numix/ppa # themes.
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo add-apt-repository multiverse # various. Notably Steam.
+sudo add-apt-repository ppa:ondrej/php # php modules
+sudo add-apt-repository ppa:nilarimogard/webupd8 # audacious music player
+sudo apt-add-repository -y ppa:teejee2008/ppa # timeshift system backup utility
 
-# build and install rofi from git (apt sources are very old)
-# sudo add-apt-repository ppa:jasonpleau/rofi
-# sudo apt install rofi
-# download rofi themes
-# mkdir -p $HOME/.local/share/rofi
-# git clone git@github.com:DaveDavenport/rofi-themes.git themes
-# 
-# # replace i3 with i3-gaps
-# sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf xutils-dev dh-autoreconf -y 
-# cd /tmp; git clone --recursive https://github.com/Airblader/xcb-util-xrm.git  && cd /tmp/xcb-util-xrm
-# ./autogen.sh; make; sudo make install; sudo ldconfig
-# sudo add-apt-repository ppa:monettes/i3wm-gaps
-# sudo apt install i3-wm -y
-#simlink i3 config into place.
-# mkdir -p $HOME/.config
-# ln -sf $PERSONAlIZE/.config/i3 $HOME/.config/i3
-# #simlink rofi config into place
-# ln -sf $PERSONALIZE/.config/rofi $HOME/.config/rofi
-# and the rofi clipboard manager
-# sudo ln -sf $PWD/usr/local/bin/greenclip /usr/local/bin/
-# #simlink polybar config into place. NB: This will probably need extra fonts that I missed. :|
-# ln -sf $PERSONALIZE/.config/polybar $HOME/.config/polybar
-# #simlink conky library into place
-# ln -sf $PERSONAlIZE/.conky $HOME/.conky
-# #simlink Xresources into place.
-# ln -sf $PERSONALIZE/.Xresources ~/.Xresources
-# # simlink swaywm config into place
-# ln -sf $PERSONALIZE/.config/sway $HOME/.config/sway
+# Install applications and tools I like, want, and need.
+sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential steam timeshift
 
-#Add fancy powerline fonts for the terminal
-# cd /tmp; git clone git@github.com:powerline/fonts.git; cd fonts; ./install.sh
-
-#copy fonts into place.
-# mkdir -p $HOME/.fonts
-# cp $PERSONALIZE/.fonts/* $HOME/.fonts
-# 
-# # Install applications and tools I like, want, and need.
-# sudo apt install -y php phpunit php-mbstring php-sqlite3 openssh-server bundler ruby-dev powertop gcc build-essential steam timeshift
-# 
-# # install Signal messenger
-# curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-# echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-# sudo apt update && sudo apt install signal-desktop
-# 
-# 
 # # Install nodeJS LTS
 # sudo apt-get install curl software-properties-common -y
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash
 sudo apt install nodejs -y
 
 # Install composer to scripts directory.
-if [ ! -f $HOME/scripts/composer.phar ]; then
-  cd $HOME/scripts
-  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-  php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-  php composer-setup.php
-  php -r "unlink('composer-setup.php');"
-fi
-sudo ln -sf $HOME/scripts/composer.phar /usr/local/bin/
+installComposer
 # Pretty ping.
 sudo ln -sf $HOME/personalize/linux/2017xps13/usr/local/bin/prettyping /usr/local/bin/prettyping
 # Diff-so-fancy
@@ -228,3 +140,23 @@ Other manual steps:
 * Killer wireless has problematic firmware. Use an upstream one from github. Take /lib/firmware/ath10k/QCA6174/hw3.0/ board.bin, board-2.bin, and firmware-6.bin from https://github.com/kvalo/ath10k-firmware/
 
 If I'm smart, I've kept my /opt directory so you can just symlink (by hand)."
+
+  // Install composer.
+  function installComposer () {
+
+    EXPECTED_SIGNATURE="$(wget -q -O - https://composer.github.io/installer.sig)"
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    ACTUAL_SIGNATURE="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+
+    if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]
+    then
+      >&2 echo 'ERROR: Invalid installer signature'
+      rm composer-setup.php
+      exit 1
+    fi
+
+    php composer-setup.php --quiet
+    RESULT=$?
+    rm composer-setup.php
+    return $RESULT
+  }
