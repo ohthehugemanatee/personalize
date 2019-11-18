@@ -3,9 +3,6 @@ alias ffs="sudo chown -R ohthehugemanatee ."
 
 alias clipboard="xsel -ib"
 
-# color scheme for directories
-eval `dircolors $HOME/.dir_colors/dircolors`
-
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
