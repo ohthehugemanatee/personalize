@@ -1,5 +1,5 @@
 # Include antigen plugin manager
-source $HOME/personalize/linux/2018sfpro/antigen.zsh
+source $HOME/personalize/linux/antigen.zsh
 antigen use oh-my-zsh
 
 antigen theme https://github.com/yupswing/yupgnoster.git yupgnoster
