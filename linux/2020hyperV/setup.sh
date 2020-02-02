@@ -4,27 +4,19 @@
 
 
 # Globals.
+INSTALLER="sudo pacman -Sy"
 PERSONALIZE=$HOME/personalize
 SOURCE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 mkdir $HOME/tmp
 
 # Install:
-# * docker
 # * vscode?
-# * audacious music player
-# * timeshift system backup utility
-# * Signal messenger
-# * Powerline fonts
-# * Steam
-# * powertop
-# * Simplenote
-# * Skype for linux
-#
 # Assume manually installed: 
 # * i3
+# * skype
 
 # ZSH and oh-my-zsh
-sudo pacman -S zsh
+$INSTALLER zsh
 # Run this manually because it interrupts the script.
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -47,7 +39,7 @@ sudo ln -sf $SOURCE/usr/local/bin/screenshot.sh /usr/local/bin/screenshot
 sudo ln -sf $SOURCE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-screens.sh
 
 # mutt et al
-sudo pacman -S mutt w3m w3m-img urlscan msmtp goobook notmuch
+$INSTALLER mutt w3m w3m-img urlscan msmtp goobook notmuch
 sudo ln -sf $SOURCE/usr/local/bin/msmtp-offline /usr/local/bin/
 sudo ln -sf $SOURCE/usr/local/bin/msmtp-queue /usr/local/bin/
 sudo ln -sf $SOURCE/usr/local/bin/text2mime-markdown.pl /usr/local/bin/
@@ -60,10 +52,21 @@ goobook authenticate
 ln -sf $SOURCE/Xmodmap $HOME/.Xmodmap
 
 # Thefuck shell script.
-sudo pacman -S thefuck
+$INSTALLER thefuck
 
-# PHPStorm IDE.
+# Various
+# * Docker/-compose
+# * audacious
+# * timeshift system backup utility
+# * signal desktop app
+# * Steam
+$INSTALLER docker-compose audacious timeshift signal-desktop steam
+
+# Snap installs:
+# * PHPStorm IDE.
+# * Simplenote
 sudo snap install phpstorm --classic
+sudo snap install simplenote
 
 # TLDR manpages
 curl -o /tmp/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
