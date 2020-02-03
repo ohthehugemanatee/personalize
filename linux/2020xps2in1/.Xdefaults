@@ -1,0 +1,24 @@
+Xft.dpi:                    221
+Xft.antialias:              false
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle: hintslight
+
+URxvt.termName: rxvt-256color
+URxvt.reverseVideo: True
+URxvt.font: xft:ubuntu mono derivative powerline:size=12
+URxvt.urlLauncher: firefox
+URxvt.matcher.button:   1
+URxvt.perl-ext-common:  default,matcher
+URxvt.scrollstyle:      plain
+URxvt.saveLines:        4095
+URxvt.keysym.C-Up:     \033[1;5A
+URxvt.keysym.C-Down:   \033[1;5B
+URxvt.keysym.C-Right:  \033[1;5C
+URxvt.keysym.C-Left:   \033[1;5D
+URxvt.keysym.C-Prior:  \033[5;5~
+URxvt.keysym.C-Next:   \033[6;5~
+URxvt.keysym.C-Home:   \033[7;5~
+URxvt.keysym.C-End:    \033[8;5~
+URxvt.iso14755:         False
+
