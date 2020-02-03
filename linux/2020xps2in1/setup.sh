@@ -62,7 +62,8 @@ $INSTALLER thefuck
 # * Steam
 # * kubectl
 # * net-tools (ifconfig etc)
-$INSTALLER docker-compose audacious timeshift signal-desktop steam kubectl net-tools
+# * pulse audio
+$INSTALLER docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa
 
 # Snap installs:
 # * PHPStorm IDE.
@@ -78,6 +79,9 @@ sudo chmod +x /usr/local/bin/tldr
 # Simlink .profile and .Xresources
 ln -sf $PERSONALIZE/linux/2020xps2in1/.profile ~
 ln -sf $PERSONALIZE/linux/2020xps2in1/.Xresources ~
+
+# Config for morc_menu
+ln -sf $PERSONALIZE/linux/2020xps2in1/morc_menu_v1.conf $HOME/.config/morc_menu
 
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
