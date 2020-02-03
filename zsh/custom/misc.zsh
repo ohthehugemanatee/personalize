@@ -80,3 +80,6 @@ alias tmp='vi ~/tmp/tmp.txt'
 
 # s-tui hw monitor
 alias monitor='s-tui'
+
+# add personal bin dir.
+PATH=$PATH:$HOME/bin
