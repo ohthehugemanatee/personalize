@@ -40,13 +40,10 @@ sudo ln -sf $SOURCE/usr/local/bin/configure-screens.sh /usr/local/bin/configure-
 
 # mutt et al
 $INSTALLER mutt w3m w3m-img urlscan msmtp goobook-git notmuch
-sudo ln -sf $SOURCE/usr/local/bin/msmtp-offline /usr/local/bin/
-sudo ln -sf $SOURCE/usr/local/bin/msmtp-queue /usr/local/bin/
-sudo ln -sf $SOURCE/usr/local/bin/text2mime-markdown.pl /usr/local/bin/
-sudo ln -sf $SOURCE/usr/local/bin/text2mime-sendmail.pl /usr/local/bin/
 mkdir $HOME/log
 goobook authenticate
-
+# personal bin dir.
+sudo ln -sf $SOURCE/bin $HOME/bin
 
 # Xmodmap for euro key. Note otherwise I should be on dell US keyboard layout, with options lv3:switch, compose:ralt, terminate:ctrl_alt_bksp.
 ln -sf $SOURCE/Xmodmap $HOME/.Xmodmap
