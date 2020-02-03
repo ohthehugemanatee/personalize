@@ -75,8 +75,9 @@ curl -o /tmp/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
 sudo mv /tmp/tldr /usr/local/bin
 sudo chmod +x /usr/local/bin/tldr
 
-# Simlink .profile
+# Simlink .profile and .Xresources
 ln -sf $PERSONALIZE/linux/2020xps2in1/.profile ~
+ln -sf $PERSONALIZE/linux/2020xps2in1/.Xresources ~
 
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
