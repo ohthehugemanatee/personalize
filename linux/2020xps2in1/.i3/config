@@ -63,7 +63,7 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+Shift+l exec xtrlock
+bindsym $mod+F1 exec xtrlock
 bindsym $mod+F2 exec firefox-nightly
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
