@@ -15,6 +15,9 @@ mkdir $HOME/tmp
 # * i3
 # * skype
 
+# Link i3 config
+ln -sf $SOURCE/.i3 $HOME/.i3
+
 # ZSH and oh-my-zsh
 $INSTALLER zsh
 # Run this manually because it interrupts the script.
