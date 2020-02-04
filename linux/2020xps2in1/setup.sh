@@ -18,6 +18,9 @@ mkdir $HOME/tmp
 # Link i3 config
 ln -sf $SOURCE/.i3 $HOME/.i3
 
+# Sudoers access for mounting veracrypt
+sudo cp $SOURCE/etc/sudoers.d/veracrypt /etc/sudoers.d
+
 # ZSH and oh-my-zsh
 $INSTALLER zsh
 # Run this manually because it interrupts the script.
