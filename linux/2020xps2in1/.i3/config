@@ -1,6 +1,9 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+# @todo
+# - Rofi
+# - Screenshot to clipboard
+#
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -60,14 +63,17 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
+bindsym $mod+Shift+l exec xtrlock
+bindsym $mod+F2 exec firefox-nightly
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+Shift+F5 exec audacious
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+# Screenshots
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
@@ -155,6 +161,8 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
+set $ws9 9
+set $ws0 0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -187,10 +195,28 @@ bindsym $mod+Ctrl+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-# assign [class="Thunderbird"] $ws1
-# assign [class="Pale moon"] $ws2
-# assign [class="Pcmanfm"] $ws3
-# assign [class="Skype"] $ws5
+
+assign [class="terminator"]         $ws1
+assign [class="Firefox"]            $ws2
+assign [class="Nightly"]            $ws2
+assign [class="jetbrains-phpstorm"] $ws3
+assign [class="Code - Insiders"]    $ws3
+assign [class="chromium-browser"]   $ws4
+assign [class="google-chrome"]      $ws4
+assign [class="VirtualBox"]         $ws5
+assign [class="VirtualBox"]         $ws5
+assign [class="zoom"]               $ws6
+assign [class="Toggl"]              $ws7
+assign [class="Slack"]              $ws8
+assign [class="Franz"]              $ws8
+assign [class="teams-for-linux"]    $ws8
+assign [class="Viber"]              $ws9
+assign [class="Skype"]              $ws9
+assign [class="Signal"]             $ws9
+assign [class="Spotify"]            $ws0
+assign [class="VLC media player"]   $ws0
+#fix for spotify not moving to workspace 10
+for_window [class="Spotify"] move to workspace $ws0
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -307,9 +333,10 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 exec --no-startup-id nextcloud
+exec --no-startup-id xmodmap ~/.Xmodmap
 # mount veracrypt device
 exec --no-startup-id /home/ohthehugemanatee/bin/mount-veracrypt.sh
-# exec --no-startup-id blueman-applet
+exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
