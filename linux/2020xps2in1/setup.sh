@@ -86,6 +86,13 @@ ln -sf $PERSONALIZE/linux/2020xps2in1/.Xresources ~
 # Config for morc_menu
 ln -sf $PERSONALIZE/linux/2020xps2in1/morc_menu_v1.conf $HOME/.config/morc_menu
 
+# screen rotation - specific to this model. Make code changes for future devices...
+cd ~/tmp
+git clone git@github.com:ohthehugemanatee/2in1screen.git
+cd 2in1screen
+make
+cp -f 2in1screen $HOME/bin
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
