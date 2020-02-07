@@ -17,6 +17,7 @@ mkdir $HOME/tmp
 
 # Link i3 config
 ln -sf $SOURCE/.i3 $HOME/.i3
+ln -sf $SOURCE/.config/i3status $HOME/.config/i3status
 
 # Sudoers access for mounting veracrypt
 sudo cp $SOURCE/etc/sudoers.d/veracrypt /etc/sudoers.d
