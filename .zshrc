@@ -23,7 +23,7 @@ antigen bundle sudo
 antigen bundle systemd
 antigen bundle wd
 antigen bundle z
-antigen bundle zsh-autosuggestions
+antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle gpg-agent
 # my custom scripts
 antigen bundle $HOME/personalize/zsh/custom --no-local-clone
