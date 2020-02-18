@@ -11,7 +11,6 @@ docker run -it \
   --ipc=host \
   --user $(id -u):$(id -g) \
   --cap-drop=ALL \
-  --security-opt=no-new-privileges \
   --mount type=bind,src=$HOME/.msftvpn.yaml,dst=/home/seluser/.msftvpn.yaml \
   --mount type=bind,src=$HOME/.Xauthority,dst=/home/seluser/.Xauthority \
   --mount type=bind,src=/etc/resolv.conf,dst=/etc/resolv.conf \
