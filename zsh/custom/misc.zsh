@@ -76,7 +76,7 @@ QT_DEVICE_PIXEL_RATIO=2
 QT_AUTO_SCREEN_SCALE_FACTOR=2
 
 # tmp file
-alias tmp='vi ~/tmp/tmp.txt'
+alias tmp='vim ~/tmp/tmp.txt'
 
 # s-tui hw monitor
 alias monitor='s-tui'
