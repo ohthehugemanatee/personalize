@@ -4,7 +4,7 @@
 
 
 # Globals.
-INSTALLER="sudo pacman -Sy"
+INSTALLER="pamac -y"
 PERSONALIZE=$HOME/personalize
 SOURCE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 mkdir $HOME/tmp
@@ -67,13 +67,12 @@ $INSTALLER thefuck
 # * kubectl
 # * net-tools (ifconfig etc)
 # * pulse audio
-$INSTALLER docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa
+# * simplenote
+$INSTALLER docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin
 
 # Snap installs:
 # * PHPStorm IDE.
-# * Simplenote
 sudo snap install phpstorm --classic
-sudo snap install simplenote
 
 # TLDR manpages
 curl -o /tmp/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
