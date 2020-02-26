@@ -68,7 +68,8 @@ $INSTALLER thefuck
 # * net-tools (ifconfig etc)
 # * pulse audio
 # * simplenote
-$INSTALLER docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin
+# * xidlehook
+$INSTALLER docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin xidlehook
 
 # Snap installs:
 # * PHPStorm IDE.
