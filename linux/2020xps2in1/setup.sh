@@ -94,6 +94,10 @@ cd 2in1screen
 make
 cp -f 2in1screen $HOME/bin
 
+# Setup suspend on lid close
+sudo cp $PERSONALIZE/linux/2020xps2in1/etc/systemd/system/suspend@.service /etc/systemd/system/
+systemctl enable suspend@${USER}
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
