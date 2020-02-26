@@ -7,6 +7,7 @@ export BROWSER="env MOZ_USE_XINPUT2 DEFAULT=1 /opt/firefox-nightly/firefox"
 export GDK_SCALE=3
 export GDK_DPI_SCALE=0.33
 export QT_AUTO_SCREEN_SET_FACTOR=0
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=3
 export QT_FONT_DPI=96
 /usr/bin/xrandr --output eDP-1 --scale 1.3x1.3
