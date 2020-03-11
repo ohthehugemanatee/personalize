@@ -101,6 +101,8 @@ systemctl enable suspend@${USER}
 # Setup automatic external screen configs, preserving touch mapping
 $INSTALLER autorandr xrandr-watch-git
 ln -sf $SOURCE/.xrandr-changed $HOME/.xrandr-changed
+systemctl --user enable xrandr-watcher
+systemctl --user start  xrandr-watcher
 
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
