@@ -98,6 +98,10 @@ cp -f 2in1screen $HOME/bin
 sudo cp $PERSONALIZE/linux/2020xps2in1/etc/systemd/system/suspend@.service /etc/systemd/system/
 systemctl enable suspend@${USER}
 
+# Setup automatic external screen configs, preserving touch mapping
+$INSTALLER autorandr xrandr-watch-git
+ln -sf $SOURCE/.xrandr-changed $HOME/.xrandr-changed
+
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
 
