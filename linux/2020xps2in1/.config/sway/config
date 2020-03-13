@@ -440,3 +440,8 @@ input "1739:52602:00304238304C4C44:00_06CB:CD7A_Touchpad" {
   middle_emulation enabled
   pointer_accel 0.1
 }
+
+### Configure display
+output eDP-1 {
+  scale 2.0
+}
