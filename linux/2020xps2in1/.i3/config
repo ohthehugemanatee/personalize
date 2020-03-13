@@ -70,8 +70,8 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+Shift+F5 exec audacious
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+# bindsym $mod+t exec --no-startup-id pkill compton
+# bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # Screenshots
 bindsym Print exec --no-startup-id i3-scrot
@@ -347,8 +347,9 @@ exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id /home/ohthehugemanatee/bin/mount-veracrypt.sh
 exec --no-startup-id blueman-applet
 exec --no-startup-id variety
+exec --no-startup-id easystroke
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id /home/ohthehugemanatee/bin/idle-locker.sh
 exec_always --no-startup-id ff-theme-util
