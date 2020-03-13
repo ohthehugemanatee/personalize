@@ -70,8 +70,6 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+Shift+F5 exec audacious
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # Screenshots (@todo)
 # bindsym Print exec --no-startup-id i3-scrot
@@ -345,11 +343,9 @@ exec --no-startup-id nextcloud
 exec --no-startup-id /home/ohthehugemanatee/bin/mount-veracrypt.sh
 # exec --no-startup-id blueman-applet # deosn't appear
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-# exec --no-startup-id /home/ohthehugemanatee/bin/rotate.py
 exec --no-startup-id /usr/bin/rot8
 
 # Color palette used for the terminal ( ~/.Xresources file )
