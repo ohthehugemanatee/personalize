@@ -430,3 +430,11 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
+### Configure input devices
+input "1739:52602:00304238304C4C44:00_06CB:CD7A_Touchpad" {
+  tap enabled
+  click_method clickfinger
+  dwt enabled
+  middle_emulation enabled
+  pointer_accel 0.1
+}
