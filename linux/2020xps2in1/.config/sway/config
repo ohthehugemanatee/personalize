@@ -385,6 +385,7 @@ exec --no-startup-id /usr/bin/rot8
 # 
 # Swaybar
 bar {
+  swaybar_command waybar
 	status_command i3status
 	position bottom
 

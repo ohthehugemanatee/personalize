@@ -15,8 +15,8 @@ mkdir $HOME/tmp
 # * i3
 # * skype
 
-# Link i3 config
-ln -sf $SOURCE/.i3 $HOME/.i3
+# Link sway config
+ln -sf $SOURCE/.config/sway $HOME/.config/sway
 ln -sf $SOURCE/.config/i3status $HOME/.config/i3status
 
 # Sudoers access for mounting veracrypt
