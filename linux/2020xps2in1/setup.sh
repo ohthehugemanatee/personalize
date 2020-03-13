@@ -18,6 +18,7 @@ mkdir $HOME/tmp
 # Link sway config
 ln -sf $SOURCE/.config/sway $HOME/.config/sway
 ln -sf $SOURCE/.config/i3status $HOME/.config/i3status
+ln =sf $SOURCE/.config/waybar $HOME/.config/waybar
 
 # Sudoers access for mounting veracrypt
 sudo cp $SOURCE/etc/sudoers.d/veracrypt /etc/sudoers.d
