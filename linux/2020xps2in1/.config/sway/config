@@ -1,11 +1,4 @@
-# i3 config file (v4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-# @todo
-# - Rofi
-# - Screenshot to clipboard
-#
-# Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod4
+# SwayWM config file.
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
