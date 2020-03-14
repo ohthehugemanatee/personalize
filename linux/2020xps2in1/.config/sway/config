@@ -131,114 +131,6 @@ bindsym control+$mod+r exec xrandr --output eDP1 --rotate right
 bindsym control+$mod+l exec xrandr --output eDP1 --rotate left
 bindsym control+$mod+n exec xrandr --output eDP1 --rotate normal
 
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-
-# Workspace names
-# to display names or symbols instead of plain workspace numbers you can use
-# something like: set $ws1 1:mail
-#                 set $ws2 2:
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
-set $ws9 9
-set $ws0 0
-
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws0
-
-# Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws0
-
-# Move to workspace with focused container
-bindsym $mod+Ctrl+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Ctrl+9 move container to workspace $ws9; workspace $ws9
-bindsym $mod+Ctrl+0 move container to workspace $ws0; workspace $ws0
-
-# Open applications on specific workspaces
-
-assign [class="terminator"]         $ws1
-assign [class="Firefox"]            $ws2
-assign [class="Nightly"]            $ws2
-assign [class="jetbrains-phpstorm"] $ws3
-assign [class="Code - Insiders"]    $ws3
-assign [class="chromium-browser"]   $ws4
-assign [class="google-chrome"]      $ws4
-assign [class="VirtualBox"]         $ws5
-assign [class="VirtualBox"]         $ws5
-assign [class="zoom"]               $ws6
-assign [class="Toggl"]              $ws7
-assign [class="Slack"]              $ws8
-assign [class="Franz"]              $ws8
-assign [class="teams-for-linux"]    $ws8
-assign [class="microsoft teams - insiders"]    $ws8
-assign [class="Viber"]              $ws9
-assign [class="Skype"]              $ws9
-assign [class="Signal"]             $ws9
-assign [class="Spotify"]            $ws0
-assign [class="VLC media player"]   $ws0
-#fix for spotify not moving to workspace 10
-for_window [class="Spotify"] move to workspace $ws0
-
-# Open specific applications in floating mode
-for_window [title="Microsoft Teams Notification"] floating enable
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="calamares"] floating enable border normal
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable border pixel 1
-for_window [class="GParted"] floating enable border normal
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border normal
-for_window [class="Manjaro-hello"] floating enable
-for_window [class="Manjaro Settings Manager"] floating enable border normal
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable sticky enable border normal
-for_window [class="Oblogout"] fullscreen enable
-for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
-for_window [class="Pamac-manager"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-for_window [class="Simple-scan"] floating enable border normal
-for_window [class="(?i)System-config-printer.py"] floating enable border normal
-for_window [class="Skype"] floating enable border normal
-for_window [class="Timeset-gui"] floating enable border normal
-for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -271,8 +163,10 @@ bindsym $mod+Shift+e exec swaynag -t warning -m "Do you really want to log out?"
 bindsym $mod+Shift+F1 exec --no-startup-id blurlock
 
 
+include ./func-workspace-navigation
 include ./func-resize
 include ./autostart
+include ./application-behaviors
 include ./sound
 include ./theme
 include ./waybar
