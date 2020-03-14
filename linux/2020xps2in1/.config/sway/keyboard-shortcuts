@@ -1,0 +1,15 @@
+# Application shortcuts
+bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
+bindsym $mod+F1 exec xtrlock
+bindsym $mod+F2 exec firefox-nightly
+bindsym $mod+F3 exec pcmanfm
+bindsym $mod+Shift+F3 exec pcmanfm_pkexec
+bindsym $mod+F5 exec terminal -e 'mocp'
+bindsym $mod+Shift+F5 exec audacious
+
+# Screenshots (@todo)
+# bindsym Print exec --no-startup-id i3-scrot
+# bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+# bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
+# @todo
+# bindsym $mod+Ctrl+Shift+q --release exec --no-startup-id xkill
