@@ -38,6 +38,9 @@ bindsym $mod+z exec --no-startup-id morc_menu
 # launch browser
 bindsym $mod+Ctrl+f exec --no-startup-id "env MOZ_USE_XINPUT2 DEFAULT=1 /opt/firefox-nightly/firefox"
 bindsym $mod+Shift+t exec --no-startup-id /home/ohthehugemanatee/bin/toggle-panel.sh
+# notification daemon
+ Workspace names
+exec mako
 
 ################################################################################################
 
@@ -54,7 +57,6 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+Shift+F5 exec audacious
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 # Screenshots (@todo)
 # bindsym Print exec --no-startup-id i3-scrot
 # bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
