@@ -39,7 +39,6 @@ bindsym $mod+z exec --no-startup-id morc_menu
 bindsym $mod+Ctrl+f exec --no-startup-id "env MOZ_USE_XINPUT2 DEFAULT=1 /opt/firefox-nightly/firefox"
 bindsym $mod+Shift+t exec --no-startup-id /home/ohthehugemanatee/bin/toggle-panel.sh
 # notification daemon
- Workspace names
 exec mako --default-timeout 5000
 
 
