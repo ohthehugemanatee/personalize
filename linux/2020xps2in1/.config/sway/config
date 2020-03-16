@@ -120,3 +120,4 @@ include ./sound
 include ./theme
 include ./waybar
 include ./devices
+include ./idle
