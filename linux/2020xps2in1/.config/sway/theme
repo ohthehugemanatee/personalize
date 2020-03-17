@@ -36,4 +36,5 @@ gaps outer -2
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
-
+# Variety wallpaper switcher
+exec variety
