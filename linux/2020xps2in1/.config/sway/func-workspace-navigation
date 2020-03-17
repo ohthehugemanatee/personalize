@@ -39,6 +39,12 @@ bindsym $mod+Ctrl+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace $ws0; workspace $ws0
 
+# Move workspace to another output
+bindsym $mod+Ctrl+a move workspace to output left
+bindsym $mod+Ctrl+d move workspace to output right
+bindsym $mod+Ctrl+s move workspace to output down
+bindsym $mod+Ctrl+w move workspace to output up
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
