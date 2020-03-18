@@ -4,5 +4,5 @@
 
 {
   output "Samsung Electric Company C34H89x HTRK502229" enable mode 3440x1440 position 0,0
-  output "Sharp Corporation 0x14A8 0x00000000" enable position 785,1440
+  output "Sharp Corporation 0x14A8 0x00000000" enable scale 2 position 785,1440
 }
