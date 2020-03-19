@@ -110,13 +110,4 @@ bindsym $mod+Shift+e exec swaynag -t warning -m "Do you really want to log out?"
 bindsym $mod+Shift+F1 exec --no-startup-id blurlock
 
 
-include ./func-workspace-navigation
-include ./func-resize
-include ./keyboard-shortcuts
-include ./autostart
-include ./application-behaviors
-include ./sound
-include ./theme
-include ./waybar
-include ./devices
-include ./idle
+include ./config.d/*

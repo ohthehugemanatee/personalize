@@ -1,6 +1,6 @@
 # Swaybar
 bar {
-  swaybar_command waybar
+  swaybar_command ~/.config/waybar/waybar.sh 
 	status_command i3status
 	position bottom
 
