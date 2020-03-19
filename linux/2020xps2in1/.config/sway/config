@@ -110,4 +110,4 @@ bindsym $mod+Shift+e exec swaynag -t warning -m "Do you really want to log out?"
 bindsym $mod+Shift+F1 exec --no-startup-id blurlock
 
 
-include ./config.d/*
+include ~/.config/sway/config.d/*
