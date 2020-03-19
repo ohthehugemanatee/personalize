@@ -19,6 +19,10 @@ mkdir $HOME/tmp
 ln -sf $SOURCE/.config/sway $HOME/.config/sway
 ln -sf $SOURCE/.config/i3status $HOME/.config/i3status
 ln =sf $SOURCE/.config/waybar $HOME/.config/waybar
+# Variety wallpaper manager
+$INSTALLER variety python-pywal
+mv $HOME/.config/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper.bak
+ln -sf $SOURCE/.config/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper 
 
 # Sudoers access for mounting veracrypt
 sudo cp $SOURCE/etc/sudoers.d/veracrypt /etc/sudoers.d
