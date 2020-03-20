@@ -13,15 +13,15 @@
          "all-outputs": false,
          "format": "{icon}",
          "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "3",
+             "1": "1 ",
+             "2": "2 ",
+             "3": "3 ",
              "4": "4",
              "5": "5",
-             "6": "",
+             "6": "6 ",
              "7": "7",
-             "8": "",
-             "9": "",
+             "8": "8 ",
+             "9": "9 ",
              "urgent": "",
              "focused": "",
              "default": ""
@@ -80,7 +80,7 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 80,
             "warning": 30,
             "critical": 15
         },
@@ -88,26 +88,8 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""],
-	"bat": "BAT1"
-    },
-    "battery#bat1": {
-        "bat": "BAT0",
-	"states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""],
-    	"bat": "BAT0"
+	      "bat": "BAT0"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
