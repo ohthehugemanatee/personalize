@@ -10,9 +10,7 @@ SOURCE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 mkdir $HOME/tmp
 
 # Install:
-# * vscode?
 # Assume manually installed: 
-# * i3
 # * skype
 
 # Link sway config
@@ -108,6 +106,10 @@ $INSTALLER autorandr xrandr-watch-git
 ln -sf $SOURCE/.xrandr-changed $HOME/.xrandr-changed
 systemctl --user enable xrandr-watcher
 systemctl --user start  xrandr-watcher
+
+# Install/configure terminal
+$INSTALLER alacritty
+ln -sf $SOURCE/.config/alacritty $HOME/.config/alacritty
 
 # Manual installs
 echo "These applications must be manually installed from their websites. How crappy.
