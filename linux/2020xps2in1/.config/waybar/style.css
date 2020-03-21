@@ -66,6 +66,11 @@ window#waybar {
     animation-direction: alternate;
 }
 
+#battery.critical:not(.charging) {
+    background: #F1FF5B;
+    color: black;
+}
+
 #cpu {
     background: transparent;
     border-bottom: 3px solid @color5;
