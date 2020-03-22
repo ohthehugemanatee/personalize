@@ -83,3 +83,6 @@ alias monitor='s-tui'
 
 # add personal bin dir.
 PATH=$PATH:$HOME/bin
+
+# SSH should have the right TermInfo set. (Alacritty sets its own locally)
+alias ssh='TERM=xterm-color ssh'
