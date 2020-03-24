@@ -42,27 +42,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # Tunneling proxy alias
 alias sshproxy='ssh -D 8080 -Nf '
 
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin" 
-
-# Add composer to PATH
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-
-# Add go binaries to PATH
-export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
-
-# Add yarn binaries to PATH
-export PATH="$PATH:$HOME/.yarn/bin"
-
-# Put /user/local/bin at the front of PATH
-PATH=/usr/local/bin:$PATH
-
-# packages installed with pip
-export PATH=$PATH:$HOME/.local/bin
-
-# add personal bin dir.
-PATH=$PATH:$HOME/bin
-
 # gpg
 GPG_TTY=$(tty)
 export GPG_TTY
