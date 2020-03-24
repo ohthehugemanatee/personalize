@@ -215,7 +215,7 @@ fi
 
 if [[ -n $SWAYSOCK ]]; then
     # set color scheme with Wal
-    wal -i "$WP" -n -e
+    wal -i "$WP" -n -e --theme solarized
     swaymsg output "*" bg "$WP" fill 2> /dev/null
 fi
 
