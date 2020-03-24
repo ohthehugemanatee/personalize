@@ -86,3 +86,6 @@ PATH=$PATH:$HOME/bin
 
 # SSH should have the right TermInfo set. (Alacritty sets its own locally)
 alias ssh='TERM=xterm-color ssh'
+
+# Apply wal colorscheme.
+(cat ~/.cache/wal/sequences &)
