@@ -10,11 +10,11 @@ HISTCONTROL=ignoreboth
 setopt INC_APPEND_HISTORY
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=2000
-HISTFILESIZE=4000
+HISTSIZE=20000
+HISTFILESIZE=40000
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+[ -x /usr/bin/lesspipe.sh ] && eval "$(SHELL=/bin/sh lesspipe.sh)"
 
 
 # enable color support of ls and also add handy aliases
@@ -57,32 +57,20 @@ export PATH="$PATH:$HOME/.yarn/bin"
 # Put /user/local/bin at the front of PATH
 PATH=/usr/local/bin:$PATH
 
+# packages installed with pip
+export PATH=$PATH:$HOME/.local/bin
+
+# add personal bin dir.
+PATH=$PATH:$HOME/bin
+
 # gpg
 GPG_TTY=$(tty)
 export GPG_TTY
 export GPGKEY=758F4A3F
 
-# packages installed with pip
-export PATH=$PATH:$HOME/.local/bin
-
-# Toggl Desktop needs this to size the fonts.
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-
-# phpunit test from the repo root
-alias phpu='SIMPLETEST_BASE_URL=http://localhost SIMPLETEST_DB=sqlite://localhost//tmp/db.sqlite $PWD/vendor/bin/phpunit -c $PWD/web/core --verbose'
-
-# hidpi support for Qt apps
-QT_DEVICE_PIXEL_RATIO=2
-QT_AUTO_SCREEN_SCALE_FACTOR=2
 
 # tmp file
 alias tmp='vim ~/tmp/tmp.txt'
-
-# s-tui hw monitor
-alias monitor='s-tui'
-
-# add personal bin dir.
-PATH=$PATH:$HOME/bin
 
 # SSH should have the right TermInfo set. (Alacritty sets its own locally)
 alias ssh='TERM=xterm-color ssh'
