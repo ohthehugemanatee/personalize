@@ -17,7 +17,6 @@ antigen bundle git
 antigen bundle git-extras
 antigen bundle command-not-found
 antigen bundle common-aliases
-antigen bundle debian
 antigen bundle docker
 antigen bundle sudo
 antigen bundle systemd
