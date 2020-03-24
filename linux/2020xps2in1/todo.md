@@ -3,7 +3,6 @@
 * Xmodmap accents are borked
 * make console font legible
 * screenshots to clipboard
-* change how I start ssh-agent so you don't see agent PID on every terminal
 * battery nag
 
 * Make the touchscreen awesome
