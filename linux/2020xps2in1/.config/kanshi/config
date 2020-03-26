@@ -6,3 +6,8 @@
   output "Samsung Electric Company C34H89x HTRK502229" enable mode 3440x1440 position 0,0
   output "Sharp Corporation 0x14A8 0x00000000" enable scale 2 position 785,1440
 }
+{
+  output "Ancor Communications Inc ASUS VS247 E2LMTF120338" enable mode 1920x1080 scale 1 position 0,747
+  output "Samsung Electric Company C34H89x HTRK502229" enable mode 3440x1440 position 1920,0
+  output "Sharp Corporation 0x14A8 0x00000000" enable scale 2 position 1920,1440
+}
