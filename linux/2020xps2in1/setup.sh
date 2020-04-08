@@ -17,6 +17,10 @@ mkdir $HOME/tmp
 ln -sf $SOURCE/.config/sway $HOME/.config/sway
 ln -sf $SOURCE/.config/i3status $HOME/.config/i3status
 ln =sf $SOURCE/.config/waybar $HOME/.config/waybar
+
+# Link pam environment global variables
+ln -sf $SOURCE/.pam_environment $HOME/.pam_environment
+
 # Variety wallpaper manager
 $INSTALLER variety python-pywal
 mv $HOME/.config/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper.bak
