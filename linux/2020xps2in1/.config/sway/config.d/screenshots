@@ -1,0 +1,3 @@
+bindsym --release Print+a exec $HOME/bin/screenshot.sh -o
+bindsym --release Print+s exec $HOME/bin/screenshot.sh -s
+bindsym --release Print+c exec $HOME/bin/screenshot.sh -c
