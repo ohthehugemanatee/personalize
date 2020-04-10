@@ -77,7 +77,11 @@ $INSTALLER thefuck
 # * simplenote
 # * pamac-tray-appindicator
 # * wl-clipboard wayland clipboard manager
-$INSTALLER docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin pamac-tray-appindicator wl-clipboard
+# * pcmanfm -qt file manager
+$INSTALLER install docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin pamac-tray-appindicator wl-clipboard pcmanfm-qt
+
+# remove legacy X pcmanfm
+$INSTALLER remove pcmanfm
 
 # Snap installs:
 # * PHPStorm IDE.
