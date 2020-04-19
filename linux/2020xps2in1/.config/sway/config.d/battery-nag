@@ -1,0 +1,1 @@
+exec swaynag-battery --interval 1m --threshold 40

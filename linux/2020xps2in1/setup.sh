@@ -78,7 +78,8 @@ $INSTALLER thefuck
 # * pamac-tray-appindicator
 # * wl-clipboard wayland clipboard manager
 # * pcmanfm -qt file manager
-$INSTALLER install docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin pamac-tray-appindicator wl-clipboard pcmanfm-qt
+# * swaynag-battery battery nagger
+$INSTALLER install docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin pamac-tray-appindicator wl-clipboard pcmanfm-qt swaynag-battery
 
 # remove legacy X pcmanfm
 $INSTALLER remove pcmanfm
