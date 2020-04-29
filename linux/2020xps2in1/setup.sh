@@ -16,7 +16,7 @@ mkdir $HOME/tmp
 # Link sway config
 ln -sf $SOURCE/.config/sway $HOME/.config/sway
 ln -sf $SOURCE/.config/i3status $HOME/.config/i3status
-ln =sf $SOURCE/.config/waybar $HOME/.config/waybar
+ln -sf $SOURCE/.config/waybar $HOME/.config/waybar
 ln -sf $SOURCE/.config/wofi $HOME/.config/wofi
 # Link pam environment global variables
 ln -sf $SOURCE/.pam_environment $HOME/.pam_environment
