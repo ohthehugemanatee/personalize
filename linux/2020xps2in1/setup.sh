@@ -17,7 +17,7 @@ mkdir $HOME/tmp
 ln -sf $SOURCE/.config/sway $HOME/.config/sway
 ln -sf $SOURCE/.config/i3status $HOME/.config/i3status
 ln =sf $SOURCE/.config/waybar $HOME/.config/waybar
-
+ln -sf $SOURCE/.config/wofi $HOME/.config/wofi
 # Link pam environment global variables
 ln -sf $SOURCE/.pam_environment $HOME/.pam_environment
 
@@ -79,7 +79,8 @@ $INSTALLER thefuck
 # * wl-clipboard wayland clipboard manager
 # * pcmanfm -qt file manager
 # * swaynag-battery battery nagger
-$INSTALLER install docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin pamac-tray-appindicator wl-clipboard pcmanfm-qt swaynag-battery
+# * wofi launcher
+$INSTALLER install docker-compose audacious timeshift signal-desktop steam kubectl net-tools manjaro-pulse pulseaudio-alsa simplenote-electron-bin pamac-tray-appindicator wl-clipboard pcmanfm-qt swaynag-battery wofi
 
 # remove legacy X pcmanfm
 $INSTALLER remove pcmanfm
