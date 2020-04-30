@@ -9,23 +9,12 @@ PERSONALIZE=$HOME/personalize
 SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE_DIR[0]}" )" >/dev/null 2>&1 && pwd )"
 mkdir $HOME/tmp
 
-# link subdirectories to a target.
-subdir_link() {
-  echo "Linking subdirectories in ${SOURCE_DIR}"
-  for dir in ${SOURCE_DIR}/${SOURCE}/*/; do
-    echo "Linking ${dir}"
-    ln -sf ${dir} ${DEST}/${dir}
-  done
-}
-
-subdir_link home ${HOME}
-subdir_link xdg_config ${HOME}/.config
-
+source link_subdirs.sh
 
 # Variety wallpaper manager
 $INSTALLER variety python-pywal
 mv $HOME/.config/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper.bak
-ln -sf $SOURCE_DIR/.config/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper 
+ln -sf $SOURCE_DIR/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper 
 
 # Sudoers access for mounting veracrypt
 sudo cp $SOURCE_DIR/etc/sudoers.d/veracrypt /etc/sudoers.d
