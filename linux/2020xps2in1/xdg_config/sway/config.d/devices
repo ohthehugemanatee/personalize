@@ -9,7 +9,7 @@ input "1739:52602:00304238304C4C44:00_06CB:CD7A_Touchpad" {
 }
 
 input "1:1:AT_Translated_Set_2_keyboard" {
-  xkb_layout us(intl)
+  xkb_layout us(altgr-intl)
 }
 
 # Manage display configurations for multihead
