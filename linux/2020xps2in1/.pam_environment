@@ -1,3 +1,0 @@
-export GTK_IM_MODULE=uim
-uim-xim &
-export XMODIFIERS=@im=uim
