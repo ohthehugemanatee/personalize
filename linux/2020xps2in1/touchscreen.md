@@ -9,3 +9,25 @@
 * libinput debug-gui shows me that everything works and is properly detected on my touchscreen. I just need an interpreter.
   * Easystroke only seems to register one finger at a time. That's no good.
   * 
+
+## Editor options
+
+### Okular
+
+* Button navigation for prev/next page is OK
+* No touchscreen navigation (only pinch/zoom)
+* No stylus support - acts like mouse
+* No freehand drawing
+
+## Xournalpp
+
+* pinch/zoom is unusably buggy
+* scroll only works with flicks, not stroke
+* no prev/next page by swipe, only by button
+
+## Xournal
+
+* Good pen support, option for "touchscreen as hand tool"
+* No pinch/zoom
+* No prev/next page by swipe, only by button
+
