@@ -28,6 +28,8 @@ input "1386:18668:434538344D4F4357:00_056A:48EC_Touchscreen" {
   map_to_output eDP-1
 }
 
+# Touchscreen gestures built from https://github.com/xiamaz/libinput-touchscreen/
+exec $HOME/bin/keepalive.sh libinput-touchscreen
 
 # Manage display configurations for multihead
 exec $HOME/bin/keepalive.sh kanshi
