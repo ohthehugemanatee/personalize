@@ -12,9 +12,6 @@ input "1:1:AT_Translated_Set_2_keyboard" {
   xkb_layout us(altgr-intl)
 }
 
-# Manage display configurations for multihead
-exec $HOME/bin/keepalive.sh kanshi
-
 input "1386:18668:Wacom_HID_48EC_Finger" { 
   map_to_output eDP-1
 }
@@ -31,3 +28,6 @@ input "1386:18668:434538344D4F4357:00_056A:48EC_Touchscreen" {
   map_to_output eDP-1
 }
 
+
+# Manage display configurations for multihead
+exec $HOME/bin/keepalive.sh kanshi
