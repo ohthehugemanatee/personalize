@@ -1,0 +1,12 @@
+[Unit]
+Description=Automated configuration for external monitors
+
+[Service]
+ExecStart=/usr/bin/kanshi
+Type=simple
+Restart=always
+RestartSec=5
+# Environment=
+
+[Install]
+WantedBy=default.target
