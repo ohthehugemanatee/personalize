@@ -5,7 +5,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export XDG_CURRENT_DESKTOP=sway
 # Force firefox into wayland and enable hw video decoding (ff 75+)
 export MOZ_ENABLE_WAYLAND=1
-export MOZ_WAYLAND_USE_VAAPI=1
+#export MOZ_WAYLAND_USE_VAAPI=1
 # QT apps theme
 export QT_QPA_PLATFORMTHEME=qt5ct
 export GTK_IM_MODULE=uim
