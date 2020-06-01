@@ -2,7 +2,6 @@
 
 * make console font legible
 
-* Make the touchscreen awesome
+* Make tablet mode awesome
   * More buttons on touchscreen mode bar
-  * Touch gestures
 
