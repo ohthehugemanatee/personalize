@@ -14,6 +14,7 @@ source link_subdirs.sh
 # Variety wallpaper manager
 $INSTALLER variety python-pywal
 mv $HOME/.config/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper.bak
+# modified version of this script.
 ln -sf $SOURCE_DIR/variety/scripts/set_wallpaper $HOME/.config/variety/scripts/set_wallpaper 
 
 # Sudoers access for mounting veracrypt
