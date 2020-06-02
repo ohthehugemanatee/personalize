@@ -10,10 +10,10 @@ BORDER E 1
     ydotool key Ctrl+PageDown
 
 BORDER N 1
-    ydotool key Ctrl+PageUp
+    ydotool key Ctrl+PageDown
 
 BORDER S 1
-    ydotool key Ctrl+PageDown
+    ydotool key Ctrl+PageUp
 
 TAP X 3 
     ydotool key Super+F
