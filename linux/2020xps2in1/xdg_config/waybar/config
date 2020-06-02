@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/mode", "pulseaudio", "custom/spotify"],
     "modules-center": ["sway/workspaces"],
-    "modules-right": ["idle_inhibitor", "network", "temperature", "battery", "custom/sl", "clock", "tray"],
+    "modules-right": ["custom/rotate_inhibitor", "idle_inhibitor", "network", "temperature", "battery", "custom/sl", "clock", "tray"],
     // Modules configuration
      "sway/workspaces": {
          "disable-scroll": true,
@@ -36,6 +36,12 @@
      },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "custom/rotate_inhibitor": {
+        "exec": "echo $(systemctl --user is-active rot8)",
+        "interval": "1",
+        "format": "{}",
+        "on-click": "$HOME/.config/waybar/scripts/toggle-rot8.sh"
     },
     "idle_inhibitor": {
         "format": "{icon}",
