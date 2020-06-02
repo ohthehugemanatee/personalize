@@ -4,10 +4,10 @@ BORDER S 3
 
 # left and right are swapped
 BORDER W 1
-    ydotool key Ctrl+PageUp
+    ydotool key Ctrl+PageDown
 
 BORDER E 1
-    ydotool key Ctrl+PageDown
+    ydotool key Ctrl+PageUp
 
 BORDER N 1
     ydotool key Ctrl+PageDown
