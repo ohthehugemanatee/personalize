@@ -102,5 +102,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m "Do you really want to log out?"
 # Lock screen
 bindsym $mod+Shift+F1 exec --no-startup-id blurlock
 
-
+# Import systemd env vars.
+exec "systemctl --user import-environment
 include ~/.config/sway/config.d/*
