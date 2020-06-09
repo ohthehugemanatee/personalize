@@ -44,6 +44,3 @@ curl -o /tmp/tldr https://raw.githubusercontent.com/raylee/tldr/master/tldr
 sudo mv /tmp/tldr /usr/local/bin
 sudo chmod +x /usr/local/bin/tldr
 
-# Setup suspend on lid close
-sudo cp $SOURCE_DIR/etc/systemd/system/suspend@.service /etc/systemd/system/
-
