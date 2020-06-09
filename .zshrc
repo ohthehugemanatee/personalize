@@ -29,3 +29,8 @@ antigen bundle $HOME/personalize/zsh/custom --no-local-clone
 
 antigen apply
 
+# Start sway on login.
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+      exec sway
+fi
+
