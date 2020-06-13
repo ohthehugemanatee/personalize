@@ -5,7 +5,6 @@ exec --no-startup-id pamac-tray-appindicator
 exec --no-startup-id XDG_CURRENT_DESKTOP=Unity nextcloud --background
 exec --no-startup-id /home/ohthehugemanatee/bin/mount-veracrypt.sh
 exec_always --no-startup-id ff-theme-util
-exec --no-startup-id /usr/bin/rot8
 # exec --no-startup-id xmodmap ~/.Xmodmap @todo replace
 # exec --no-startup-id clipit # nonfunctional
 # exec --no-startup-id xfce4-power-manager # Doesn't appear, needs appinidator
