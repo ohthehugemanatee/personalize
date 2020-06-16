@@ -17,3 +17,6 @@ BORDER S 1
 
 TAP X 3 
     ydotool key Super+F
+
+TAP X 2
+    ydotool key Super+Shift+Q
