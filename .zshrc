@@ -21,6 +21,7 @@ antigen bundle docker
 antigen bundle sudo
 antigen bundle systemd
 antigen bundle wd
+antigen bundle taskwarrior
 antigen bundle z
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle gpg-agent
