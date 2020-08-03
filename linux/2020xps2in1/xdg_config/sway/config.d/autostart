@@ -10,4 +10,3 @@ exec_always --no-startup-id ff-theme-util
 # exec --no-startup-id xfce4-power-manager # Doesn't appear, needs appinidator
 # exec --no-startup-id blueman-applet # deosn't appear
 # exec_always --no-startup-id sbxkb
-# exec --no-startup-id xautolock -time 10 -locker blurlock
