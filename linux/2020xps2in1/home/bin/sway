@@ -1,6 +1,0 @@
-#!/bin/sh
-# Custom launcher script for sway. Should be symlinked to /usr/local/bin.
-source $HOME/.profile
-source $HOME/.config/environment.d/*
-
-exec /$HOME/bin/sway.bin
