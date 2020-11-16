@@ -4,7 +4,7 @@
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/mode", "pulseaudio", "custom/spotify"],
+    "modules-left": ["sway/mode", "pulseaudio"],
     "modules-center": ["sway/workspaces"],
     "modules-right": ["custom/rotate_inhibitor", "idle_inhibitor", "network", "temperature", "battery", "custom/sl", "clock", "tray"],
     // Modules configuration
@@ -49,12 +49,6 @@
             "activated": "",
             "deactivated": ""
         }
-    },
-    "custom/spotify": {
-        "format": "  {}",
-        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py",
-        "on-click": "$HOME/.config/waybar/scripts/toggle-play",
-        "return-type": "json"
     },
     "tray": {
         // "icon-size": 21,
