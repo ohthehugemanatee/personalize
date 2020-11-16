@@ -32,11 +32,10 @@ antigen apply
 
 # Start sway on login.
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-      exec sway
+  export MOZ_ENABLE_WAYLAND=1
+  export GTK_BACKEND=wayland
+  export QT_QPA_PLATFORM=wayland
+  #  exec sway -d 2> ~/sway.log
+  exec sway
 fi
 
-
-# BEGIN SNIPPET: Platform.sh CLI configuration
-HOME=${HOME:-'/home/ohthehugemanatee'}
-export PATH="$HOME/"'.platformsh/bin':"$PATH"
-if [ -f "$HOME/"'.platformsh/shell-config.rc' ]; then . "$HOME/"'.platformsh/shell-config.rc'; fi # END SNIPPET
