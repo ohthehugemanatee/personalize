@@ -1,6 +1,6 @@
 # Swaybar
 bar {
-  swaybar_command waybar
+  swaybar_command /home/ohthehugemanatee/.config/waybar/waybar.sh
 	position bottom
 
 	bindsym button4 nop
