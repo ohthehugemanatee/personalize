@@ -1,7 +1,7 @@
 # miscellaneous settings etc
 alias ffs="sudo chown -R ohthehugemanatee ."
 
-alias clipboard="xsel -ib"
+alias clipboard="wl-copy"
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
@@ -56,3 +56,5 @@ alias ssh='TERM=xterm-color ssh'
 
 # Apply wal colorscheme.
 (cat ~/.cache/wal/sequences &)
+
+alias cptmp='cat ~/tmp/tmp.txt|wl-copy'
