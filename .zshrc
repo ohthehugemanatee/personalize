@@ -2,7 +2,7 @@
 source $HOME/personalize/linux/antigen.zsh
 antigen use oh-my-zsh
 
-antigen theme https://github.com/yupswing/yupgnoster.git yupgnoster
+# antigen theme https://github.com/yupswing/yupgnoster.git yupgnoster
 DEFAULT_USER="ohthehugemanatee"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -39,3 +39,4 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   exec sway
 fi
 
+eval "$(starship init zsh)"
