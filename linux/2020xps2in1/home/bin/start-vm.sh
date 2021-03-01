@@ -19,7 +19,7 @@ virt-manager --no-fork --connect qemu:///system --show-domain-console win10
 # when the console has exited, revert the system blockers.
 cleanup() {
   sudo cset shield --reset
-  echo -n | sudo tee -a /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+  echo 0 | sudo tee -a /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
 }
 
 cleanup 
