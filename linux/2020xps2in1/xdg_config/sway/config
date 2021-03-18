@@ -66,12 +66,6 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-# Rotate screen
-bindsym control+$mod+r exec xrandr --output eDP1 --rotate right
-bindsym control+$mod+l exec xrandr --output eDP1 --rotate left
-bindsym control+$mod+n exec xrandr --output eDP1 --rotate normal
-
-
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
