@@ -14,7 +14,7 @@
   gpgSign = true
 [core]
 	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  #pager = diff-so-fancy | less --tabs=4 -RFX
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
@@ -22,8 +22,8 @@
 [push]
 	default = simple
 [pager]
-  diff = diff-so-fancy | less --tabs=1,5 -RFX
-  show = diff-so-fancy | less --tabs=1,5 -RFX
+  #diff = diff-so-fancy | less --tabs=1,5 -RFX
+  #show = diff-so-fancy | less --tabs=1,5 -RFX
 [gpg]
 	program = /usr/bin/gpg
 [color "diff-highlight"]
