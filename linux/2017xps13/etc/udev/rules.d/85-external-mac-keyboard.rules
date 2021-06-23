@@ -1,2 +1,0 @@
-ACTION=="add",SUBSYSTEMS=="usb",ATTRS{idVendor}=="05ac",ATTRS{idProduct}=="0221", RUN+="/usr/local/sbin/toggle-fn.sh 2"
-ACTION=="remove",SUBSYSTEMS=="usb",ATTRS{idVendor}=="05ac",ATTRS{idProduct}=="0221", RUN+="/usr/local/sbin/toggle-fn.sh 1"
