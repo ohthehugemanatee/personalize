@@ -54,7 +54,8 @@ alias tmp='vim ~/tmp/tmp.txt'
 # SSH should have the right TermInfo set. (Alacritty sets its own locally)
 alias ssh='TERM=xterm-color ssh'
 
-# Apply wal colorscheme.
-(cat ~/.cache/wal/sequences &)
+# Wal solarized colorscheme.
+# (cat ~/.cache/wal/sequences &)
+#wal -e -n -q --theme solarized
 
 alias cptmp='cat ~/tmp/tmp.txt|wl-copy'
