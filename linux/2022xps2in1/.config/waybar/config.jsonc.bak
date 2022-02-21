@@ -17,13 +17,14 @@
         "bluetooth",
 
         // media
-//        "custom/playerctl",
+        "custom/playerctl",
         "idle_inhibitor",
         "pulseaudio",
         "backlight",
 
         // system
-//        "custom/sunset",
+        "custom/sunset",
+        "custom/pacman",
 
         "tray",
         "clock"
