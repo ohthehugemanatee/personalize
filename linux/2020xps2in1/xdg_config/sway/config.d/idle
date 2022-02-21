@@ -1,8 +1,0 @@
-# Use swayidle to detect idle activity.
-# After 5 mins, lock the screen with a blurred background.
-# After 2.5mins later, turn off the screens.
-# Lock before sleep
-# Resume everything on wake. 
-
-exec swayidle -w timeout 600 '/home/ohthehugemanatee/bin/swaylock-fancy.py --swaylock-args="-f"' timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' before-sleep '/home/ohthehugemanatee/bin/swaylock-fancy.py --swaylock-args="-f"'
-

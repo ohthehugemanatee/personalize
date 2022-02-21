@@ -1,3 +1,0 @@
-exec pa-applet
-
-bindsym $mod+Ctrl+m exec pavucontrol

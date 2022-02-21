@@ -1,2 +1,0 @@
-bindsym XF86MonBrightnessUp exec brillo -A 1
-bindsym XF86MonBrightnessDown exec brillo -U 

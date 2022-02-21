@@ -1,2 +1,0 @@
-#Cmnd_Alias VERACRYPT_CMNDS = /usr/bin/veracrypt
-ohthehugemanatee ALL=(ALL) NOPASSWD: /usr/bin/veracrypt
