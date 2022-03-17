@@ -2,5 +2,5 @@
 
 # Mount my veracrypt drive, using secrets from the keychain.
 
-veracrypt --use-dummy-sudo-password --password=$(secret-tool lookup title veracrypt1) -m=nokernelcrypto --mount $HOME/Nextcloud/Campbells\ homedir/encrypted.tc /mnt/veracrypt1 && notify-send "Mounted veracrypt"
+veracrypt -t --non-interactive --password=$(secret-tool lookup title veracrypt1) --use-dummy-sudo-password  -m=nokernelcrypto --mount /home/ohthehugemanatee/Nextcloud/Campbells\ homedir/encrypted.tc /mnt/veracrypt1 
 

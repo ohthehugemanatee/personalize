@@ -1,0 +1,12 @@
+[Unit]
+Description=Mount/umount veracrypt at Start and Stop
+Before=shutdown.target reboot.target halt.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStart=/home/ohthehugemanatee/bin/mount-veracrypt.sh
+ExecStop=/home/ohthehugemanatee/bin/unmount-veracrypt.sh
+
+[Install]
+WantedBy=default.target
