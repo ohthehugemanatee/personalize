@@ -14,7 +14,7 @@
         "temperature",
 
         // connecting
-        "network",
+        //"network",
         "bluetooth",
 
         // media
@@ -132,7 +132,7 @@
 
     "tray": {
         "icon-size": 21,
-        "spacing": 5
+        "spacing": 5,
     },
 
     "custom/pacman": {
