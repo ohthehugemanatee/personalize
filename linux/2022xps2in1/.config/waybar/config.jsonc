@@ -98,6 +98,8 @@
 
     "backlight": {
         "format": "{icon} {percent}%",
+        "scroll-step": 1,
+        "smooth-scrolling-threshold": 2,
         "format-icons": ["", "", ""],
         "on-scroll-up": "swaymsg exec \\$brightness_up",
         "on-scroll-down": "swaymsg exec \\$brightness_down"
