@@ -11,6 +11,31 @@ getoptions() {
   echo $OPTIONS
 }
 
+# Gets the index of the given profile state in the array of options.
+getindex() {
+  for (( i=0; i<=$(( $COUNT -1 )); i++ ))
+  do
+    if [[ ${OPTIONS[${i}]} == ${CURRENT} ]]
+    then
+      if (( ${i} == $(( ${COUNT} -1 )) ))
+      then 
+        TARGET=${OPTIONS[0]}
+      else 
+        TARGET=${OPTIONS[(( ${i} +1 ))]}
+      fi
+      if [ -v TARGET ]
+      then
+        echo "Switching to ${TARGET}"
+        ${PPC} set ${TARGET}
+        return
+      fi
+      echo "No new target power state found. Exiting..."
+      return
+    fi
+  done
+
+}
+
 toggle() {
   OPTIONS=($(getoptions))
   COUNT=${#OPTIONS[*]}
