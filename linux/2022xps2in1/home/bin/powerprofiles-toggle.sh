@@ -13,27 +13,31 @@ getoptions() {
 
 # Gets the index of the given profile state in the array of options.
 getindex() {
+  TARGET=${1}
+  OPTIONS=($(getoptions))
+  COUNT=${#OPTIONS[*]}
   for (( i=0; i<=$(( $COUNT -1 )); i++ ))
   do
-    if [[ ${OPTIONS[${i}]} == ${CURRENT} ]]
+    if [[ ${OPTIONS[${i}]} == ${TARGET} ]]
     then
-      if (( ${i} == $(( ${COUNT} -1 )) ))
-      then 
-        TARGET=${OPTIONS[0]}
-      else 
-        TARGET=${OPTIONS[(( ${i} +1 ))]}
-      fi
-      if [ -v TARGET ]
-      then
-        echo "Switching to ${TARGET}"
-        ${PPC} set ${TARGET}
-        return
-      fi
-      echo "No new target power state found. Exiting..."
-      return
+      echo ${i}
     fi
   done
 
+}
+
+getpercentage() {
+  OPTIONS=($(getoptions))
+  COUNT=${#OPTIONS[*]}
+  CURRENT=$(${PPC} get)
+  INDEX=$(getindex ${CURRENT})
+  DIVIDEND=$(( ${INDEX} +1 ))
+  echo $( bc -l <<< ${DIVIDEND}/${COUNT} )
+}
+
+getjson() {
+  CURRENT=$(${PPC} get)
+  printf '{"text":"%s", "class":"%s", "alt":"%s", "tooltip":"%s"}\n' "${CURRENT}" "icon-${CURRENT}" "icon-${CURRENT}" "${CURRENT}" 
 }
 
 toggle() {
@@ -41,27 +45,21 @@ toggle() {
   COUNT=${#OPTIONS[*]}
   CURRENT=$(${PPC} get)
   echo "current: ${CURRENT}"
-  for (( i=0; i<=$(( $COUNT -1 )); i++ ))
-  do
-    if [[ ${OPTIONS[${i}]} == ${CURRENT} ]]
-    then
-      if (( ${i} == $(( ${COUNT} -1 )) ))
-      then 
-        TARGET=${OPTIONS[0]}
-      else 
-        TARGET=${OPTIONS[(( ${i} +1 ))]}
-      fi
-      if [ -v TARGET ]
-      then
-        echo "Switching to ${TARGET}"
-        ${PPC} set ${TARGET}
-        return
-      fi
-      echo "No new target power state found. Exiting..."
-      return
-    fi
-  done
-
+  INDEX=$(getindex ${CURRENT})
+  if (( ${INDEX} == $(( ${COUNT} -1 )) ))
+  then 
+    TARGET=${OPTIONS[0]}
+  else 
+    TARGET=${OPTIONS[(( ${INDEX} +1 ))]}
+  fi
+  if [ -v TARGET ]
+  then
+    echo "Switching to ${TARGET}"
+    ${PPC} set ${TARGET}
+    return
+  fi
+  echo "No new target power state found. Exiting..."
+  return
 }
 
 if [[ $1 == 'options' ]]
@@ -76,5 +74,16 @@ then
   exit 0
 fi
 
+if [[ $1 == 'getpercent' ]]
+then
+  getpercentage
+  exit 0
+fi
+
+if [[ $1 == 'getjson' ]]
+then
+  getjson
+  exit 0
+fi
 $PPC $@
 
