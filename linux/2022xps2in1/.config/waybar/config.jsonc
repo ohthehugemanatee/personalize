@@ -10,6 +10,7 @@
         "custom/clipboard",
         "cpu",
         "memory",
+        "custom/perfmode",
         "battery",
         "temperature",
 
@@ -151,6 +152,21 @@
         "on-click": "swaymsg exec \\$menu",
         "tooltip": false,
         "rotate": 180
+    },
+
+    "custom/perfmode": {
+        "interval": 300,
+        "format": "{icon}",
+        "format-icons": {
+            "icon-performance": "ﲪ",
+            "icon-balanced": "ﲦ",
+            "icon-power-saver": ""
+        },
+        "tooltip": "true",
+        "return-type": "json",
+        "exec": "/home/ohthehugemanatee/bin/powerprofiles-toggle.sh getjson",
+        "on-click": "/home/ohthehugemanatee/bin/powerprofiles-toggle.sh toggle; pkill -SIGRTMIN+11 waybar",
+        "signal": 11
     },
 
     "bluetooth": {
