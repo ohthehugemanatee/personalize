@@ -37,7 +37,7 @@ getpercentage() {
 
 getjson() {
   CURRENT=$(${PPC} get)
-  printf '{"text":"%s", "class":"%s", "alt":"%s", "tooltip":"%s"}\n' "${CURRENT}" "icon-${CURRENT}" "icon-${CURRENT}" "${CURRENT}" 
+  printf '{"text":"%s", "alt":"%s", "tooltip":"%s"}\n' "icon-${CURRENT}" "icon-${CURRENT}" "${CURRENT}" 
 }
 
 toggle() {

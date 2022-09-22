@@ -157,12 +157,12 @@
     "custom/perfmode": {
         "interval": 300,
         "format": "{icon}",
+        "max-length": 5,
         "format-icons": {
             "icon-performance": "ﲪ",
             "icon-balanced": "ﲦ",
             "icon-power-saver": ""
         },
-        "tooltip": "true",
         "return-type": "json",
         "exec": "/home/ohthehugemanatee/bin/powerprofiles-toggle.sh getjson",
         "on-click": "/home/ohthehugemanatee/bin/powerprofiles-toggle.sh toggle; pkill -SIGRTMIN+11 waybar",
