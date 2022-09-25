@@ -1,5 +1,6 @@
 {
     "position": "bottom",
+    "ipc": "true",
     "modules-left": ["custom/menu", "sway/workspaces"],
 
     "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
