@@ -1,4 +1,29 @@
 {
-  "height": 50,
+  "height": 25,
+    "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
+    "modules-center": [],
+    "modules-right": [
+        // informational
+        "custom/clipboard",
+        "custom/perfmode",
+        "battery",
+        // media
+        "custom/playerctl",
+        "idle_inhibitor",
+        "pulseaudio",
+        "backlight",
+
+        // system
+        "tray",
+        "clock"
+    ],
+
+    "clock": {
+        "interval": 60,
+        "format": "{:%d/%m %H:%M}",
+        "tooltip": true,
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+        "on-click": "swaymsg exec \\$calendar"
+    },
   "include": "/home/ohthehugemanatee/.config/waybar/config.jsonc"
 }
