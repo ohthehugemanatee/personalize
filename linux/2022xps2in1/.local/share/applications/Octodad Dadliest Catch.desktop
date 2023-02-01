@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Octodad: Dadliest Catch
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/224480
+Icon=steam_icon_224480
+Terminal=false
+Type=Application
+Categories=Game;
