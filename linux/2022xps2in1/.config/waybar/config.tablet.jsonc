@@ -4,11 +4,9 @@
     "modules-center": [],
     "modules-right": [
         // informational
-        "custom/clipboard",
         "custom/perfmode",
         "battery",
         // media
-        "custom/playerctl",
         "idle_inhibitor",
         "pulseaudio",
         "backlight",
