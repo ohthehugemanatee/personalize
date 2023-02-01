@@ -14,8 +14,8 @@ fi
 SSID="$(iwgetid -r)"
 SSID_PASS="$(sudo grep -r '^psk=' /etc/NetworkManager/system-connections/ | grep ${SSID} | cut -d'=' -f 2)"
 
-qrencode -t SVG -o wifi.svg "WIFI:S:${SSID};T:WPA2;P:${SSID_PASS};;"
+qrencode -t PNG -o wifi.png "WIFI:S:${SSID};T:WPA2;P:${SSID_PASS};;"
 
-xdg-open wifi.svg 
+open wifi.png
 
 # Credit - https://feeding.cloud.geek.nz/posts/encoding-wifi-access-point-passwords-qr-code/
