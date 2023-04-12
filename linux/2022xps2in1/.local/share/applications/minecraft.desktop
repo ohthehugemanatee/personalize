@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Minecraft bin launcher
+Comment=Minecraft bedrock launcher from bin directory
+Exec=/home/ohthehugemanatee/bin/minecraft-bedrock-launcher
+Icon=minecraft.png
+Terminal=false
+Type=Application
+Categories=Games
