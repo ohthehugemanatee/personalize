@@ -11,8 +11,8 @@ profile {
 
 # Home office
 profile homeoffice {
-  output "eDP-1" position 1080,1440 mode 3840x2400 scale 3 
-  output  "Samsung Electric Company C34H89x H1AK500000" position 0,0 mode 3440x1440@59.973Hz
+  output "eDP-1" disable
+  output  "Samsung Electric Company C34H89x H1AK500000" position 0,0 mode 3440x1440@59.973Hz scale 1.5
 }
 
 # Alexanderplatz office
