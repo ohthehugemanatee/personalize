@@ -13,6 +13,8 @@ echo "bringing up network device"
 ifconfig wlp0s20f3 up
 echo "Connecting to SSID ${1}"
 iwconfig wlp0s20f3 essid "${1}"
+echo "Getting dhcp lease"
+dhclient -v wlp0s20f3 
 echo "Overwriting resolv.conf"
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 echo "All done!"
