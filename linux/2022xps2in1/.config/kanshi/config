@@ -12,15 +12,12 @@ profile laptop {
 # Home office
 profile homeoffice {
   output "eDP-1" disable
-  #output "eDP-1" position 1080,1440 mode 3840x2400 scale 3 enable
-  #output  "Samsung Electric Company C34H89x H1AK500000" position 0,0 mode 3440x1440@49.987Hz scale 1.5 enable
   output  "Samsung Electric Company C34H89x H1AK500000" position 0,0 mode 3440x1440@49.987Hz scale 1 enable
 }
 
 # Alexanderplatz office
 profile {
   output "eDP-1" disable
-  #output "eDP-1" position 1080,1440 mode 3840x2400 scale 3 enable
   output  "Samsung Electric Company CF791 HTRJ200240" position 0,0 mode 3440x1440@49.989Hz scale 1 enable
 }
 
