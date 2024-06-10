@@ -1,0 +1,10 @@
+[Unit]
+Description=Start gnome-keyring-daemon
+
+[Service]
+Type=simple
+StandardOutput=journal
+ExecStart=/home/ohthehugemanatee/bin/start-gnome-keyring.sh
+
+[Install]
+WantedBy=default.target
