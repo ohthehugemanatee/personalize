@@ -1,8 +1,5 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
+# Copied from package default sway config on 17.09.2024.
+# All customizations at the end in included dirs, or in the bar section to switch to waybar
 
 ### Variables
 #
@@ -206,6 +203,9 @@ bindsym $mod+r mode "resize"
 bar {
     position top
 
+    # Switch to waybar. This is customized from the default.
+    swaybar_command waybar
+
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
@@ -218,4 +218,6 @@ bar {
 }
 
 include /etc/sway/config.d/*
-include $HOME/.config/sway/config.d/*
+## Customizations below
+include $HOME/.config/sway/config.d/*.conf
+include $HOME/.config/sway/definitions.d/*.conf
