@@ -21,3 +21,7 @@ profile {
   output  "Samsung Electric Company CF791 HTRJ200240" position 0,0 mode 3440x1440@49.989Hz scale 1 enable
 }
 
+profile {
+  output "eDP-1" disable
+  output  "Dell Inc. DELL U3423WE FYKVMP3" position 0,0 mode 3440x1440@60Hz scale 1 enable
+}
