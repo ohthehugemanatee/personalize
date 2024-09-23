@@ -1,5 +1,5 @@
 # Copied from package default sway config on 17.09.2024.
-# All customizations at the end in included dirs, or in the bar section to switch to waybar
+# All customizations at the end in included dirs, or otherwise marked with CUSTOMIZED.
 
 ### Variables
 #
@@ -16,7 +16,9 @@ set $term gnome-terminal
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# *** CUSTOMIZED ***
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# *** END CUSTOMIZATION *** 
 
 #include /etc/sway/config-vars.d/*
 
@@ -202,9 +204,10 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-
-    # Switch to waybar. This is customized from the default.
+    # *** CUSTOMIZED ***
+    # Switch to waybar. 
     swaybar_command waybar
+    # *** END CUSTOMIZATION *** 
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
@@ -219,5 +222,5 @@ bar {
 
 include /etc/sway/config.d/*
 ## Customizations below
-include $HOME/.config/sway/config.d/*.conf
 include $HOME/.config/sway/definitions.d/*.conf
+include $HOME/.config/sway/config.d/*.conf
