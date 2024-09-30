@@ -1,0 +1,15 @@
+[Unit]
+Description=Waybar
+After=graphical.target
+Requires=kanshi.service
+After=kanshi.service
+
+[Service]
+Environment="XDG_CURRENT_DESKTOP=Unity"
+ExecStart=/usr/bin/waybar
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
+
