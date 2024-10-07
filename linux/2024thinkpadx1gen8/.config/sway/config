@@ -206,7 +206,7 @@ bar {
     position top
     # *** CUSTOMIZED ***
     # Switch to waybar. 
-    swaybar_command waybar
+    swaybar_command /bin/true
     # *** END CUSTOMIZATION *** 
 
     # When the status_command prints a new line to stdout, swaybar updates.
