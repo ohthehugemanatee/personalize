@@ -1,6 +1,7 @@
 {
     "position": "top",
     "ipc": "true",
+    "reload_style_on_change": true,
     "modules-left": ["custom/menu", "sway/workspaces"],
 
     "modules-left": ["custom/menu", "sway/workspaces", "custom/scratchpad"],
@@ -92,6 +93,7 @@
 
     "idle_inhibitor": {
         "format": "{icon}",
+	"justify": "center",
         "format-icons": {
             "activated": "󰒲",
             "deactivated": "󰒳"
@@ -110,6 +112,7 @@
     "pulseaudio": {
         "scroll-step": 1,
 	"smooth-scrolling-threshold": 2,
+	"max-volume": 200,
         "format": "{icon} {volume}%{format_source}",
         "format-muted": "󰖁 {format_source}",
         "format-source": "",
@@ -117,11 +120,33 @@
         "format-icons": {
             "headphone": "",
             "headset": "",
-            "default": ["", "󰖀", "󰕾"]
+            "default": ["", "", "󰕾", ""]
         },
-        "tooltip-format": "{icon} {volume}% {format_source}",
-        "on-click": "swaymsg exec \\$pulseaudio",
-        "on-scroll-up": "swaymsg exec \\$volume_up",
+	"states": {
+		"vol-10": 10,
+		"vol-20": 20,
+		"vol-30": 30,
+		"vol-40": 40,
+		"vol-50": 50,
+		"vol-60": 60,
+		"vol-70": 70,
+		"vol-80": 80,
+		"vol-90": 90,
+		"vol-100": 100,
+		"vol-110": 110,
+		"vol-120": 120,
+		"vol-130": 130,
+		"vol-140": 140,
+		"vol-150": 150,
+		"vol-160": 160,
+		"vol-170": 170,
+		"vol-180": 180,
+		"vol-190": 190,
+		"vol-200": 200
+	},
+	"tooltip-format": "{icon} {volume}% {format_source}",
+	"on-click": "swaymsg exec \\$pulseaudio",
+	"on-scroll-up": "swaymsg exec \\$volume_up",
         "on-scroll-down": "swaymsg exec \\$volume_down"
     },
 
