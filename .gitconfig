@@ -8,6 +8,8 @@
 	undo = reset --soft HEAD^
   stash-all = stash save --include-untracked
   glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+  dated-tag = for-each-ref --sort=*committerdate refs/tags/ --format='%(*committerdate:short)%(committerdate:short)  %(refname:short)'
+
 [merge]
   conflictstyle = diff3
 [commit]
