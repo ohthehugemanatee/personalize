@@ -11,5 +11,5 @@
 # 	ohthehugemanatee ALL=(ALL:ALL) NOPASSWD: /usr/bin/veracrypt *
 #
 
-/usr/bin/veracrypt -t --non-interactive --password=$(secret-tool lookup title veracrypt1) --use-dummy-sudo-password  -m=nokernelcrypto --mount /home/ohthehugemanatee/Nextcloud/Campbells\ homedir/encrypted.tc /mnt/veracrypt1 
+/usr/bin/veracrypt -t --non-interactive --password=$(secret-tool lookup title veracrypt1) --use-dummy-sudo-password --filesystem=exfat -m=nokernelcrypto --mount /home/ohthehugemanatee/Nextcloud/Campbells\ homedir/encrypted.tc /mnt/veracrypt1 
 
