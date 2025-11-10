@@ -5,23 +5,19 @@
 # * set the resolution and position for your screen: output HDMI1 mode 1920x1080 position 0,0
 # * set the scaling for your screen: output HDMI1 scale 2
 
-profile laptop {
-  output "eDP-1" position 0,0 mode 3840x2400 scale 2 enable
-}
 
 # Home office
 profile homeoffice {
+  output  "Samsung Electric Company C34H89x H1AK500000" mode 3440x1440 adaptive_sync on enable
   output "eDP-1" disable
-  output  "Samsung Electric Company C34H89x H1AK500000" position 0,0 mode 3440x1440@49.987Hz scale 1 enable
 }
 
 # Alexanderplatz office
-profile {
-  output "eDP-1" disable
+profile Alexanderplatz {
   output  "Samsung Electric Company CF791 HTRJ200240" position 0,0 mode 3440x1440@49.989Hz scale 1 enable
+  output "eDP-1" disable
 }
 
-profile {
-  output "eDP-1" disable
-  output  "Dell Inc. DELL U3423WE FYKVMP3" position 0,0 mode 3440x1440@60Hz scale 1 enable
+profile standalone {
+  output "eDP-1" position 0,0 mode 3840x2400 scale 2 enable
 }
