@@ -36,6 +36,10 @@
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
+    "sway/workspaces": {
+	    "disable-scroll": true,
+	    "warp-on-scroll": true
+    },
 
     "battery": {
         "interval": 30,
@@ -118,8 +122,8 @@
         "format-source": "",
         "format-source-muted": " mute",
         "format-icons": {
-            "headphone": "",
-            "headset": "",
+            "headphone": " ",
+            "headset": " ",
             "default": ["", "", "󰕾", ""]
         },
 	"states": {
