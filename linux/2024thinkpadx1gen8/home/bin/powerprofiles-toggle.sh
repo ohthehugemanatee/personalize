@@ -4,10 +4,10 @@
 # Passes arguments directly to powerprofilesctl except for "toggle",
 # which cycles through profiles.
 
-PPC=$(which powerprofilesctl)
+PPC=$(which tlpctl)
 
 getoptions() {
-  OPTIONS=$(${PPC} list |sed 's/\s\s\s\s.*//g' |sed 's/^[ \*]*//g' | sed 's/:.*$//g')
+  OPTIONS=performance balanced power-saver
   echo $OPTIONS
 }
 
