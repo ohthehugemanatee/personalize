@@ -7,7 +7,7 @@
 PPC=$(which tlpctl)
 
 getoptions() {
-  OPTIONS=performance balanced power-saver
+  OPTIONS="performance balanced power-saver"
   echo $OPTIONS
 }
 
