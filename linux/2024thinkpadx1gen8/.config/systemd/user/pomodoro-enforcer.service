@@ -1,0 +1,24 @@
+[Unit]
+Description=Pomodoro Enforcer Daemon
+Documentation=https://github.com/you/pomodoro-enforcer
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/pomodoro-daemon.py
+ExecStop=%h/.local/bin/pomoctl.py stop
+Restart=on-failure
+RestartSec=5
+
+# Environment
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-1
+
+# Hardening
+ProtectHome=read-only
+ReadWritePaths=%h/.local/state/pomodoro-enforcer
+ReadWritePaths=%t
+
+[Install]
+WantedBy=graphical-session.target

@@ -23,6 +23,7 @@
         // media
         "custom/playerctl",
         "idle_inhibitor",
+        "custom/pomodoro",
         "pulseaudio",
         "backlight",
 
@@ -199,6 +200,16 @@
         "min-length": 5,
         "tooltip": false,
         "on-click": "swaymsg input $(swaymsg -t get_inputs --raw | jq '[.[] | select(.type == \"keyboard\")][0] | .identifier') xkb_switch_layout next"
+    },
+    "custom/pomodoro": {
+        "exec": "~/.local/bin/pomodoro-waybar.py",
+        "return-type": "json",
+        "interval": 1,
+        "on-click": "~/.local/bin/pomoctl.py toggle",
+        "on-click-right": "~/.local/bin/pomoctl.py skip",
+        "on-click-middle": "~/.local/bin/pomoctl.py pause",
+        "format": "{}",
+        "tooltip": true
     }
 
 }

@@ -360,3 +360,50 @@ label:focus {
 #privacy-item.audio-out {
     background-color: #0069d4;
 }
+
+/* custom pomodoro timer */
+
+#custom-pomodoro {
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#custom-pomodoro.work {
+    color: #e0e0e0;
+    background-color: #2d5a27;
+}
+
+#custom-pomodoro.grace {
+    color: #1a1a2e;
+    background-color: #f0a500;
+    animation: blink 1s ease-in-out infinite;
+}
+
+#custom-pomodoro.break {
+    color: #1a1a2e;
+    background-color: #00d4ff;
+}
+
+#custom-pomodoro.paused {
+    color: #888888;
+    background-color: #333333;
+}
+
+#custom-pomodoro.idle {
+    color: #888888;
+}
+
+#custom-pomodoro.disabled {
+    color: #555555;
+    background-color: #fff;
+}
+
+#custom-pomodoro.error {
+    color: #ff4444;
+}
+
+@keyframes blink {
+    50% { opacity: 0.5; }
+}
