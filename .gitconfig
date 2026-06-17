@@ -49,3 +49,7 @@
 	process = git-lfs filter-process
 [pull]
 	rebase = true
+[credential "https://github.com"]
+	helper = !/home/ohthehugemanatee/.agency/gh/2.88.1/gh_2.88.1_linux_amd64/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/home/ohthehugemanatee/.agency/gh/2.88.1/gh_2.88.1_linux_amd64/bin/gh auth git-credential
