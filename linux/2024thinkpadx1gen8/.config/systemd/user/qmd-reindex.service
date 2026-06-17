@@ -1,0 +1,24 @@
+[Unit]
+Description=Re-index QMD search (update collections + regenerate embeddings)
+After=default.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/ohthehugemanatee/.npm-global/bin/qmd update
+ExecStart=/home/ohthehugemanatee/.npm-global/bin/qmd embed
+Environment=HOME=/home/ohthehugemanatee
+Environment=PATH=/home/ohthehugemanatee/.npm-global/bin:/usr/local/bin:/usr/bin:/bin
+WorkingDirectory=/home/ohthehugemanatee/.copilot/chief-of-staff
+
+# Timeouts: embed can take 40-60s; allow 5 minutes total for both commands
+TimeoutStartSec=300
+
+# Hardening (requires unprivileged user namespaces)
+Nice=15
+IOSchedulingClass=idle
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+# NOTE: ProtectSystem=strict makes / read-only. The paths below are
+# intentionally declarative — documenting what this service accesses.
+ReadWritePaths=/home/ohthehugemanatee/.cache/qmd

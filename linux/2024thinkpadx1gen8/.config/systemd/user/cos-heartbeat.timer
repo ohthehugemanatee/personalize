@@ -1,0 +1,20 @@
+[Unit]
+Description=Chief of Staff — Heartbeat Schedule
+Documentation=file://%h/.copilot/chief-of-staff/HEARTBEAT.md
+
+[Timer]
+# Run 4x daily at Campbell's CET/CEST times.
+# systemd handles DST transitions automatically.
+OnCalendar=*-*-* 07:00:00 Europe/Berlin
+OnCalendar=*-*-* 11:00:00 Europe/Berlin
+OnCalendar=*-*-* 15:00:00 Europe/Berlin
+OnCalendar=*-*-* 19:00:00 Europe/Berlin
+
+# If the machine was off during a scheduled time, run once on boot
+Persistent=true
+
+# Jitter up to 5 minutes to avoid exact-second contention
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target

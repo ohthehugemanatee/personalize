@@ -1,0 +1,14 @@
+[Unit]
+Description=Chief of Staff — Autonomous Heartbeat
+Documentation=file://%h/.copilot/chief-of-staff/HEARTBEAT.md
+
+[Service]
+Type=oneshot
+ExecStart=%h/.copilot/chief-of-staff/bin/heartbeat.sh
+Environment=HOME=%h
+# Ensure NVM node is available
+Environment=PATH=%h/.local/bin:%h/.nvm/versions/node/v24.13.0/bin:/usr/local/bin:/usr/bin:/bin
+# Timeout matches the script's internal timeout + grace period
+TimeoutStartSec=1020
+StandardOutput=journal
+StandardError=journal
