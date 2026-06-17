@@ -9,12 +9,22 @@ import json, subprocess
 
 GAP = 8
 SEL = '[app_id="^$"]'
+# Chromium-based browsers that create xdg_toplevel hover popups with empty app_id
+CHROMIUM_IDS = {'microsoft-edge', 'microsoft-edge-dev', 'microsoft-edge-beta',
+                'google-chrome', 'chromium-browser', 'chromium'}
 
 def smsg(*a):
     return subprocess.run(['swaymsg', *a], capture_output=True, text=True)
 
 def smsg_json(*a):
     return json.loads(smsg('-r', *a).stdout)
+
+def find_focused(node):
+    if node.get('focused'):
+        return node
+    for c in node.get('nodes', []) + node.get('floating_nodes', []):
+        r = find_focused(c)
+        if r: return r
 
 def find_popup(node):
     if node.get('app_id') == '' and 'user_on' in node.get('floating', ''):
@@ -24,6 +34,13 @@ def find_popup(node):
         if r: return r
 
 tree = smsg_json('-t', 'get_tree')
+
+# Only handle popups when a Chromium-based browser is focused.
+# Other apps (GIMP, etc.) can have empty app_id on splash screens.
+focused = find_focused(tree)
+if not focused or focused.get('app_id', '') not in CHROMIUM_IDS:
+    smsg(f'{SEL} opacity 1, border normal')
+    exit()
 popup = find_popup(tree)
 if not popup:
     exit()
