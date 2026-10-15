@@ -53,3 +53,12 @@
 	helper = !/home/ohthehugemanatee/.agency/gh/2.88.1/gh_2.88.1_linux_amd64/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/home/ohthehugemanatee/.agency/gh/2.88.1/gh_2.88.1_linux_amd64/bin/gh auth git-credential
+[credential]
+	helper = 
+	helper = /usr/local/bin/git-credential-manager
+	credentialStore = secretservice
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[credential "azrepos:org/msazure"]
+	azureAuthority = https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47
+	username = cavertes@microsoft.com
