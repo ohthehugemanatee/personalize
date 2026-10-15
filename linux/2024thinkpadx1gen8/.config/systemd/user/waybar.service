@@ -1,6 +1,6 @@
 [Unit]
 Description=Waybar
-After=graphical.target
+After=graphical-session.target
 Requires=kanshi.service
 After=kanshi.service
 

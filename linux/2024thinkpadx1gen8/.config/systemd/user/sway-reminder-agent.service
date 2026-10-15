@@ -1,0 +1,19 @@
+[Unit]
+Description=Reminder agent for Home Assistant on sway
+Documentation=https://github.com/ohthehugemanatee/homeassistant-config/blob/main/docs/design/ring-reminders.md
+# graphical-session.target is set by the compositor, so the agent starts with
+# sway and stops with it rather than fighting over a missing WAYLAND_DISPLAY.
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+EnvironmentFile=%h/.config/sway-reminder-agent/env
+ExecStart=%h/.local/share/sway-reminder-agent/venv/bin/python %h/.local/share/sway-reminder-agent/sway_reminder_agent.py
+Restart=always
+RestartSec=5
+# The agent shells out to swaymsg, swayidle, pgrep and notify-send.
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=graphical-session.target

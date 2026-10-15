@@ -1,0 +1,17 @@
+# Template. install.sh rewrites /home/ohthehugemanatee/Projects/microsoft/microsoft-loves-linux/azvpn3ctl to the real package path at install
+# time, so this unit works no matter where you clone the repo.
+[Unit]
+Description=Azure VPN (openvpn3) watchdog — keep the tunnel in the chosen state
+Documentation=file:///home/ohthehugemanatee/Projects/microsoft/microsoft-loves-linux/azvpn3ctl/README.md
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/ohthehugemanatee/Projects/microsoft/microsoft-loves-linux/azvpn3ctl/bin/azvpn3ctl watchdog
+Restart=always
+RestartSec=5
+Nice=10
+
+[Install]
+WantedBy=default.target
