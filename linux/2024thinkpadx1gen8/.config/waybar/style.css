@@ -120,10 +120,19 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #custom-perfmode,
+#custom-clipboard,
 #bluetooth,
 #mpd {
-    padding: 0 10px;
+    padding: 0 12px;
+    margin: 0px;
     color: #ffffff;
+}
+
+#custom-clipboard,
+#custom-perfmode,
+#idle_inhibitor,
+#bluetooth {
+    font-family: "RobotoMono Nerd Font Mono", monospace;
 }
 
 #window,
@@ -171,10 +180,6 @@ button:hover {
     animation-timing-function: steps(12);
     animation-iteration-count: infinite;
     animation-direction: alternate;
-}
-
-#custom-perfmode {
-    padding-right: 15px;
 }
 
 #custom-perfmode.power-saver {
@@ -279,9 +284,6 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-    padding-right: 15px;
-    }
 #idle_inhibitor.deactivated {
     background-color: #59296e;
 }
