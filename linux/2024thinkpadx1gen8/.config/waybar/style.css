@@ -135,6 +135,11 @@ button:hover {
     font-family: "RobotoMono Nerd Font Mono", monospace;
 }
 
+#custom-perfmode {
+    font-family: "RobotoMono Nerd Font", monospace;
+    padding-right: 18px;
+}
+
 #window,
 #workspaces {
     margin: 0 4px;
